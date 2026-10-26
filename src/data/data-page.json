@@ -1,0 +1,33 @@
+{
+  "_note": "ALL DATA IS FICTIONAL AND ILLUSTRATIVE. Extra values for the Data page (/data) that are not in cast.json. Rows for other song x market pairs are derived in src/lib/dataPage.ts from cast.json so totals stay consistent.",
+  "dateRange": { "week": "Week 42", "range": "10 Oct - 16 Oct 2026" },
+  "extraMarkets": [{ "code": "SE", "iso": "SE", "name": "Sweden", "short": "SWE" }],
+  "defaultMarkets": ["GB", "FR", "DE", "US", "SE", "BR", "JP", "CA"],
+  "songKpis": {
+    "saffron-ferry": { "totalDelta": 6.2, "capped": 14310000, "cappedDelta": 5.8 },
+    "midnight-static": { "totalDelta": 8.1, "capped": 11998300, "cappedDelta": 7.6 },
+    "paper-skies": { "totalDelta": 4.4, "capped": 8902200, "cappedDelta": 4.1 },
+    "neon-harbour": { "totalDelta": 2.3, "capped": 8011900, "cappedDelta": 2.0 },
+    "glass-orchard": { "totalDelta": -3.8, "capped": 6012400, "cappedDelta": -4.2 },
+    "golden-hour-drive": { "totalDelta": 1.2, "capped": 5440100, "cappedDelta": 1.0 },
+    "low-tide": { "totalDelta": 3.1, "capped": 4790300, "cappedDelta": 2.9 },
+    "harmony-of-hearts": { "totalDelta": -1.1, "capped": 3972800, "cappedDelta": -1.4 },
+    "lost-in-the-echo": { "totalDelta": -2.0, "capped": 3760900, "cappedDelta": -2.3 },
+    "serenade-of-the-sea": { "totalDelta": 4.9, "capped": 3020600, "cappedDelta": 4.6 }
+  },
+  "conflicts": {
+    "r2": {
+      "title": "Licensor Challenge",
+      "state": "In Progress",
+      "parts": [
+        { "strong": "Quillfern Records" },
+        " claim Glass Orchard is in their repertoire in the UK. Currently awaiting answer from ",
+        { "strong": "Altamere Music Group" },
+        "."
+      ],
+      "meta": "Raised 14 Oct · Quillfern Records & Altamere"
+    }
+  },
+  "exportOptions": ["CSV", "Excel", "Plain text", "Databricks", "Snowflake"],
+  "moreOptions": ["Generate report", "Add to dashboard", "Add to dataset", "Edit columns"]
+}

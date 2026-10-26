@@ -2,16 +2,15 @@ import type { ReactNode } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import AppShell from './components/AppShell';
 import { useUser } from './lib/user';
-import Gallery from './pages/Gallery';
+import DataPage from './pages/data/DataPage';
 import EntityPage from './pages/EntityPage';
+import Gallery from './pages/Gallery';
+import RulesPage from './pages/RulesPage';
 import {
   AskPage,
   CustomisePage,
   CustomWidgetPage,
   DashboardPage,
-  DataListPage,
-  DataSplitPage,
-  RulesPage,
 } from './pages/placeholders';
 
 /** Rules is only for the IFPI user; anyone else goes to their own landing page. */
@@ -36,14 +35,8 @@ export default function App() {
         <Route path="/dashboard/customise" element={<CustomisePage />} />
         <Route path="/dashboard/customise/widget" element={<CustomWidgetPage />} />
 
-        <Route path="/data" element={<DataListPage tab="canonical" />} />
-        <Route path="/data/canonical/:id" element={<DataSplitPage tab="canonical" />} />
-        <Route path="/data/songs" element={<DataListPage tab="songs" />} />
-        <Route path="/data/songs/:id" element={<DataSplitPage tab="songs" />} />
-        <Route path="/data/artists" element={<DataListPage tab="artists" />} />
-        <Route path="/data/artists/:id" element={<DataSplitPage tab="artists" />} />
-        <Route path="/data/countries" element={<DataListPage tab="countries" />} />
-        <Route path="/data/countries/:id" element={<DataSplitPage tab="countries" />} />
+        {/* One route for all four tabs and their split views, so search and filters survive tab switches. */}
+        <Route path="/data/*" element={<DataPage />} />
         <Route path="/song/:id" element={<EntityPage key="song" kind="song" />} />
         <Route path="/artist/:id" element={<EntityPage key="artist" kind="artist" />} />
         <Route path="/country/:code" element={<EntityPage key="country" kind="country" />} />

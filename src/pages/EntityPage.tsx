@@ -13,7 +13,7 @@ import EntityHeader, { HeaderArtwork, HeaderFlag, HeaderPhoto } from '../compone
 import Flag from '../components/Flag';
 import LabelShareList from '../components/LabelShareList';
 import MarketBarList from '../components/MarketBarList';
-import RankList from '../components/RankList';
+import TopTenList from '../components/TopTenList';
 import RightsCard from '../components/RightsCard';
 import SectionCard from '../components/SectionCard';
 import SelectButton from '../components/SelectButton';
@@ -22,7 +22,7 @@ import Artwork from '../components/Artwork';
 import Timeline from '../components/Timeline';
 import TopBar from '../components/TopBar';
 import TrendBars from '../components/TrendBars';
-import TrendCard from '../components/TrendCard';
+import StreamsTrendCard from '../components/StreamsTrendCard';
 import WeeklyTrendCard from '../components/WeeklyTrendCard';
 import { cast } from '../lib/data';
 import {
@@ -188,7 +188,7 @@ function TrendRow({ view, side }: { view: EntityView; side?: ReactNode }) {
   const description = `${view.title}: capped streams for the last 8 weeks, ${millions(view.trend.current[view.trend.current.length - 1] * 1e6)} in ${view.trend.labels[view.trend.labels.length - 1]}, compared with the previous 8 weeks.`;
   return (
     <div className={side ? styles.trendRow : undefined}>
-      <TrendCard current={view.trend.current} previous={view.trend.previous} labels={view.trend.labels} description={description} />
+      <StreamsTrendCard current={view.trend.current} previous={view.trend.previous} labels={view.trend.labels} description={description} />
       {side}
     </div>
   );
@@ -290,7 +290,7 @@ function CountrySections({ view }: { view: ReturnType<typeof countryView> }) {
             )
           }
         >
-          {view.topArtists ? <RankList items={view.topArtists} media="photo" label="Top 10 artists" /> : <NotPopulated kind="country" />}
+          {view.topArtists ? <TopTenList items={view.topArtists} media="photo" label="Top 10 artists" /> : <NotPopulated kind="country" />}
         </SectionCard>
         <SectionCard
           title="Top 10 songs"
@@ -303,7 +303,7 @@ function CountrySections({ view }: { view: ReturnType<typeof countryView> }) {
             )
           }
         >
-          {view.topSongs ? <RankList items={view.topSongs} media="artwork" label="Top 10 songs" /> : <NotPopulated kind="country" />}
+          {view.topSongs ? <TopTenList items={view.topSongs} media="artwork" label="Top 10 songs" /> : <NotPopulated kind="country" />}
         </SectionCard>
       </div>
       <SectionCard title="Share by label" meta={meta} aside={view.shareByLabel && <Badge label={view.shareByLabel.badge} size="small" />}>

@@ -1,0 +1,69 @@
+.row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--space-6);
+  color: var(--surface-foreground);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-sm);
+  cursor: pointer;
+}
+
+.row[data-disabled] {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+}
+
+/* The real checkbox sits on top of the drawn box, invisible, so clicks and keyboard work natively. */
+.input {
+  position: absolute;
+  left: 0;
+  width: var(--space-4);
+  height: var(--space-4);
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.box {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-4);
+  height: var(--space-4);
+  border: 1px solid var(--line-input);
+  border-radius: var(--corner-xs);
+  color: var(--primary-primary-foreground);
+  transition:
+    background-color var(--motion-duration-fast) var(--ease-standard),
+    border-color var(--motion-duration-fast) var(--ease-standard);
+}
+
+.row:hover .box {
+  border-color: var(--surface-muted-foreground);
+}
+
+.input:checked + .box,
+.input:indeterminate + .box {
+  border-color: var(--primary-primary);
+  background: var(--primary-primary);
+}
+
+.input:focus-visible + .box {
+  outline: 2px solid var(--line-ring);
+  outline-offset: 2px;
+}
+
+.label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sub {
+  flex-shrink: 0;
+  color: var(--surface-muted-foreground);
+}

@@ -1,0 +1,37 @@
+/* Shared layout for the four Data page sheets */
+.group {
+  display: flex;
+  flex-direction: column;
+  /* 18px between a section label and its card, as in Figma */
+  gap: calc(var(--space-4) + var(--space-0-5));
+}
+
+.kpis {
+  display: flex;
+  gap: var(--space-2-5);
+}
+
+.filters {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.note {
+  margin: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+}
+
+.cell {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.cellText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

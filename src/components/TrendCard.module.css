@@ -1,38 +1,75 @@
-.legend {
+/* 14px radius: no token (lg + 2px), as in SheetTable */
+.card {
   display: flex;
-  gap: calc(var(--space-3) + var(--space-0-5));
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  flex-direction: column;
+  gap: var(--space-2-5);
+  padding: var(--space-3) calc(var(--space-3) + var(--space-0-5)) var(--space-2-5);
+  border: 1px solid var(--line-border);
+  border-radius: calc(var(--corner-lg) + var(--space-0-5));
+  background: var(--surface-card);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.label {
+  flex: 1;
   color: var(--surface-muted-foreground);
   font-size: var(--font-size-xs);
   line-height: var(--line-height-xs);
 }
 
-.legend li {
-  display: inline-flex;
-  align-items: center;
-  gap: calc(var(--space-1) + var(--space-0-5));
-}
-
-.keyCurrent,
-.keyPrevious {
-  width: var(--space-2);
-  height: var(--space-2);
-  border-radius: var(--corner-full);
-}
-
-.keyCurrent {
-  background: var(--chart-chart-1);
-}
-
-.keyPrevious {
-  background: var(--chart-chart-2);
+.value {
+  color: var(--surface-foreground);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+  font-weight: var(--font-weight-semibold);
 }
 
 .chart {
+  width: 100%;
+  overflow: visible;
+}
+
+.chart svg {
+  display: block;
+  overflow: visible;
+}
+
+.grid {
+  stroke: var(--line-gridline);
+  stroke-width: 1;
+}
+
+.line {
+  fill: none;
+  stroke: var(--chart-chart-1);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dot {
+  fill: var(--chart-chart-1);
+}
+
+.stopTop {
+  stop-color: var(--chart-chart-1);
+  stop-opacity: 0.25;
+}
+
+.stopBottom {
+  stop-color: var(--chart-chart-1);
+  stop-opacity: 0;
+}
+
+.labels {
   display: flex;
-  align-items: center;
-  height: 100%;
-  padding: var(--space-8) var(--size-card-padding) var(--space-5) var(--space-4);
+  justify-content: space-between;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-2xs);
+  line-height: var(--line-height-2xs);
 }

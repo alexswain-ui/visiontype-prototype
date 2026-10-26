@@ -1,0 +1,29 @@
+.bar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-4);
+  padding: calc(var(--space-3) + var(--space-0-5)) var(--space-6);
+  border-top: 1px solid var(--line-border);
+  animation: rise var(--motion-duration-base) var(--ease-standard);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-2));
+  }
+}
+
+/* 44px comment box with a soft fill, as in Figma */
+.comment {
+  align-self: stretch;
+  height: 44px;
+  border-color: var(--button-secondary-border);
+  background: var(--button-secondary-bg);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-3);
+}

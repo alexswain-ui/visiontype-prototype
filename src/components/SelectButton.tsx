@@ -1,10 +1,10 @@
-import type { ReactNode, Ref } from 'react';
+import type { ComponentPropsWithRef, ReactNode } from 'react';
 import { ChevronDown, type LucideIcon } from 'lucide-react';
 import type { DemoState } from '../lib/demoState';
 import Button, { type ButtonSize } from './Button';
 import styles from './SelectButton.module.css';
 
-export interface SelectButtonProps {
+export interface SelectButtonProps extends Omit<ComponentPropsWithRef<'button'>, 'children'> {
   children: ReactNode;
   icon?: LucideIcon;
   /** Small orange count, e.g. number of active filters (proposed). */
@@ -13,8 +13,6 @@ export interface SelectButtonProps {
   open?: boolean;
   size?: ButtonSize;
   disabled?: boolean;
-  onClick?: () => void;
-  ref?: Ref<HTMLButtonElement>;
   /** Gallery only. */
   demoState?: DemoState;
 }
@@ -30,6 +28,7 @@ export default function SelectButton({
   onClick,
   ref,
   demoState,
+  ...rest
 }: SelectButtonProps) {
   return (
     <Button
@@ -43,6 +42,7 @@ export default function SelectButton({
       disabled={disabled}
       onClick={onClick}
       demoState={demoState}
+      {...rest}
     >
       <span className={styles.content}>
         {children}
