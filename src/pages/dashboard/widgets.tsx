@@ -31,7 +31,8 @@ import TrendBars from '../../components/TrendBars';
 import RankedList from '../../components/RankedList';
 import WidgetCard from '../../components/WidgetCard';
 import dashboard from '../../data/dashboard.json';
-import { artistPhoto, MORE_PHOTOS } from '../../lib/artistPhotos';
+import { MORE_PHOTOS } from '../../lib/artistPhotos';
+import { photoFor } from '../../lib/media';
 import { artistById, cast, type Artist } from '../../lib/data';
 import { customWidgetRows, rangeText, readCustomWidget } from './WidgetBuilder';
 import styles from './Dashboard.module.css';
@@ -70,7 +71,7 @@ const rosterColumns: Column<RosterRow>[] = [
     render: (row) => (
       <span className={styles.artistCell}>
         <span className={styles.rank}>{row.rank}.</span>
-        <Avatar name={row.artist.name} src={artistPhoto(row.artist.id)} size={32} />
+        <Avatar name={row.artist.name} src={photoFor(row.artist.id)} size={32} />
         <span className={styles.artistName}>{row.artist.name}</span>
       </span>
     ),
