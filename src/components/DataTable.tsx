@@ -2,6 +2,7 @@ import { useMemo, useState, type KeyboardEvent, type ReactNode } from 'react';
 import { ArrowDown, ArrowUp, ArrowUpDown, SearchX } from 'lucide-react';
 import { cx } from '../lib/cx';
 import Button from './Button';
+import Menu from './Menu';
 import Pagination from './Pagination';
 import SelectButton from './SelectButton';
 import styles from './DataTable.module.css';
@@ -21,6 +22,11 @@ export interface Column<Row> {
   hideHeader?: boolean;
 }
 
+export interface TableSort {
+  key: string;
+  direction: 'asc' | 'desc';
+}
+
 export interface DataTableProps<Row> {
   columns: Column<Row>[];
   rows: Row[];
@@ -31,7 +37,10 @@ export interface DataTableProps<Row> {
   selectedKey?: string | null;
   onRowClick?: (row: Row) => void;
   /** Starting sort, e.g. { key: 'capped', direction: 'desc' }. */
-  defaultSort?: { key: string; direction: 'asc' | 'desc' };
+  defaultSort?: TableSort;
+  /** Controlled sort: pass it with onSortChange when the rows are sorted (and paged) outside the table. */
+  sort?: TableSort | null;
+  onSortChange?: (sort: TableSort) => void;
   /** Shows the footer with results-per-page and page buttons. */
   pagination?: {
     page: number;
@@ -39,6 +48,9 @@ export interface DataTableProps<Row> {
     onChange: (page: number) => void;
     perPage: number;
     onPerPageClick?: () => void;
+    /** With onPerPageChange, the results-per-page button opens a menu of these sizes. */
+    perPageOptions?: number[];
+    onPerPageChange?: (perPage: number) => void;
     maxButtons?: number;
   };
   /** 6 skeleton rows (proposed). */
@@ -63,13 +75,16 @@ export default function DataTable<Row>({
   selectedKey,
   onRowClick,
   defaultSort,
+  sort: controlledSort,
+  onSortChange,
   pagination,
   loading = false,
   emptyText = 'No results for these filters',
   onClearFilters,
   label,
 }: DataTableProps<Row>) {
-  const [sort, setSort] = useState(defaultSort ?? null);
+  const [ownSort, setOwnSort] = useState(defaultSort ?? null);
+  const sort = controlledSort !== undefined ? controlledSort : ownSort;
 
   const sorted = useMemo(() => {
     const column = columns.find((c) => c.key === sort?.key);
@@ -83,12 +98,14 @@ export default function DataTable<Row>({
     });
   }, [rows, columns, sort]);
 
-  const toggleSort = (key: string) =>
-    setSort((current) =>
-      current?.key === key ? { key, direction: current.direction === 'asc' ? 'desc' : 'asc' } : { key, direction: 'asc' },
-    );
+  const toggleSort = (key: string) => {
+    const next: TableSort = sort?.key === key ? { key, direction: sort.direction === 'asc' ? 'desc' : 'asc' } : { key, direction: 'asc' };
+    setOwnSort(next);
+    onSortChange?.(next);
+  };
 
-  const minWidth = columns.reduce((sum, c) => sum + (c.width ?? 120), 0) + 44;
+  // Widths include the cell padding (22px outside the first and last columns), so they add up to the table width.
+  const minWidth = columns.reduce((sum, c) => sum + (c.width ?? 120), 0);
 
   const onRowKeyDown = (event: KeyboardEvent, row: Row) => {
     if (event.key === 'Enter' || event.key === ' ') {
@@ -190,7 +207,26 @@ export default function DataTable<Row>({
         <footer className={styles.footer}>
           <div className={styles.perPage}>
             <span>Results per page:</span>
-            <SelectButton onClick={pagination.onPerPageClick}>{pagination.perPage}</SelectButton>
+            {pagination.perPageOptions && pagination.onPerPageChange ? (
+              <Menu
+                label="Results per page"
+                align="start"
+                width={120}
+                items={pagination.perPageOptions.map((n) => ({
+                  id: String(n),
+                  label: String(n),
+                  selected: n === pagination.perPage,
+                  onSelect: () => pagination.onPerPageChange?.(n),
+                }))}
+                trigger={(props, open) => (
+                  <SelectButton {...props} open={open}>
+                    {pagination.perPage}
+                  </SelectButton>
+                )}
+              />
+            ) : (
+              <SelectButton onClick={pagination.onPerPageClick}>{pagination.perPage}</SelectButton>
+            )}
           </div>
           <Pagination
             page={pagination.page}

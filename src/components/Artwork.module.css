@@ -5,6 +5,16 @@
   object-fit: cover;
 }
 
+.s24 {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--corner-xs);
+}
+.s28 {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--corner-sm);
+}
 .s36 {
   width: 36px;
   height: 36px;

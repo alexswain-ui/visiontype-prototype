@@ -1,0 +1,32 @@
+.tile {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+  padding: var(--space-2-5) var(--space-3);
+  border: 1px solid var(--line-border);
+  border-radius: var(--corner-lg);
+  background: var(--surface-card);
+}
+
+.label,
+.value,
+.sub {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.label,
+.sub {
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-2xs);
+  line-height: var(--line-height-2xs);
+}
+
+.value {
+  color: var(--surface-foreground);
+  font-size: calc(var(--font-size-md) + var(--space-0-5));
+  line-height: var(--line-height-md);
+  font-weight: var(--font-weight-semibold);
+}

@@ -16,6 +16,11 @@
   line-height: var(--line-height-base);
 }
 
+.small {
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
 .pill {
   height: var(--size-control-md);
   padding-inline: var(--space-3);

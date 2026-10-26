@@ -1,0 +1,44 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.filtersRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  /* 16px from the toolbar instead of the page's 24px, as in Figma */
+  margin-top: calc(-1 * var(--space-2));
+}
+
+.chips {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.filtersRow strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+/* The sheet fills the table's height instead of setting it: it sits out of flow inside a 444px slot. */
+.sheetSlot {
+  position: relative;
+  width: 444px;
+  min-height: 640px;
+}
+
+.sheetSlot > * {
+  position: absolute;
+  inset: 0;
+}
+
+/* Market cell: flag + "UK" */
+.market {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2-5);
+}
