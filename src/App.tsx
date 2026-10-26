@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import AppShell from './components/AppShell';
 import { useUser } from './lib/user';
 import Gallery from './pages/Gallery';
+import RulesPage from './pages/RulesPage';
 import {
   ArtistPage,
   AskPage,
@@ -12,7 +13,6 @@ import {
   DashboardPage,
   DataListPage,
   DataSplitPage,
-  RulesPage,
   SongPage,
 } from './pages/placeholders';
 
