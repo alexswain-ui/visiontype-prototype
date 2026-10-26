@@ -1,0 +1,159 @@
+/* Button v2 and Icon button v2. Structure follows Figma: fixed outer padding per size,
+   plus inner padding on the label, so "with icon" and "without icon" sides come out right. */
+.button {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  border: 1px solid transparent;
+  background: transparent;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--motion-duration-fast) var(--ease-standard),
+    border-color var(--motion-duration-fast) var(--ease-standard);
+}
+
+.label {
+  padding-inline: var(--space-1);
+}
+
+/* Sizes */
+.small {
+  height: var(--size-control-sm);
+  padding-inline: var(--space-2-5);
+  border-radius: var(--corner-sm);
+}
+.small .label {
+  padding-inline: var(--space-0-5);
+}
+.medium {
+  height: var(--size-control-md);
+  padding-inline: var(--space-3);
+  border-radius: var(--corner-md);
+}
+.large {
+  height: var(--size-control-lg);
+  padding-inline: var(--space-4);
+  border-radius: var(--corner-lg);
+}
+
+/* Square icon-only buttons */
+.icon {
+  padding: 0;
+}
+.icon.small {
+  width: var(--size-control-sm);
+}
+.icon.medium {
+  width: var(--size-control-md);
+}
+.icon.large {
+  width: var(--size-control-lg);
+}
+
+/* Variants: default, hover, pressed */
+.primary {
+  background: var(--button-primary-bg);
+  color: var(--button-primary-fg);
+}
+.primary:hover:not(:disabled),
+.primary[data-demo='hover'] {
+  background: var(--button-primary-bg-hover);
+}
+.primary:active:not(:disabled),
+.primary[data-demo='pressed'],
+.primary[data-demo='open'] {
+  background: var(--button-primary-bg-pressed);
+}
+
+.secondary {
+  background: var(--button-secondary-bg);
+  border-color: var(--button-secondary-border);
+  color: var(--button-secondary-fg);
+}
+.secondary:hover:not(:disabled),
+.secondary[data-demo='hover'] {
+  background: var(--button-secondary-bg-hover);
+  border-color: var(--button-secondary-border-hover);
+}
+.secondary:active:not(:disabled),
+.secondary[data-demo='pressed'],
+.secondary[data-demo='open'],
+.secondary[aria-expanded='true'] {
+  background: var(--button-secondary-bg-pressed);
+  border-color: var(--button-secondary-border);
+}
+
+.brand {
+  background: var(--button-brand-bg);
+  color: var(--button-brand-fg);
+}
+.brand:hover:not(:disabled),
+.brand[data-demo='hover'] {
+  background: var(--button-brand-bg-hover);
+}
+.brand:active:not(:disabled),
+.brand[data-demo='pressed'] {
+  background: var(--button-brand-bg-pressed);
+}
+
+.tertiary {
+  background: var(--button-tertiary-bg);
+  color: var(--button-tertiary-fg);
+}
+.tertiary:hover:not(:disabled),
+.tertiary[data-demo='hover'] {
+  background: var(--button-tertiary-bg-hover);
+}
+.tertiary:active:not(:disabled),
+.tertiary[data-demo='pressed'] {
+  background: var(--button-tertiary-bg-pressed);
+}
+
+.destructive {
+  background: var(--button-destructive-bg);
+  color: var(--button-destructive-fg);
+}
+.destructive:hover:not(:disabled),
+.destructive[data-demo='hover'] {
+  background: var(--button-destructive-bg-hover);
+}
+.destructive:active:not(:disabled),
+.destructive[data-demo='pressed'] {
+  background: var(--button-destructive-bg-pressed);
+}
+
+.ghost {
+  color: var(--button-ghost-fg);
+}
+.ghost:hover:not(:disabled),
+.ghost[data-demo='hover'] {
+  background: var(--button-ghost-bg-hover);
+}
+.ghost:active:not(:disabled),
+.ghost[data-demo='pressed'],
+.ghost[aria-expanded='true'] {
+  background: var(--button-ghost-bg-pressed);
+}
+
+/* Focus: 2px gap + 2px ring (also drawn for the gallery's forced focus state) */
+.button[data-demo='focus'] {
+  outline: 2px solid var(--line-ring);
+  outline-offset: 2px;
+}
+
+.button:disabled {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+}
+
+.loading {
+  cursor: progress;
+}
+.loading .label {
+  opacity: 0.72;
+}

@@ -1,0 +1,59 @@
+.chip {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--space-1);
+  height: 30px;
+  padding-inline: var(--space-3);
+  border: 1px solid transparent;
+  border-radius: var(--corner-full);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  white-space: nowrap;
+}
+
+.removable {
+  /* 6px: room for the 20px round remove button */
+  padding-right: calc(var(--space-1) + var(--space-0-5));
+}
+
+.orange {
+  background: var(--surface-accent-strong);
+  border-color: var(--surface-accent-strong);
+  color: var(--surface-accent-foreground);
+}
+
+.neutral {
+  background: var(--surface-muted);
+  border-color: var(--line-border);
+  color: var(--surface-muted-foreground);
+}
+
+.lock {
+  flex-shrink: 0;
+}
+
+.remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--corner-full);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: background-color var(--motion-duration-fast) var(--ease-standard);
+}
+
+.remove:hover,
+.remove[data-demo='hover'] {
+  background: var(--surface-card);
+}
+
+.remove[data-demo='focus'] {
+  outline: 2px solid var(--line-ring);
+  outline-offset: 2px;
+}

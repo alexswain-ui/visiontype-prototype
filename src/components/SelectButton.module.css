@@ -1,0 +1,20 @@
+.content {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--space-1) + var(--space-0-5));
+}
+
+.count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding-inline: calc(var(--space-1) + var(--space-0-5));
+  border-radius: var(--corner-full);
+  background: var(--primary-primary);
+  color: var(--primary-primary-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  font-weight: var(--font-weight-semibold);
+}

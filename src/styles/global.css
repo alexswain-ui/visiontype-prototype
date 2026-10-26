@@ -20,6 +20,8 @@ body {
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
   font-weight: var(--font-weight-regular);
+  /* Figma text styles use 2% tracking (font/tracking-base = 2, confirmed as percent on text nodes). */
+  letter-spacing: 0.02em;
   -webkit-font-smoothing: antialiased;
   transition: background-color var(--motion-duration-base) var(--ease-standard),
     color var(--motion-duration-base) var(--ease-standard);
@@ -41,4 +43,29 @@ body {
   clip: rect(0 0 0 0);
   white-space: nowrap;
   border: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+}
+
+@keyframes vt-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
