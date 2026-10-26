@@ -1,0 +1,186 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  overflow: hidden;
+  padding: var(--space-6);
+  border: 1px solid var(--line-border);
+  border-radius: var(--corner-xl);
+  background: var(--surface-card);
+  color: var(--surface-card-foreground);
+}
+
+.texture {
+  position: absolute;
+  top: -120px;
+  right: -193px;
+  pointer-events: none;
+}
+
+.top,
+.stats {
+  position: relative;
+}
+
+.top {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-5);
+}
+
+.titles {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: calc(var(--space-1) + var(--space-0-5));
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-2xl);
+  line-height: var(--line-height-2xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+.meta {
+  margin: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+.metaLink {
+  border-radius: var(--corner-xs);
+  color: inherit;
+  text-decoration: none;
+}
+
+.metaLink:hover {
+  color: var(--surface-foreground);
+  text-decoration: underline;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--space-1) + var(--space-0-5));
+}
+
+.actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--space-2-5);
+}
+
+/* Media: artwork, photo, flag (96px wide) */
+.artwork,
+.photo {
+  display: block;
+  flex-shrink: 0;
+  width: 96px;
+  height: 96px;
+  border: 1px solid var(--line-border);
+  object-fit: cover;
+}
+
+.artwork {
+  border-radius: var(--corner-lg);
+}
+
+.photo {
+  border-radius: var(--corner-full);
+}
+
+.initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--chart-chart-2-subtle);
+  color: var(--chart-chart-2);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+.g0 {
+  background: linear-gradient(135deg, var(--chart-chart-1), var(--chart-chart-4));
+}
+.g1 {
+  background: linear-gradient(135deg, var(--chart-chart-2), var(--chart-chart-5));
+}
+.g2 {
+  background: linear-gradient(135deg, var(--chart-chart-3), var(--chart-chart-1));
+}
+.g3 {
+  background: linear-gradient(135deg, var(--chart-chart-5), var(--chart-chart-3));
+}
+.g4 {
+  background: linear-gradient(135deg, var(--chart-chart-4), var(--chart-chart-2));
+}
+
+.flag {
+  display: block;
+  flex-shrink: 0;
+  width: 96px;
+  height: 69px;
+}
+
+/* Stretch the shared flag to the 96x69 header size */
+.flag > span {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--corner-lg);
+}
+
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--corner-lg);
+  background: var(--surface-muted);
+}
+
+.stat dd {
+  margin: 0;
+}
+
+.statLabel {
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.statValue {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+.statChange {
+  display: flex;
+}
+
+.statSub {
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  font-weight: var(--font-weight-medium);
+}

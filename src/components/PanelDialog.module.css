@@ -1,0 +1,104 @@
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+  background: var(--component-scrim);
+  animation: fade-in var(--motion-duration-base) var(--ease-standard);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--line-border);
+  /* Figma 24px; the largest corner token is 20px. */
+  border-radius: var(--corner-xl);
+  background: var(--surface-popover);
+  color: var(--surface-popover-foreground);
+  box-shadow: 0 var(--space-6) var(--space-16) var(--elevation-lg-color);
+  animation: dialog-in var(--motion-duration-base) var(--ease-standard);
+}
+
+.dialog:focus {
+  outline: none;
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-2)) scale(0.98);
+  }
+}
+
+.header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--space-2);
+  padding: calc(var(--space-5) + var(--space-0-5)) var(--space-5) calc(var(--space-4) + var(--space-0-5)) var(--space-8);
+  border-bottom: 1px solid var(--line-border);
+}
+
+.titles {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-0-5);
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+.description {
+  margin: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.footer {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-8);
+  border-top: 1px solid var(--line-border);
+}
+
+.footnote {
+  flex: 1;
+  margin: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-2);
+  margin-left: auto;
+}

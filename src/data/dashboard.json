@@ -1,0 +1,336 @@
+{
+  "_note": "Fictional, illustrative dashboard content. Text comes from Figma 365:33581 (Premium), 416:2629 (Enterprise) and 484:2894 (Customise). Roster numbers come from cast.json so they match the Artist pages.",
+  "today": "Fri 20 Oct 2026",
+  "dataAsOf": "Data as of: Week 42, 10–16 Oct 2026",
+  "askPlaceholder": "Generate me a report for the top 50 trending artists in the UK this week vs last week...",
+  "overall": {
+    "title": "Overall Roster Performance",
+    "subtitle": "Capped Streams · All Markets",
+    "_unit": "millions of capped streams per day",
+    "labels": [
+      "Sat",
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+    ],
+    "lastWeek": [
+      22.7,
+      24.2,
+      25.6,
+      26.6,
+      27.8,
+      29.3,
+      30.4
+    ],
+    "thisWeek": [
+      24.6,
+      26.1,
+      23.8,
+      27.5,
+      26.9,
+      24.0,
+      23.6
+    ],
+    "delta": -5.4
+  },
+  "roster": {
+    "title": "Roster Performance",
+    "subtitle": "Capped Streams · All Markets",
+    "artistIds": [
+      "luna-sky",
+      "maxine-harmon",
+      "ella-vibe",
+      "jaxon-beat",
+      "nova-ray"
+    ],
+    "moreCount": 160
+  },
+  "savedSearches": [
+    {
+      "id": "top-250",
+      "name": "Top 250 - all markets",
+      "date": "23 Oct 26"
+    },
+    {
+      "id": "uk-us-umg",
+      "name": "UK & US UMG songs",
+      "date": "21 Oct 26"
+    },
+    {
+      "id": "uk-top-100",
+      "name": "UK top 100 artists",
+      "date": "20 Oct 26"
+    }
+  ],
+  "reports": [
+    {
+      "id": "uk-wow",
+      "name": "UK Market Top 100 - WoW.pdf",
+      "kind": "pdf",
+      "date": "18 Oct 26"
+    },
+    {
+      "id": "eu-us",
+      "name": "Europe vs US - capped streams.xls",
+      "kind": "sheet",
+      "date": "11 Oct 26"
+    },
+    {
+      "id": "uk-scheduled",
+      "name": "UK top 100 scheduled report.pdf",
+      "kind": "pdf",
+      "date": "08 Oct 26"
+    }
+  ],
+  "attention": [
+    {
+      "id": "restatements",
+      "text": "2 restatements issued",
+      "tone": "info"
+    },
+    {
+      "id": "conflicts",
+      "text": "3 in conflict resolution",
+      "tone": "warning"
+    },
+    {
+      "id": "fraud",
+      "text": "2 fraudulent activities",
+      "tone": "destructive"
+    }
+  ],
+  "release": {
+    "eyebrow": "LATEST RELEASE",
+    "version": "2026-W42-v2",
+    "published": "Published Fri 16 Oct 2026 · 11:04 · Supersedes v1",
+    "rows": "448.1K",
+    "markets": "210",
+    "dspsIncluded": "48 of 51 DSPs included",
+    "dspsOutstanding": "3 outstanding"
+  },
+  "connections": {
+    "rows": [
+      {
+        "id": "databricks",
+        "name": "Databricks share",
+        "detail": "gdp_prod_gold",
+        "status": "06:12 today"
+      },
+      {
+        "id": "snowflake",
+        "name": "Snowflake share",
+        "detail": "GDP_WEEKLY",
+        "status": "06:14 today"
+      },
+      {
+        "id": "rest",
+        "name": "REST API",
+        "detail": "key ••••7f3a",
+        "status": "412 calls"
+      },
+      {
+        "id": "sftp",
+        "name": "SFTP bulk",
+        "detail": "weekly CSV",
+        "status": "16 Oct"
+      }
+    ],
+    "moreCount": 3
+  },
+  "flags": {
+    "total": "214",
+    "summary": "rows flagged · 0.09%",
+    "items": [
+      {
+        "id": "duplicate",
+        "label": "Possible duplicate recording",
+        "count": 88,
+        "tone": "warning"
+      },
+      {
+        "id": "anomalous",
+        "label": "Anomalous streaming pattern",
+        "count": 61,
+        "tone": "destructive"
+      },
+      {
+        "id": "restated",
+        "label": "Restated this week",
+        "count": 65,
+        "tone": "info"
+      }
+    ],
+    "footnote": "Flags never change the number — they tell you where to look."
+  },
+  "changeLog": [
+    {
+      "id": "w42v2",
+      "title": "2026-W42-v2",
+      "date": "16 Oct",
+      "detail": "Redelivery · Deezer · 1,204 rows restated",
+      "kind": "redelivery"
+    },
+    {
+      "id": "policy3",
+      "title": "Policy v3",
+      "date": "9 Oct",
+      "detail": "Policy change · distributor attribution · applies from W41, earlier weeks not like-for-like",
+      "kind": "policy"
+    },
+    {
+      "id": "w40v2",
+      "title": "2026-W40-v2",
+      "date": "2 Oct",
+      "detail": "Redelivery · Apple Music · licensor corrected on 12 ISRCs",
+      "kind": "redelivery"
+    },
+    {
+      "id": "w39v2",
+      "title": "2026-W39-v2",
+      "date": "25 Sep",
+      "detail": "Redelivery · YouTube · artificial streams removed · 3,920 rows",
+      "kind": "redelivery"
+    },
+    {
+      "id": "schema3",
+      "title": "Schema v3",
+      "date": "12 Sep",
+      "detail": "Schema change · new field: usage type (ad-supported / subscription)",
+      "kind": "schema"
+    },
+    {
+      "id": "w38v2",
+      "title": "2026-W38-v2",
+      "date": "18 Sep",
+      "detail": "Redelivery · Deezer · 220 rows restated",
+      "kind": "redelivery"
+    }
+  ],
+  "customise": {
+    "eyebrow": "Editing layout · Changes apply to your dashboard only",
+    "title": "Customise dashboard",
+    "hint": "Drag the handle to reorder · drag the corner to resize",
+    "drawerTitle": "Add widgets",
+    "drawerIntro": "Pick a suggested widget, or create your own from any search.",
+    "drawerFootnote": "Which widgets you see depends on your access level.",
+    "categories": [
+      "All",
+      "Charts",
+      "Tables",
+      "Reports",
+      "Alerts"
+    ],
+    "gallery": [
+      {
+        "id": "market-share",
+        "title": "Market share by DSP",
+        "description": "Share of streams by platform",
+        "icon": "chart-column",
+        "category": "Charts"
+      },
+      {
+        "id": "top-tracks",
+        "title": "Top tracks",
+        "description": "Ranked tracks, week on week",
+        "icon": "music",
+        "category": "Tables"
+      },
+      {
+        "id": "dsp-status",
+        "title": "DSP reporting status",
+        "description": "Which DSPs have delivered this week",
+        "icon": "clock",
+        "category": "Alerts"
+      },
+      {
+        "id": "new-releases",
+        "title": "New releases",
+        "description": "First-week performance of new releases",
+        "icon": "disc-album",
+        "category": "Tables"
+      },
+      {
+        "id": "saved-searches",
+        "title": "Saved searches",
+        "description": "Your pinned data searches",
+        "icon": "bookmark",
+        "category": "Reports"
+      },
+      {
+        "id": "streams-territory",
+        "title": "Streams by territory",
+        "description": "Not available at your access level",
+        "icon": "globe",
+        "category": "Charts",
+        "locked": true
+      }
+    ]
+  },
+  "builder": {
+    "_note": "Figma 491:6047. Sample values for the preview; songs and artists match cast.json.",
+    "title": "Create Custom Widget",
+    "description": "Make your own custom widget from a saved search or dataset",
+    "source": {
+      "name": "Top streamed songs",
+      "detail": "UK, US · Last 7 days · Sorted by streams"
+    },
+    "defaultTitle": "Top streamed songs · UK & US",
+    "previewNote": "Showing sample values. The live widget updates as new data arrives.",
+    "footnote": "Shows only data you can access",
+    "sample": [
+      {
+        "songId": "midnight-static",
+        "value": "2.41M",
+        "delta": 12.4
+      },
+      {
+        "songId": "paper-skies",
+        "value": "2.18M",
+        "delta": 8.1
+      },
+      {
+        "songId": "neon-harbour",
+        "value": "1.97M",
+        "delta": 5.6
+      },
+      {
+        "songId": "golden-hour-drive",
+        "value": "1.62M",
+        "delta": -2.3
+      },
+      {
+        "songId": "low-tide",
+        "value": "1.45M",
+        "delta": 3.9
+      },
+      {
+        "songId": "saffron-ferry",
+        "value": "1.38M",
+        "delta": 6.1
+      },
+      {
+        "songId": "glass-orchard",
+        "value": "1.31M",
+        "delta": 1.2
+      },
+      {
+        "songId": "harmony-of-hearts",
+        "value": "1.12M",
+        "delta": -0.8
+      },
+      {
+        "songId": "lost-in-the-echo",
+        "value": "0.98M",
+        "delta": 4.4
+      },
+      {
+        "songId": "serenade-of-the-sea",
+        "value": "0.87M",
+        "delta": 2.0
+      }
+    ]
+  }
+}

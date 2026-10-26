@@ -1,0 +1,56 @@
+.meter {
+  --flag-colour: var(--status-warning);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.warning {
+  --flag-colour: var(--status-warning);
+}
+
+.destructive {
+  --flag-colour: var(--status-destructive-text);
+}
+
+.info {
+  --flag-colour: var(--status-info-text);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2-5);
+  margin: 0;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--flag-colour);
+}
+
+.label {
+  flex: 1;
+  min-width: 0;
+}
+
+.count {
+  color: var(--surface-muted-foreground);
+}
+
+.track {
+  display: block;
+  height: var(--space-1);
+  overflow: hidden;
+  border-radius: var(--corner-xs);
+  background: var(--line-border);
+}
+
+.bar {
+  display: block;
+  height: 100%;
+  border-radius: var(--corner-xs);
+  background: var(--flag-colour);
+}

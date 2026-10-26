@@ -1,0 +1,44 @@
+.bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  height: calc(var(--size-control-lg) + var(--space-2));
+  padding: var(--space-2) var(--space-3) var(--space-2) var(--space-4);
+  border: 1px solid var(--brand-tertiary-brand-tertiary-text);
+  /* Figma 16px; no 16px corner token, so the nearest (12px) is used. */
+  border-radius: var(--corner-lg);
+  background: var(--surface-background);
+  transition: border-color var(--motion-duration-fast) var(--ease-standard),
+    box-shadow var(--motion-duration-fast) var(--ease-standard);
+}
+
+.bar:hover {
+  border-color: var(--brand-tertiary-brand-tertiary);
+}
+
+.bar:focus-within {
+  border-color: var(--brand-tertiary-brand-tertiary);
+  box-shadow: 0 0 0 1px var(--brand-tertiary-brand-tertiary);
+}
+
+.sparkle {
+  flex-shrink: 0;
+  color: var(--brand-tertiary-brand-tertiary);
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: none;
+  color: var(--surface-foreground);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  text-overflow: ellipsis;
+}
+
+.input::placeholder {
+  color: var(--line-placeholder);
+}
