@@ -11,6 +11,8 @@ export interface MenuItem {
   icon?: LucideIcon;
   /** Small round badge before the text (e.g. "EN"), used by Switch user. */
   badge?: ReactNode;
+  /** accent = orange-tinted badge (the IFPI user). */
+  badgeTone?: 'neutral' | 'accent';
   /** Shows the tick. */
   selected?: boolean;
   disabled?: boolean;
@@ -107,7 +109,16 @@ export default function Menu({
     }
   };
 
+  const listRef = useRef<HTMLDivElement>(null);
+
   const onMenuKeyDown = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      close();
+      return;
+    }
+    // Arrow keys inside the footer (e.g. the Appearance radios) belong to that control.
+    if (!listRef.current?.contains(event.target as Node)) return;
     const position = enabled.indexOf(active);
     if (event.key === 'ArrowDown') focusItem(enabled[(position + 1) % enabled.length]);
     else if (event.key === 'ArrowUp') focusItem(enabled[(position - 1 + enabled.length) % enabled.length]);
@@ -150,7 +161,7 @@ export default function Menu({
             </>
           )}
           {sectionLabel && <p className={styles.sectionLabel}>{sectionLabel}</p>}
-          <div id={id} role="menu" aria-label={label} className={styles.list}>
+          <div ref={listRef} id={id} role="menu" aria-label={label} className={styles.list}>
             {items.map((item, index) => {
               const Icon = item.icon;
               return (
@@ -168,7 +179,7 @@ export default function Menu({
                   onClick={() => select(item)}
                   onMouseEnter={() => !item.disabled && setActive(index)}
                 >
-                  {item.badge && <span className={styles.badge}>{item.badge}</span>}
+                  {item.badge && <span className={cx(styles.badge, item.badgeTone === 'accent' && styles.badgeAccent)}>{item.badge}</span>}
                   {Icon && <Icon size={20} aria-hidden="true" className={styles.icon} />}
                   <span className={styles.text}>
                     <span className={styles.label}>{item.label}</span>

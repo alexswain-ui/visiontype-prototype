@@ -1,0 +1,10 @@
+.logo {
+  display: block;
+  width: 153px;
+  height: var(--size-control-md);
+  background: var(--sidebar-sidebar-foreground);
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+}

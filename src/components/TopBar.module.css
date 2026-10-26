@@ -1,0 +1,29 @@
+.bar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.bell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-control-md);
+  height: var(--size-control-md);
+  padding: 0;
+  border: 0;
+  border-radius: var(--corner-md);
+  background: transparent;
+  color: var(--surface-foreground);
+  cursor: pointer;
+  transition: background-color var(--motion-duration-fast) var(--ease-standard);
+}
+
+.bell:hover {
+  background: var(--button-ghost-bg-hover);
+}
+
+.bell:active {
+  background: var(--button-ghost-bg-pressed);
+}
