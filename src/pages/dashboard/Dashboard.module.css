@@ -1,0 +1,245 @@
+.page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  isolation: isolate;
+}
+
+/* Figma "Texture / Ripple field": top right, behind everything, runs past the content edge. */
+.texture {
+  position: absolute;
+  z-index: -1;
+  top: var(--space-16);
+  right: calc(-1 * var(--space-10));
+  width: 455px;
+  height: auto;
+  pointer-events: none;
+}
+
+.topBar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--space-6);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.dateLine {
+  margin: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+  white-space: pre;
+}
+
+.greeting {
+  margin: 0;
+  /* Figma is 40px. Temporary: 44px token until the designer adds a 40px type token. */
+  font-size: var(--font-size-3xl);
+  line-height: var(--line-height-3xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+.introRow,
+.askRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.askRow {
+  margin-top: calc(-1 * var(--space-2));
+}
+
+/* Figma: the Ask bar is 769 of 1160px wide. */
+.askBar {
+  flex: 0 1 66%;
+  min-width: 0;
+}
+
+/* ---- Explorer grid: 6 columns; third = 2, half = 3, full = 6 ---- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.third {
+  grid-column: span 2;
+}
+
+.half {
+  grid-column: span 3;
+}
+
+.full {
+  grid-column: span 6;
+}
+
+/* ---- Widget contents ---- */
+
+.chartTools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.legend {
+  display: flex;
+  gap: var(--space-2-5);
+}
+
+.legendLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.dotCurrent,
+.dotPrevious {
+  width: var(--space-3);
+  height: var(--space-3);
+  border-radius: var(--corner-full);
+}
+
+.dotCurrent {
+  background: var(--chart-chart-1);
+}
+
+.dotPrevious {
+  background: var(--chart-chart-2);
+}
+
+/* DataTable is its own card; inside the widget it drops its outer frame. */
+.roster section {
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+
+.artistCell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.rank {
+  flex-shrink: 0;
+  width: var(--space-4);
+}
+
+.artistName {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.muted {
+  color: var(--surface-muted-foreground);
+  font-weight: var(--font-weight-regular);
+}
+
+.more {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+}
+
+.faces {
+  display: flex;
+}
+
+.face {
+  width: var(--space-6);
+  height: var(--space-6);
+  border: 2px solid var(--surface-card);
+  border-radius: var(--corner-full);
+  object-fit: cover;
+}
+
+.face + .face {
+  margin-left: calc(-1 * var(--space-1));
+}
+
+.tiles {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* ---- Extractor layout (Figma 491:7294): 761px main column, 376px change log ---- */
+
+.extractorGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: var(--space-4);
+}
+
+.extractorMain {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.extractorPair {
+  display: grid;
+  flex: 1;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.moreText {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+.flags {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.flagTotal {
+  display: flex;
+  align-items: baseline;
+  gap: calc(var(--space-3) + var(--space-0-5));
+  margin: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-base);
+}
+
+.flagTotal strong {
+  color: var(--surface-card-foreground);
+  font-size: var(--font-size-3xl);
+  line-height: var(--line-height-3xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+.flagList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.footnote {
+  margin: auto 0 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}

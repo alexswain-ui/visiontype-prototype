@@ -3,13 +3,13 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import AppShell from './components/AppShell';
 import { useUser } from './lib/user';
 import Gallery from './pages/Gallery';
+import DashboardPage from './pages/dashboard/DashboardPage';
 import {
   ArtistPage,
   AskPage,
   CountryPage,
   CustomisePage,
   CustomWidgetPage,
-  DashboardPage,
   DataListPage,
   DataSplitPage,
   RulesPage,
