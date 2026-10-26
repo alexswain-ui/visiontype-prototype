@@ -1,0 +1,185 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line-border);
+  border-radius: var(--corner-xl);
+  background: var(--surface-card);
+  color: var(--surface-card-foreground);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2-5);
+  padding: var(--space-4) var(--size-card-padding);
+  border-bottom: 1px solid var(--line-border);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+  min-height: var(--size-control-md);
+  white-space: nowrap;
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-2-5);
+}
+
+.scroll {
+  position: relative;
+  overflow-x: auto;
+}
+
+.scroll:focus-visible {
+  outline-offset: -2px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.table th,
+.table td {
+  padding: 0 var(--space-3) 0 0;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.table th:first-child,
+.table td:first-child {
+  padding-left: var(--size-card-padding);
+}
+
+.table th:last-child,
+.table td:last-child {
+  padding-right: var(--size-card-padding);
+}
+
+.table th {
+  height: var(--size-control-md);
+  border-bottom: 1px solid var(--line-border);
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  font-weight: var(--font-weight-regular);
+}
+
+.right {
+  text-align: right !important;
+}
+
+.sort {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0;
+  border: 0;
+  border-radius: var(--corner-xs);
+  background: none;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  cursor: pointer;
+}
+
+.sort:hover,
+.sorted {
+  color: var(--surface-foreground);
+}
+
+.row td {
+  height: 56px;
+  border-bottom: 1px solid var(--line-border);
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+}
+
+.numeric {
+  color: var(--surface-foreground) !important;
+  font-weight: var(--font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+}
+
+.clickable {
+  cursor: pointer;
+  transition: background-color var(--motion-duration-fast) var(--ease-standard);
+}
+
+.clickable:hover {
+  background: var(--button-ghost-bg-hover);
+}
+
+.clickable:focus-visible {
+  outline-offset: -2px;
+}
+
+/* Selected row: orange tint with a 2px orange bar on the left */
+.selected,
+.selected:hover {
+  background: var(--surface-accent);
+}
+
+.selected td:first-child {
+  box-shadow: inset 2px 0 0 var(--primary-primary);
+}
+
+.skeleton {
+  display: inline-block;
+  width: 70%;
+  height: var(--space-3);
+  border-radius: var(--corner-xs);
+  background: var(--surface-secondary);
+  animation: pulse 1.2s var(--ease-standard) infinite alternate;
+}
+
+@keyframes pulse {
+  to {
+    opacity: 0.45;
+  }
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-12) var(--space-6);
+  color: var(--surface-muted-foreground);
+  text-align: center;
+}
+
+.empty p {
+  margin: 0;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  /* 18px top and bottom, as in Figma */
+  padding: calc(var(--space-4) + var(--space-0-5)) var(--size-card-padding);
+}
+
+.perPage {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+}

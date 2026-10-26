@@ -7,11 +7,13 @@ interface GallerySectionProps {
   /** One line on where the design came from, or that it is proposed. */
   note?: ReactNode;
   proposed?: boolean;
+  /** Put Dark above Light instead of side by side (for wide content such as the split view). */
+  stacked?: boolean;
   children: ReactNode;
 }
 
 /** One gallery section: the same content rendered in a Dark panel and a Light panel side by side. */
-export default function GallerySection({ id, title, note, proposed, children }: GallerySectionProps) {
+export default function GallerySection({ id, title, note, proposed, stacked, children }: GallerySectionProps) {
   return (
     <section id={id} className={styles.section} aria-labelledby={`${id}-title`}>
       <div className={styles.sectionHeader}>
@@ -21,7 +23,7 @@ export default function GallerySection({ id, title, note, proposed, children }: 
         {proposed && <span className={styles.proposed}>Proposed</span>}
       </div>
       {note && <p className={styles.sectionNote}>{note}</p>}
-      <div className={styles.columns}>
+      <div className={stacked ? styles.stacked : styles.columns}>
         {(['dark', 'light'] as const).map((theme) => (
           <div key={theme} data-theme={theme} className={styles.panel}>
             <p className={styles.panelTitle}>{theme === 'dark' ? 'Dark' : 'Light'}</p>

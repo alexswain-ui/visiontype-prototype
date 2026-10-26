@@ -1,0 +1,28 @@
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.track {
+  display: block;
+  height: var(--space-1);
+  overflow: hidden;
+  border-radius: var(--corner-full);
+  background: var(--surface-secondary);
+}
+
+.fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--primary-primary);
+}
+
+.label {
+  min-width: 3ch;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  text-align: right;
+}

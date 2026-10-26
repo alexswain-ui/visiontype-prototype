@@ -1,0 +1,105 @@
+.sheet {
+  display: flex;
+  flex-direction: column;
+  width: 444px;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid var(--line-border);
+  border-radius: var(--corner-xl);
+  background: var(--surface-card);
+  color: var(--surface-card-foreground);
+  box-shadow: calc(-1 * var(--space-2)) var(--space-2) var(--space-8) var(--elevation-lg-color);
+  animation: sheet-in var(--motion-duration-base) var(--ease-standard);
+}
+
+.sheet:focus {
+  outline: none;
+}
+
+@keyframes sheet-in {
+  from {
+    opacity: 0;
+    transform: translateX(var(--space-6));
+  }
+}
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: calc(var(--space-3) + var(--space-0-5));
+  padding: var(--space-5) var(--space-4) var(--space-4) var(--space-5);
+  overflow: hidden;
+  border-bottom: 1px solid var(--line-border);
+}
+
+.texture {
+  position: absolute;
+  top: -39px;
+  right: -28px;
+  pointer-events: none;
+}
+
+.media,
+.titles,
+.buttons {
+  position: relative;
+}
+
+.media {
+  flex-shrink: 0;
+}
+
+.titles {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-0-5);
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--space-1) + var(--space-0-5));
+  margin-top: calc(var(--space-1) + var(--space-0-5));
+}
+
+.buttons {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--space-2);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-6);
+  min-height: 0;
+  overflow-y: auto;
+  /* 18px top and bottom, as in Figma */
+  padding: calc(var(--space-4) + var(--space-0-5)) var(--space-5);
+}
+
+.footer {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px solid var(--line-border);
+}

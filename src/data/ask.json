@@ -1,0 +1,95 @@
+{
+  "_note": "Ask is SCRIPTED: no live model. Typed text is matched to the nearest script by keywords; otherwise show the fallback. Answers have no bubble; only charts, tables and stat tiles sit in cards. Texts come from the Figma Ask frames. FICTIONAL data.",
+  "home": {
+    "greeting": "Good afternoon, {firstName}",
+    "headline": "What would you like to find out today?",
+    "placeholder": "Ask about your catalogue, markets or reports…",
+    "model": "Claude Sonnet 5.5",
+    "models": ["Claude Sonnet 5.5", "Claude Opus 5.5", "Claude Haiku 5.5"],
+    "chips": [
+      { "label": "Generate a report", "script": "odalie-vs-petra" },
+      { "label": "Compare two artists", "script": "odalie-vs-petra" },
+      { "label": "What changed this week?", "script": "restated" },
+      { "label": "Market share by distributor", "script": "uk-share" },
+      { "label": "Find rights conflicts", "script": "restated" }
+    ],
+    "savedPrompts": [
+      { "title": "Weekly roster summary", "text": "What moved on my roster this week, by market.", "meta": "Last run today", "script": "odalie-vs-petra" },
+      { "title": "Restated songs check", "text": "Songs restated since the last release.", "meta": "Last run yesterday", "script": "restated" },
+      { "title": "UK share vs Larchway", "text": "Quarterly share by distributor of record.", "meta": "Saved 3 days ago", "script": "uk-share" }
+    ],
+    "recents": [
+      { "title": "Odalie Brask vs Petra Lindqvane", "script": "odalie-vs-petra" },
+      { "title": "Restated songs this week", "script": "restated" },
+      { "title": "Quillfern vs Larchway · UK share", "script": "uk-share" },
+      { "title": "Saffron Ferry by market" },
+      { "title": "Top movers · France · W42" },
+      { "title": "DE top 100 week on week" },
+      { "title": "Possible duplicate ISRCs" },
+      { "title": "Roster YoY for board pack" }
+    ],
+    "connectedTools": "Databricks · 1 agent connector"
+  },
+  "behaviour": {
+    "thinkingSteps": ["Reading your roster", "Checking what you are entitled to see", "Comparing the weeks"],
+    "thinkingMs": 900,
+    "streamMs": 1500,
+    "fallback": "In this prototype I can answer a few sample questions. Try one of these:",
+    "fallbackSuggestions": ["Compare Odalie Brask to Petra Lindqvane", "Which of my songs were restated this week?", "What is Quillfern’s share of UK streams vs Larchway?"],
+    "followUpOpensScript": { "Break this down by market": null, "Same for France and Germany": null },
+    "note": "Follow-up chips without a script show the fallback with a friendly line: 'That follow-up isn't scripted in this prototype.'"
+  },
+  "scripts": [
+    {
+      "id": "odalie-vs-petra",
+      "title": "Odalie Brask vs Petra Lindqvane",
+      "keywords": ["odalie", "petra", "compare", "versus", " vs ", "roster summary", "report"],
+      "context": "Restated songs · Quillfern roster · release 2026-W42-v2",
+      "prompt": "Compare Odalie Brask's streams to Petra Lindqvane — week on week, month on month and year on year.",
+      "answer": "Odalie Brask is ahead on every horizon and the gap is widening: +31% month on month against +4% for Petra Lindqvane, driven by UK and France.",
+      "tiles": [
+        { "label": "Week on week", "values": [{ "name": "Odalie Brask", "delta": 12 }, { "name": "Petra Lindqvane", "delta": -4 }] },
+        { "label": "Month on month", "values": [{ "name": "Odalie Brask", "delta": 31 }, { "name": "Petra Lindqvane", "delta": 4 }] },
+        { "label": "Year on year", "values": [{ "name": "Odalie Brask", "delta": 86 }, { "name": "Petra Lindqvane", "delta": 22 }] }
+      ],
+      "chart": { "type": "line", "title": "Weekly streams W31–W42 (millions)", "weeks": ["W31","W32","W33","W34","W35","W36","W37","W38","W39","W40","W41","W42"], "series": [ { "name": "Odalie Brask", "color": "orange", "values": [5.9, 6.1, 6.2, 6.5, 6.8, 7.0, 7.2, 7.5, 7.6, 7.9, 8.0, 8.42] }, { "name": "Petra Lindqvane", "color": "blue", "values": [2.9, 2.9, 3.0, 2.95, 3.0, 3.05, 3.0, 3.1, 3.12, 3.15, 3.2, 3.12] } ] },
+      "table": { "columns": ["Artist", "W42 streams", "Δ WoW", "Δ MoM", "Δ YoY", "Markets"], "rows": [ ["Odalie Brask", "8,423,322", 12, 31, 86, "UK · FR · DE"], ["Petra Lindqvane", "3,118,004", -4, 4, 22, "UK · FR · DE"] ] },
+      "explainer": { "title": "How this was answered", "text": "Songs tab · artists rolled up by Artist ID · UK, FR, DE · W42 vs W41 · W39–42 vs W35–38 · vs W42 2025 · release 2026-W42-v2 · 51 of 51 DSPs" },
+      "actions": [ { "label": "Open in Data", "to": "/data/artists?markets=GB,FR,DE&artists=odalie-brask,petra-lindqvane" }, { "label": "Download CSV" }, { "label": "Add to report" }, { "label": "Save question" } ],
+      "followUps": ["Break this down by market", "Which songs drove Odalie's month?", "Add a third artist"]
+    },
+    {
+      "id": "restated",
+      "title": "Restated songs this week",
+      "keywords": ["restat", "redeliver", "changed", "what changed", "deezer", "conflict"],
+      "entitlementNote": "Answers use only data you're entitled to · UK, FR, DE · Top 100k · release 2026-W42-v2",
+      "context": "Restated songs · Quillfern roster · release 2026-W42-v2",
+      "prompt": "Which of my roster’s songs were restated this week, and by how much?",
+      "answer": "Two of your roster’s songs changed when Deezer redelivered week 41. Both moved down. Nothing else on your roster was affected and no policy changed.",
+      "tiles": [ { "label": "songs restated", "value": "2" }, { "label": "streams net", "value": "−3,114" }, { "label": "week affected", "value": "W41" }, { "label": "source", "value": "Deezer" } ],
+      "table": { "columns": ["Song", "ISRC", "Was", "Now", "Δ", "Why"], "rows": [ ["Lost in the Echo", "CD123456789", "1,001,118", "998,004", "−3,114", "Deezer redelivery · W41"], ["Glass Orchard", "XAK7Q1100042", "26,000", "0", "−26,000", "Re-flagged · duplicate candidate"] ] },
+      "explainer": { "title": "How this was answered", "text": "Canonical rows where your label is label of record · diff between 2026-W41-v1 and 2026-W41-v2 · published 16 Oct 11:04 · change log entry 2026-W42-v2" },
+      "actions": [ { "label": "Open in Data", "to": "/data?status=restated" }, { "label": "Download CSV" }, { "label": "Add to report" }, { "label": "Open change log" } ],
+      "followUps": ["Show me the Deezer rows that changed", "Notify me when this happens", "Has this song been restated before?"]
+    },
+    {
+      "id": "uk-share",
+      "title": "Quillfern vs Larchway · UK share",
+      "keywords": ["share", "quillfern", "larchway", "distributor", "market share", "uk share"],
+      "context": "Restated songs · Quillfern roster · release 2026-W42-v2",
+      "prompt": "What's Quillfern's share of UK streams this quarter compared to Larchway, and how has it changed since last quarter?",
+      "answer": "Quillfern holds 12.4% of UK streams in Q3, up from 10.9% in Q2. Larchway fell from 9.8% to 8.1% over the same period — most of the movement is the Altamere switch on 1 Sep.",
+      "chart": { "type": "bars", "title": "UK share of capped streams", "groups": ["Q2 2026", "Q3 2026"], "series": [ { "name": "Quillfern", "values": [10.9, 12.4] }, { "name": "Larchway", "values": [9.8, 8.1] }, { "name": "All other distributors", "values": [79.3, 79.5] } ] },
+      "table": { "columns": ["Distributor", "Q2 share", "Q3 share", "Δ pts", "Q3 streams", "Method"], "rows": [ ["Quillfern Records", "10.9%", "12.4%", "+1.5", "148.2m", "distributor of record"], ["Larchway Distribution", "9.8%", "8.1%", "−1.7", "96.8m", "distributor of record"] ] },
+      "explainer": { "title": "How this was answered", "text": "Market share = distributor's capped streams ÷ all UK capped streams · attribution: distributor of record (policy v3) · Q3 = W27–W39 · release 2026-W42-v2 · one of three Annex G methods; switch to rights-owner view in Data" },
+      "actions": [ { "label": "Open in Data", "to": "/country/GB" }, { "label": "Download CSV" }, { "label": "Add to report" }, { "label": "Switch to rights-owner view" } ],
+      "followUps": ["Show this by label instead", "Same for France and Germany", "What moved on 1 Sep?"]
+    }
+  ],
+  "consistencyNotes_FOR_THE_DESIGNER": [
+    "Script 'restated': the tile says net −3,114 but Glass Orchard going 26,000 -> 0 would add another −26,000. The Figma frame does not show the Δ column values. Decide which is intended. If −3,114 is net, make Glass Orchard 'Was 0 / Now 0' (re-flagged, no stream change) or change the tile.",
+    "Script 'uk-share': Q3 totals imply about 1.195bn UK streams in the quarter (148.2m / 12.4%). The Country page shows 412.3M UK capped streams in ONE week, so a quarter would be about 5.3bn. Scale one of them before showing both to stakeholders.",
+    "Script 'odalie-vs-petra': W42 streams 8,423,322 is for UK + FR + DE, but the Country page says Odalie Brask alone has 8.41M in the UK. Align the numbers.",
+    "The Ask home greets 'Alex'; the dashboards greet 'Maya'. The prototype uses the signed-in user's first name."
+  ]
+}

@@ -2,6 +2,7 @@ import ThemeSwitch from '../components/ThemeSwitch';
 import ButtonsSection from './gallery/ButtonsSection';
 import ChipsSection from './gallery/ChipsSection';
 import ColourTokensSection from './gallery/ColourTokensSection';
+import DataDisplaySection from './gallery/DataDisplaySection';
 import InputsSection from './gallery/InputsSection';
 import TabsSection from './gallery/TabsSection';
 import styles from './gallery/Gallery.module.css';
@@ -15,6 +16,17 @@ const SECTIONS = [
   ['search', 'Search'],
   ['text-input', 'Text input'],
   ['select', 'Select'],
+  ['avatar', 'Avatar'],
+  ['flag', 'Flag'],
+  ['dsp', 'DSP tile'],
+  ['delta', 'Delta'],
+  ['trend', 'Trend bars'],
+  ['area', 'Area chart'],
+  ['share', 'Share bar'],
+  ['card', 'Card'],
+  ['stat', 'Stat tile'],
+  ['timeline', 'Timeline'],
+  ['table', 'Table + sheet'],
   ['colours', 'Colours'],
 ];
 
@@ -43,6 +55,7 @@ export default function Gallery() {
       <ChipsSection />
       <TabsSection />
       <InputsSection />
+      <DataDisplaySection />
       <ColourTokensSection />
       <p className={styles.footnote}>Illustrative data. Prototype only.</p>
     </main>

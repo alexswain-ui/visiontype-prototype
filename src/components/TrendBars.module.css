@@ -1,0 +1,8 @@
+.up {
+  flex-shrink: 0;
+  fill: var(--status-success-text);
+}
+.down {
+  flex-shrink: 0;
+  fill: var(--status-destructive-text);
+}

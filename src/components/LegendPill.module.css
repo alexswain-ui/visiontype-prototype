@@ -1,0 +1,46 @@
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--space-1) + var(--space-0-5));
+  height: 24px;
+  padding-inline: var(--space-2-5);
+  border: 1px solid transparent;
+  border-radius: var(--corner-full);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--corner-full);
+  background: currentColor;
+}
+
+.s1 {
+  background: var(--chart-chart-1-subtle);
+  border-color: var(--chart-chart-1-border);
+  color: var(--chart-chart-1);
+}
+.s2 {
+  background: var(--chart-chart-2-subtle);
+  border-color: var(--chart-chart-2-border);
+  color: var(--chart-chart-2);
+}
+.s3 {
+  background: var(--chart-chart-3-subtle);
+  border-color: var(--chart-chart-3-border);
+  color: var(--chart-chart-3);
+}
+.s4 {
+  background: var(--chart-chart-4-subtle);
+  border-color: var(--chart-chart-4-border);
+  color: var(--chart-chart-4);
+}
+.s5 {
+  background: var(--chart-chart-5-subtle);
+  border-color: var(--chart-chart-5-border);
+  color: var(--chart-chart-5);
+}

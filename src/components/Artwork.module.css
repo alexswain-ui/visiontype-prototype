@@ -1,0 +1,33 @@
+.art {
+  display: inline-block;
+  flex-shrink: 0;
+  border: 1px solid var(--line-border);
+  object-fit: cover;
+}
+
+.s36 {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--corner-sm);
+}
+.s56 {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--corner-md);
+}
+
+.g0 {
+  background: linear-gradient(135deg, var(--chart-chart-1), var(--chart-chart-4));
+}
+.g1 {
+  background: linear-gradient(135deg, var(--chart-chart-2), var(--chart-chart-5));
+}
+.g2 {
+  background: linear-gradient(135deg, var(--chart-chart-3), var(--chart-chart-1));
+}
+.g3 {
+  background: linear-gradient(135deg, var(--chart-chart-5), var(--chart-chart-3));
+}
+.g4 {
+  background: linear-gradient(135deg, var(--chart-chart-4), var(--chart-chart-2));
+}

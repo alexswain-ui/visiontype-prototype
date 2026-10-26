@@ -1,0 +1,117 @@
+.wrap {
+  position: relative;
+  width: 100%;
+}
+
+.svg {
+  display: block;
+  overflow: visible;
+  border-radius: var(--corner-sm);
+}
+
+.gridline {
+  stroke: var(--line-gridline);
+  stroke-width: 1;
+}
+
+.axisLabel {
+  fill: var(--surface-muted-foreground);
+  font-size: var(--font-size-2xs);
+}
+
+.lineCurrent,
+.linePrevious {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.lineCurrent {
+  stroke: var(--chart-chart-1);
+}
+.linePrevious {
+  stroke: var(--chart-chart-2);
+}
+
+/* Area fill: colour at 25% fading to 0 */
+.stopCurrent {
+  stop-color: var(--chart-chart-1);
+  stop-opacity: 0.25;
+}
+.stopPrevious {
+  stop-color: var(--chart-chart-2);
+  stop-opacity: 0.25;
+}
+.stopCurrentEnd {
+  stop-color: var(--chart-chart-1);
+  stop-opacity: 0;
+}
+.stopPreviousEnd {
+  stop-color: var(--chart-chart-2);
+  stop-opacity: 0;
+}
+
+.guide {
+  stroke: var(--line-input);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+.dotCurrent,
+.dotPrevious {
+  stroke: var(--surface-card);
+  stroke-width: 2;
+}
+.dotCurrent {
+  fill: var(--chart-chart-1);
+}
+.dotPrevious {
+  fill: var(--chart-chart-2);
+}
+
+.tooltip {
+  position: absolute;
+  top: 0;
+  min-width: 160px;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--line-border);
+  border-radius: var(--corner-lg);
+  background: var(--surface-popover);
+  color: var(--surface-popover-foreground);
+  box-shadow: 0 var(--space-2) var(--space-6) var(--elevation-lg-color);
+  pointer-events: none;
+}
+
+.tooltipTitle {
+  margin: 0 0 var(--space-1);
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.tooltipRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+}
+
+.tooltipRow strong {
+  margin-left: auto;
+  font-weight: var(--font-weight-semibold);
+}
+
+.keyCurrent,
+.keyPrevious {
+  width: var(--space-2);
+  height: var(--space-2);
+  border-radius: var(--corner-full);
+}
+.keyCurrent {
+  background: var(--chart-chart-1);
+}
+.keyPrevious {
+  background: var(--chart-chart-2);
+}

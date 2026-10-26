@@ -1,0 +1,48 @@
+.flag {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  overflow: hidden;
+  /* 3px radius from the CLAUDE.md flag spec; there is no 3px corner token. */
+  border-radius: 3px;
+  background: var(--surface-secondary);
+}
+
+/* 1px outline drawn on top so it also shows over light flags */
+.flag::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px var(--line-input);
+  pointer-events: none;
+}
+
+.small {
+  width: 20px;
+  height: 14px;
+}
+.medium {
+  width: 26px;
+  height: 19px;
+}
+.large {
+  width: 56px;
+  height: 40px;
+  border-radius: var(--corner-xs);
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.fallback {
+  margin: auto;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-2xs);
+  line-height: var(--line-height-2xs);
+  letter-spacing: 0;
+  font-weight: var(--font-weight-semibold);
+}

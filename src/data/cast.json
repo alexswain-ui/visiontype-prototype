@@ -1,0 +1,154 @@
+{
+  "_note": "ALL DATA IS FICTIONAL AND ILLUSTRATIVE. Numbers are consistent across screens: Song page, Artist page, Country page and Data tables read the same values. delta = percent change vs previous week (positive up, negative down). Capped streams are shown everywhere as the main metric.",
+  "week": { "label": "Week 42", "published": "Fri 16 Oct 2026", "dateRangeButton": "Oct 10 – Oct 16 2026", "dspsReported": { "reported": 51, "total": 51 } },
+  "labels": ["Quillfern Records", "Altamere Records", "Saltmarrow Music", "Vessenby", "Larchway Music"],
+  "licensors": ["Quillfern Records", "Altamere Music Group", "Saltmarrow Music", "Vessenby Compilations"],
+  "distributors": ["Altamere Distribution", "Larchway Music", "Saltmarrow Music"],
+  "markets": [
+    { "code": "US", "iso": "US", "name": "United States", "short": "USA", "capped": 1204882310, "delta": 4, "share": 1.0 },
+    { "code": "GB", "iso": "GB", "name": "United Kingdom", "short": "UK", "capped": 412330120, "delta": 6, "share": 0.34 },
+    { "code": "DE", "iso": "DE", "name": "Germany", "short": "GER", "capped": 318940500, "delta": 2, "share": 0.265 },
+    { "code": "FR", "iso": "FR", "name": "France", "short": "FRA", "capped": 277104880, "delta": -1, "share": 0.23 },
+    { "code": "BR", "iso": "BR", "name": "Brazil", "short": "BRA", "capped": 266220310, "delta": 9, "share": 0.22 },
+    { "code": "JP", "iso": "JP", "name": "Japan", "short": "JPN", "capped": 241880900, "delta": -3, "share": 0.2 },
+    { "code": "CA", "iso": "CA", "name": "Canada", "short": "CAN", "capped": 188430100, "delta": 3, "share": 0.156 },
+    { "code": "MX", "iso": "MX", "name": "Mexico", "short": "MEX", "capped": 176220450, "delta": 7, "share": 0.146 },
+    { "code": "ES", "iso": "ES", "name": "Spain", "short": "ESP", "capped": 158904000, "delta": 1, "share": 0.132 },
+    { "code": "IT", "iso": "IT", "name": "Italy", "short": "IT", "capped": 141530720, "delta": 0, "share": 0.117 }
+  ],
+  "artists": [
+    { "id": "odalie-brask", "name": "Odalie Brask", "artistId": "AR204118733", "label": "Quillfern Records", "songs": 12, "capped": 21004880, "delta": 9, "photo": 0 },
+    { "id": "luna-sky", "name": "Luna Sky", "artistId": "AR310552901", "label": "Altamere Records", "licensor": "Altamere Music Group", "songs": 24, "capped": 18412330, "delta": 6, "photo": 1 },
+    { "id": "maxine-harmon", "name": "Maxine Harmon", "artistId": "AR118204467", "label": "Altamere Records", "songs": 18, "capped": 15184310, "delta": 4, "photo": 2 },
+    { "id": "ella-vibe", "name": "Ella Vibe", "artistId": "AR402993118", "label": "Saltmarrow Music", "songs": 15, "capped": 12271205, "delta": 2, "photo": 3 },
+    { "id": "petra-lindqvane", "name": "Petra Lindqvane", "artistId": "AR220446870", "label": "Quillfern Records", "songs": 9, "capped": 9204220, "delta": -4, "photo": 4 },
+    { "id": "jaxon-beat", "name": "Jaxon Beat", "artistId": "AR330118642", "label": "Saltmarrow Music", "songs": 14, "capped": 8622940, "delta": 1, "photo": 5 },
+    { "id": "nova-ray", "name": "Nova Ray", "artistId": "AR290771305", "label": "Altamere Records", "songs": 11, "capped": 7950118, "delta": 3, "photo": 6 },
+    { "id": "autumn-phillips", "name": "Autumn Phillips", "artistId": "AR118650293", "label": "Vessenby", "songs": 7, "capped": 6104220, "delta": -1, "photo": 7 },
+    { "id": "david-elson", "name": "David Elson", "artistId": "AR477320918", "label": "Quillfern Records", "songs": 10, "capped": 5884402, "delta": -2, "photo": 8 },
+    { "id": "frances-swann", "name": "Frances Swann", "artistId": "AR502886114", "label": "Saltmarrow Music", "songs": 13, "capped": 5121775, "delta": 5, "photo": 9 }
+  ],
+  "songs": [
+    { "id": "saffron-ferry", "title": "Saffron Ferry", "isrc": "XAK7Q2400117", "artist": "odalie-brask", "markets": 42, "capped": 14820310, "status": null, "art": 0 },
+    { "id": "midnight-static", "title": "Midnight Static", "isrc": "XAK7Q2400203", "artist": "luna-sky", "markets": 38, "capped": 12412880, "status": "restated", "art": 1 },
+    { "id": "paper-skies", "title": "Paper Skies", "isrc": "XAK7Q2300311", "artist": "maxine-harmon", "markets": 35, "capped": 9184310, "status": null, "art": 2 },
+    { "id": "neon-harbour", "title": "Neon Harbour", "isrc": "XAK7Q2400456", "artist": "ella-vibe", "markets": 31, "capped": 8271205, "status": null, "art": 3 },
+    { "id": "glass-orchard", "title": "Glass Orchard", "isrc": "XAK7Q1100042", "artist": "petra-lindqvane", "markets": 24, "capped": 6204220, "status": "conflict", "art": 4 },
+    { "id": "golden-hour-drive", "title": "Golden Hour Drive", "isrc": "XAK7Q2200518", "artist": "jaxon-beat", "markets": 29, "capped": 5622940, "status": null, "art": 5 },
+    { "id": "low-tide", "title": "Low Tide", "isrc": "XAK7Q2400620", "artist": "nova-ray", "markets": 27, "capped": 4950118, "status": null, "art": 6 },
+    { "id": "harmony-of-hearts", "title": "Harmony of Hearts", "isrc": "DR987654321", "artist": "autumn-phillips", "markets": 18, "capped": 4104220, "status": "conflict", "art": 7 },
+    { "id": "lost-in-the-echo", "title": "Lost in the Echo", "isrc": "CD123456789", "artist": "david-elson", "markets": 22, "capped": 3884402, "status": "restated", "art": 8 },
+    { "id": "serenade-of-the-sea", "title": "Serenade of the Sea", "isrc": "MH123456789", "artist": "frances-swann", "markets": 19, "capped": 3121775, "status": null, "art": 9 }
+  ],
+  "canonicalRows": [
+    { "id": "r1", "date": "14 Oct", "song": "saffron-ferry", "market": "GB", "licensor": "Quillfern Records", "label": "Quillfern Records", "distributor": "Altamere Distribution", "capped": 6012440, "status": null },
+    { "id": "r2", "date": "14 Oct", "song": "glass-orchard", "market": "GB", "licensor": "Quillfern Records", "label": "Quillfern Records", "distributor": "Altamere Distribution", "capped": 1260310, "status": "conflict" },
+    { "id": "r3", "date": "14 Oct", "song": "midnight-static", "market": "US", "licensor": "Altamere Music Group", "label": "Altamere Records", "distributor": "Altamere Distribution", "capped": 2412880, "status": "restated" },
+    { "id": "r4", "date": "14 Oct", "song": "paper-skies", "market": "FR", "licensor": "Altamere Music Group", "label": "Altamere Records", "distributor": "Altamere Distribution", "capped": 2184310, "status": null },
+    { "id": "r5", "date": "14 Oct", "song": "neon-harbour", "market": "DE", "licensor": "Saltmarrow Music", "label": "Saltmarrow Music", "distributor": "Larchway Music", "capped": 1971205, "status": null },
+    { "id": "r6", "date": "14 Oct", "song": "harmony-of-hearts", "market": "FR", "licensor": "Vessenby Compilations", "label": "Vessenby", "distributor": "Larchway Music", "capped": 1104220, "status": "conflict" },
+    { "id": "r7", "date": "14 Oct", "song": "golden-hour-drive", "market": "SE", "licensor": "Saltmarrow Music", "label": "Saltmarrow Music", "distributor": "Saltmarrow Music", "capped": 1022940, "status": null },
+    { "id": "r8", "date": "14 Oct", "song": "low-tide", "market": "BR", "licensor": "Altamere Music Group", "label": "Altamere Records", "distributor": "Altamere Distribution", "capped": 950118, "status": null },
+    { "id": "r9", "date": "14 Oct", "song": "lost-in-the-echo", "market": "JP", "licensor": "Quillfern Records", "label": "Quillfern Records", "distributor": "Larchway Music", "capped": 884402, "status": "restated" },
+    { "id": "r10", "date": "14 Oct", "song": "serenade-of-the-sea", "market": "CA", "licensor": "Saltmarrow Music", "label": "Saltmarrow Music", "distributor": "Saltmarrow Music", "capped": 821775, "status": null }
+  ],
+  "canonicalDetail": {
+    "r2": {
+      "conflict": { "title": "Licensor Challenge", "text": "Quillfern Records claim Glass Orchard in the UK. The current canonical record names Quillfern as licensor, but a second claim has been raised and is unresolved.", "raised": "Raised 14 Oct", "state": "Awaiting review" },
+      "timeline": [
+        { "title": "v3 · Published", "meta": "Fri 16 Oct · Week 42", "lines": ["1,260,310 capped streams · Policy v3"] },
+        { "title": "Canonical title set", "meta": "Rule A-04 · v3", "lines": ["“Glass Orchard” chosen over “Glass Orchard (Album Version)”"] },
+        { "title": "DSP submissions", "meta": "Spotify · 15 Oct   YouTube · 13 Oct", "lines": ["Glass Orchard (Album)   Glass Orchard (Album Version)"] },
+        { "title": "First ingested · v1", "meta": "09 Oct · initial delivery", "lines": ["1,198,004 capped streams"] }
+      ]
+    }
+  },
+  "weeks": [
+    { "w": "W42", "published": "Fri 16 Oct", "reported": 51, "note": null },
+    { "w": "W41", "published": "Fri 9 Oct", "reported": 51, "note": null },
+    { "w": "W40", "published": "Fri 2 Oct", "reported": 51, "note": "1 DSP redelivered · Mon 5 Oct", "restated": true },
+    { "w": "W39", "published": "Fri 25 Sep", "reported": 51, "note": null },
+    { "w": "W38", "published": "Fri 18 Sep", "reported": 51, "note": null },
+    { "w": "W37", "published": "Fri 11 Sep", "reported": 50, "note": "1 DSP did not deliver" },
+    { "w": "W36", "published": "Fri 4 Sep", "reported": 51, "note": null },
+    { "w": "W35", "published": "Fri 28 Aug", "reported": 51, "note": null }
+  ],
+  "series": {
+    "_note": "Millions of capped streams, oldest (W35) to newest (W42). previous = the 8 weeks before. Weekly table rows and the area chart read the same series. Streams column = capped x 1.0357 (song), 1.04 (artist), 1.03 (country).",
+    "song:saffron-ferry": { "current": [10.4, 10.9, 11.6, 12.1, 12.8, 13.2, 13.52, 14.31], "previous": [8.1, 8.6, 9.0, 9.3, 9.9, 10.2, 10.6, 10.9], "yLabels": ["15M", "12.5M", "10M"], "mult": 1.0357 },
+    "artist:luna-sky": { "current": [13.6, 14.2, 15.1, 15.8, 16.4, 17.2, 17.37, 18.41], "previous": [11.2, 11.6, 12.1, 12.4, 12.9, 13.1, 13.4, 13.5], "yLabels": ["18.5M", "16M", "13.5M"], "mult": 1.04 },
+    "country:GB": { "current": [350.2, 357.9, 362.4, 370.8, 378.6, 384.1, 388.96, 412.3], "previous": [318, 324, 331, 336, 341, 345, 349, 350], "yLabels": ["420M", "385M", "350M"], "mult": 1.03 }
+  },
+  "dspSplit": {
+    "song:saffron-ferry": [["Spotify", 6.82, 0.48], ["Apple Music", 3.40, 0.24], ["YouTube", 2.58, 0.18], ["Deezer", 0.96, 0.07], ["iTunes", 0.55, 0.03]],
+    "country:GB": [["Spotify", 168.2, 0.41], ["Apple Music", 98.9, 0.24], ["YouTube", 82.5, 0.20], ["Deezer", 41.2, 0.10], ["iTunes", 21.5, 0.05]]
+  },
+  "songPage": {
+    "saffron-ferry": {
+      "stats": [
+        { "label": "Capped streams · W42", "value": "14.31M", "delta": 5.8 },
+        { "label": "Markets reporting", "value": "42", "sub": "all reporting" },
+        { "label": "Top market", "value": "UK", "flag": "GB", "sub": "40% of capped streams" },
+        { "label": "Open conflicts", "value": "0", "sub": "Policy v3" }
+      ],
+      "marketTable": [
+        { "market": "GB", "capped": 5840120, "streams": 6012440, "delta": 12, "share": 0.41, "topDsp": "Spotify" },
+        { "market": "US", "capped": 3512000, "streams": 3904120, "delta": 7, "share": 0.25, "topDsp": "Apple Music" },
+        { "market": "DE", "capped": 1590300, "streams": 1622940, "delta": 3, "share": 0.11, "topDsp": "Spotify" },
+        { "market": "FR", "capped": 1080440, "streams": 1104220, "delta": -1, "share": 0.076, "topDsp": "Deezer" },
+        { "market": "BR", "capped": 790100, "streams": 812330, "delta": 9, "share": 0.055, "topDsp": "YouTube" },
+        { "market": "SE", "capped": 628870, "streams": 640210, "delta": 4, "share": 0.044, "topDsp": "Spotify" },
+        { "market": "JP", "capped": 402150, "streams": 410880, "delta": -2, "share": 0.028, "topDsp": "Apple Music" },
+        { "market": "CA", "capped": 361400, "streams": 380220, "delta": 3, "share": 0.025, "topDsp": "Spotify" },
+        { "market": "MX", "capped": 288900, "streams": 301540, "delta": 6, "share": 0.02, "topDsp": "YouTube" },
+        { "market": "ES", "capped": 251200, "streams": 262310, "delta": 1, "share": 0.017, "topDsp": "Spotify" }
+      ],
+      "history": [
+        { "title": "v3 · Published", "meta": "Fri 16 Oct · Week 42", "lines": ["14,310,000 capped streams · Policy v3"] },
+        { "title": "DSP submissions", "meta": "Spotify · 15 Oct   YouTube · 13 Oct", "lines": ["Same title and ISRC across all DSPs"] },
+        { "title": "First ingested · v1", "meta": "09 Oct · initial delivery", "lines": ["13,882,004 capped streams"] }
+      ],
+      "rights": { "open": 0, "text": "Licensor, label and distributor agree across all reporting DSPs for this ISRC.", "checked": "Last checked 14 Oct" }
+    }
+  },
+  "artistPage": {
+    "luna-sky": {
+      "stats": [
+        { "label": "Capped streams · W42", "value": "18.41M", "delta": 6.0 },
+        { "label": "Songs in catalogue", "value": "24", "sub": "all active" },
+        { "label": "Markets reporting", "value": "38", "sub": "of 42 tracked" },
+        { "label": "Top song", "value": "Midnight Static", "sub": "4.91M capped streams" }
+      ],
+      "topMarkets": [["GB", 6.92], ["US", 4.2], ["DE", 2.1], ["FR", 1.6], ["BR", 1.3], ["SE", 0.9]],
+      "songs": [
+        { "title": "Midnight Static", "isrc": "XAK7Q2400203", "status": "restated", "markets": 38, "delta": 12, "capped": 4912880, "pts": [3.1, 3.4, 3.9, 4.1, 4.3, 4.4, 4.5, 4.91] },
+        { "title": "Static Bloom", "isrc": "XAK7Q2400204", "status": null, "markets": 35, "delta": 5, "capped": 3204110, "pts": [2.8, 2.9, 3.0, 3.0, 3.1, 3.1, 3.05, 3.2] },
+        { "title": "Afterglow Lines", "isrc": "XAK7Q2300205", "status": null, "markets": 33, "delta": 1, "capped": 2871300, "pts": [2.7, 2.8, 2.8, 2.9, 2.9, 2.85, 2.86, 2.87] },
+        { "title": "Satellite Hymn", "isrc": "XAK7Q2300206", "status": null, "markets": 30, "delta": -3, "capped": 2310040, "pts": [2.6, 2.55, 2.5, 2.45, 2.4, 2.4, 2.38, 2.31] },
+        { "title": "Velvet Static", "isrc": "XAK7Q2400207", "status": null, "markets": 28, "delta": 8, "capped": 1884220, "pts": [1.4, 1.5, 1.55, 1.6, 1.7, 1.75, 1.8, 1.88] },
+        { "title": "Moon Receipts", "isrc": "XAK7Q2200208", "status": null, "markets": 26, "delta": 2, "capped": 1402900, "pts": [1.3, 1.3, 1.35, 1.35, 1.38, 1.38, 1.39, 1.4] },
+        { "title": "Neon Tides", "isrc": "XAK7Q2400209", "status": null, "markets": 22, "delta": 4, "capped": 552330, "pts": [0.4, 0.42, 0.45, 0.47, 0.5, 0.52, 0.53, 0.55] },
+        { "title": "Paper Lanterns", "isrc": "XAK7Q2300210", "status": null, "markets": 19, "delta": -1, "capped": 421410, "pts": [0.44, 0.44, 0.43, 0.43, 0.43, 0.42, 0.42, 0.42] },
+        { "title": "Signal Fade", "isrc": "XAK7Q2400211", "status": "conflict", "markets": 17, "delta": 6, "capped": 338980, "pts": [0.24, 0.26, 0.27, 0.29, 0.3, 0.31, 0.32, 0.34] },
+        { "title": "Harbour Lights", "isrc": "XAK7Q2200212", "status": null, "markets": 15, "delta": 2, "capped": 266220, "pts": [0.24, 0.25, 0.25, 0.26, 0.26, 0.26, 0.26, 0.27] }
+      ],
+      "labelsAndDistributors": [
+        { "label": "Altamere Records", "distributor": "Altamere Distribution", "songs": 18, "capped": "14.6M", "share": 0.79 },
+        { "label": "Altamere Records", "distributor": "Larchway Music", "songs": 6, "capped": "3.8M", "share": 0.21 }
+      ]
+    }
+  },
+  "countryPage": {
+    "GB": {
+      "stats": [
+        { "label": "Capped streams · W42", "value": "412.3M", "delta": 6.0 },
+        { "label": "Songs with streams", "value": "41,206", "sub": "in your access scope" },
+        { "label": "Top artist", "value": "Odalie Brask", "sub": "8.41M capped streams" },
+        { "label": "Top song", "value": "Saffron Ferry", "sub": "5.84M capped streams" }
+      ],
+      "topArtists": [["Odalie Brask", "8.41M", 9], ["Luna Sky", "6.92M", 6], ["Petra Lindqvane", "4.21M", -4], ["Nova Ray", "3.80M", 3], ["Maxine Harmon", "3.52M", 4], ["Ella Vibe", "3.10M", 2], ["Jaxon Beat", "2.64M", 1], ["Autumn Phillips", "2.20M", -1], ["David Elson", "1.96M", -2], ["Frances Swann", "1.71M", 5]],
+      "topSongs": [["Saffron Ferry", "Odalie Brask", 5840120, 12], ["Midnight Static", "Luna Sky", 2031900, 8], ["Low Tide", "Nova Ray", 1402250, 3], ["Glass Orchard", "Petra Lindqvane", 1201000, -4], ["Paper Skies", "Maxine Harmon", 1150300, 5], ["Neon Harbour", "Ella Vibe", 1022880, 2], ["Golden Hour Drive", "Jaxon Beat", 905120, 1], ["Static Bloom", "Luna Sky", 842410, 5], ["Afterglow Lines", "Luna Sky", 781340, 1], ["Harmony of Hearts", "Autumn Phillips", 702990, -1]],
+      "shareByLabel": { "badge": "End-state · illustrative", "note": "Share = capped streams ÷ all capped streams in this market. The market share definition is still to be agreed with stakeholders, so treat this view as a placeholder.", "rows": [["Altamere Music Group", "127.8M", 0.31], ["Quillfern Records", "74.2M", 0.18], ["Saltmarrow Music", "57.7M", 0.14], ["Vessenby Compilations", "24.7M", 0.06], ["Other labels", "127.9M", 0.31]] }
+    }
+  }
+}

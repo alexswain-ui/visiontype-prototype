@@ -1,0 +1,43 @@
+.tile {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line-border);
+  border-radius: var(--corner-sm);
+  background: var(--surface-card);
+}
+
+.s24 {
+  width: 24px;
+  height: 24px;
+  --logo: 14px;
+}
+.s32 {
+  width: 32px;
+  height: 32px;
+  --logo: 18px;
+}
+.s40 {
+  width: 40px;
+  height: 40px;
+  --logo: 22px;
+}
+
+.logo {
+  width: var(--logo);
+  height: var(--logo);
+  object-fit: contain;
+}
+
+/* YouTube's mark is 21x15 inside the 32px tile */
+.wide {
+  width: calc(var(--logo) * 7 / 6);
+}
+
+.letters {
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-2xs);
+  line-height: var(--line-height-2xs);
+  font-weight: var(--font-weight-semibold);
+}

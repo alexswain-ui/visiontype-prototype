@@ -1,0 +1,63 @@
+.avatar {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--corner-full);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0;
+  user-select: none;
+}
+
+.photo {
+  object-fit: cover;
+  border: 1px solid var(--line-border);
+}
+
+.tone1 {
+  background: var(--chart-chart-1);
+  color: var(--primary-primary-foreground);
+}
+.tone2 {
+  background: var(--chart-chart-2);
+  color: var(--brand-secondary-brand-secondary-foreground);
+}
+.tone3 {
+  background: var(--chart-chart-3);
+  color: var(--brand-tertiary-brand-tertiary-foreground);
+}
+.tone4 {
+  background: var(--chart-chart-4);
+  color: var(--brand-secondary-brand-secondary-foreground);
+}
+
+.s18 {
+  width: 18px;
+  height: 18px;
+  font-size: var(--font-size-2xs);
+  line-height: var(--line-height-2xs);
+}
+.s24 {
+  width: 24px;
+  height: 24px;
+  font-size: var(--font-size-2xs);
+  line-height: var(--line-height-2xs);
+}
+.s32 {
+  width: 32px;
+  height: 32px;
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+.s40 {
+  width: 40px;
+  height: 40px;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+}
+.s56 {
+  width: 56px;
+  height: 56px;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-lg);
+}

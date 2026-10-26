@@ -1,0 +1,36 @@
+{
+  "_note": "FICTIONAL. Rules prototype data. Each field has its own DSP ranking (max 10) and its own enrichment source. Song Name and Artist Name use Soundsys; Licensor, Label and Distributor use RDx. History is per field and newest first; saving a change adds a row.",
+  "users": [
+    { "id": "maya", "name": "Maya", "tier": "Premium", "persona": "Explorer", "subtitle": "Top 100k per market, scheduled reports", "landing": "/dashboard", "accessChip": "Top 100k · your access level", "seesRules": false },
+    { "id": "dev", "name": "Dev", "tier": "Enterprise", "persona": "Extractor", "subtitle": "Direct dataset access", "landing": "/dashboard", "accessChip": "All rows · your access level", "seesRules": false },
+    { "id": "ifpi", "name": "IFPI user", "tier": "IFPI", "persona": "Custodian", "subtitle": "Sees Rules in the sidebar", "landing": "/rules", "accessChip": "All rows · your access level", "seesRules": true, "canEditRules": true }
+  ],
+  "people": [
+    { "id": "daniel-reyes", "name": "Daniel Reyes", "photo": 0 },
+    { "id": "ellie-lake", "name": "Ellie Lake", "photo": 1 },
+    { "id": "bradley-lawlor", "name": "Bradley Lawlor", "photo": 2 }
+  ],
+  "dspTotal": 51,
+  "dspMaxRanked": 10,
+  "dsps": ["Spotify", "YouTube", "Apple Music", "Deezer", "iTunes"],
+  "dspsAvailableToAdd": ["Amazon Music", "Tidal", "Pandora", "SoundCloud", "Napster"],
+  "dspsOtherCount": 46,
+  "fields": [
+    { "id": "song-name", "label": "Song Name", "icon": "music", "updatedBy": "daniel-reyes", "updatedOn": "14 Oct 2026", "enrichment": ["Soundsys"], "ranking": ["Spotify", "YouTube", "Apple Music", "Deezer", "iTunes"], "subtitle": "Highest rank wins when sources disagree on the song name" },
+    { "id": "artist-name", "label": "Artist Name", "icon": "mic", "updatedBy": "daniel-reyes", "updatedOn": "14 Oct 2026", "enrichment": ["Soundsys"], "ranking": ["Spotify", "Apple Music", "YouTube", "Deezer", "iTunes"] },
+    { "id": "licensor", "label": "Licensor", "icon": "briefcase-business", "updatedBy": "ellie-lake", "updatedOn": "14 Oct 2026", "enrichment": ["RDx"], "ranking": ["Spotify", "Apple Music", "YouTube", "Deezer", "iTunes"], "version": "v9", "subtitle": "Highest rank wins when sources disagree on the licensor" },
+    { "id": "label", "label": "Label", "icon": "tag", "updatedBy": "bradley-lawlor", "updatedOn": "14 Oct 2026", "enrichment": ["RDx"], "ranking": ["Apple Music", "Spotify", "YouTube", "Deezer", "iTunes"] },
+    { "id": "distributor", "label": "Distributor", "icon": "truck", "updatedBy": "daniel-reyes", "updatedOn": "14 Oct 2026", "enrichment": ["RDx"], "ranking": ["Spotify", "Apple Music", "Deezer", "YouTube", "iTunes"] }
+  ],
+  "currentVersion": { "song-name": "v13", "licensor": "v9" },
+  "historySongName": [
+    { "version": "v13", "when": "14 Oct 2026, 14:32", "who": "daniel-reyes", "change": "Moved Apple Music from 4th to 3rd", "comment": "Apple’s title casing is now more consistent than Deezer’s.", "current": true },
+    { "version": "v12", "when": "9 Oct 2026, 09:10", "who": "ellie-lake", "change": "Added iTunes at rank 5", "comment": "Newly onboarded, so ranked last until we see its quality." },
+    { "version": "v11", "when": "2 Oct 2026, 11:20", "who": "daniel-reyes", "change": "Moved YouTube from 3rd to 2nd", "comment": "YouTube titles match Spotify more often than Deezer’s." },
+    { "version": "v10", "when": "18 Sep 2026, 15:05", "who": "bradley-lawlor", "change": "Added Deezer at rank 2", "comment": "Onboarded this week, to be reviewed after two weeks of data." },
+    { "version": "v9", "when": "4 Sep 2026, 10:30", "who": "ellie-lake", "change": "Moved Apple Music from 2nd to 3rd", "comment": "Spotify and YouTube agree on spellings more often." },
+    { "version": "v8", "when": "28 Aug 2026, 13:15", "who": "daniel-reyes", "change": "Added Soundsys as enrichment source", "comment": "Fills gaps for song names that no DSP supplies." },
+    { "version": "v7", "when": "21 Aug 2026, 09:00", "who": "bradley-lawlor", "change": "Initial ranking created", "comment": "Spotify, Apple Music, YouTube agreed for the MVP." }
+  ],
+  "saveRules": { "commentRequired": true, "commentPlaceholder": "What changed and why? (required)", "newVersionFrom": "v13", "futureIdea": "Custodian archetype also asks for an effective date on every edit. Not designed yet; confirm with the designer before adding." }
+}

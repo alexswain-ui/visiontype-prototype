@@ -13,10 +13,12 @@ export interface BadgeProps {
   dot?: boolean;
   /** Square 8px-radius chip showing only the icon (table status: Conflict, Restated). */
   iconOnly?: boolean;
+  /** small = 22px tag with 8px radius (sheet headers, conflict cards). */
+  size?: 'medium' | 'small';
 }
 
 /** Status / tag chip (Figma "Badge"). Static: tinted fill, matching border, brighter text. */
-export default function Badge({ label, tone = 'neutral', icon: Icon, dot = false, iconOnly = false }: BadgeProps) {
+export default function Badge({ label, tone = 'neutral', icon: Icon, dot = false, iconOnly = false, size = 'medium' }: BadgeProps) {
   if (iconOnly && Icon) {
     return (
       <span className={cx(styles.badge, styles[tone], styles.square)} role="img" aria-label={label} title={label}>
@@ -25,7 +27,7 @@ export default function Badge({ label, tone = 'neutral', icon: Icon, dot = false
     );
   }
   return (
-    <span className={cx(styles.badge, styles[tone])}>
+    <span className={cx(styles.badge, styles[tone], size === 'small' && styles.small)}>
       {dot && <span className={styles.dot} aria-hidden="true" />}
       {Icon && <Icon size={12} aria-hidden="true" />}
       {label}

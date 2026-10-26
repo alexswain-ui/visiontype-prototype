@@ -19,6 +19,15 @@
   border-radius: var(--corner-sm);
 }
 
+.small {
+  gap: var(--space-1);
+  height: 22px;
+  padding-inline: var(--space-2);
+  border-radius: var(--corner-sm);
+  font-size: var(--font-size-2xs);
+  line-height: var(--line-height-2xs);
+}
+
 .dot {
   width: 6px;
   height: 6px;
