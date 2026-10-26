@@ -3,17 +3,15 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import AppShell from './components/AppShell';
 import { useUser } from './lib/user';
 import Gallery from './pages/Gallery';
+import EntityPage from './pages/EntityPage';
 import {
-  ArtistPage,
   AskPage,
-  CountryPage,
   CustomisePage,
   CustomWidgetPage,
   DashboardPage,
   DataListPage,
   DataSplitPage,
   RulesPage,
-  SongPage,
 } from './pages/placeholders';
 
 /** Rules is only for the IFPI user; anyone else goes to their own landing page. */
@@ -46,9 +44,9 @@ export default function App() {
         <Route path="/data/artists/:id" element={<DataSplitPage tab="artists" />} />
         <Route path="/data/countries" element={<DataListPage tab="countries" />} />
         <Route path="/data/countries/:id" element={<DataSplitPage tab="countries" />} />
-        <Route path="/song/:id" element={<SongPage />} />
-        <Route path="/artist/:id" element={<ArtistPage />} />
-        <Route path="/country/:code" element={<CountryPage />} />
+        <Route path="/song/:id" element={<EntityPage key="song" kind="song" />} />
+        <Route path="/artist/:id" element={<EntityPage key="artist" kind="artist" />} />
+        <Route path="/country/:code" element={<EntityPage key="country" kind="country" />} />
 
         <Route path="/rules" element={<IfpiOnly><RulesPage tab="dsps" /></IfpiOnly>} />
         <Route path="/rules/enrichment" element={<IfpiOnly><RulesPage tab="enrichment" /></IfpiOnly>} />

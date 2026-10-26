@@ -1,0 +1,38 @@
+.legend {
+  display: flex;
+  gap: calc(var(--space-3) + var(--space-0-5));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--space-1) + var(--space-0-5));
+}
+
+.keyCurrent,
+.keyPrevious {
+  width: var(--space-2);
+  height: var(--space-2);
+  border-radius: var(--corner-full);
+}
+
+.keyCurrent {
+  background: var(--chart-chart-1);
+}
+
+.keyPrevious {
+  background: var(--chart-chart-2);
+}
+
+.chart {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: var(--space-8) var(--size-card-padding) var(--space-5) var(--space-4);
+}
