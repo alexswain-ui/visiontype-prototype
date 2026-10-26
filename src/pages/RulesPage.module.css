@@ -1,0 +1,70 @@
+/* Both panels run to 24px above the bottom of the window, as in Figma:
+   viewport minus shell padding (24 top and bottom), the 64px page header and the 24px gap below it. */
+.panels {
+  display: flex;
+  gap: var(--space-6);
+  height: calc(100vh - var(--space-6) * 3 - var(--space-16));
+  min-height: 560px;
+}
+
+.rule {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line-border);
+  border-radius: var(--corner-xl);
+  background: var(--surface-card);
+  color: var(--surface-card-foreground);
+}
+
+.header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 68px;
+  padding: var(--space-3) var(--space-6);
+  border-bottom: 1px solid var(--line-border);
+}
+
+.iconTile {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-control-md);
+  height: var(--size-control-md);
+  border-radius: var(--corner-sm);
+  background: var(--surface-secondary);
+  color: var(--primary-primary-text);
+}
+
+.titles {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-0-5);
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+  font-weight: var(--font-weight-regular);
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+}
+
+.tabsRow {
+  display: flex;
+  flex-shrink: 0;
+  padding: var(--space-4) var(--space-6) 0;
+}

@@ -1,0 +1,75 @@
+/* Shared by RuleEditor and RuleHistory: the scrolling body and its intro row inside the Rules panel. */
+.section {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-height: 0;
+  overflow-y: auto;
+  padding: var(--space-5) var(--space-6) var(--space-6);
+}
+
+.intro {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.introText {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-0-5);
+  min-width: 0;
+}
+
+.introTitle {
+  margin: 0;
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+  font-weight: var(--font-weight-regular);
+}
+
+.introSub {
+  margin: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+}
+
+/* "5 of 10 ranked", "Version v13": 28px neutral chip */
+.countChip {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  height: 28px;
+  padding: 0 var(--space-2-5);
+  border-radius: var(--corner-sm);
+  background: var(--button-secondary-bg);
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.empty {
+  margin: 0;
+  padding: var(--space-4) 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}

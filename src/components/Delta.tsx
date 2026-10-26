@@ -7,8 +7,8 @@ export interface DeltaProps {
   value: number;
   /** Muted text after the arrow, e.g. "vs last week" on stat tiles. */
   suffix?: string;
-  /** inline = 14px in tables and tiles; pill = 16px tinted box (chart card header). */
-  variant?: 'inline' | 'pill';
+  /** inline = 14px in tables and tiles; small = 12px in split-sheet tiles; pill = 16px tinted box (chart card header). */
+  variant?: 'inline' | 'small' | 'pill';
 }
 
 /** Change indicator: value then arrow. Up is green, down is red. No leading + or minus sign. */
@@ -23,9 +23,9 @@ export default function Delta({ value, suffix, variant = 'inline' }: DeltaProps)
         aria-label={`${up ? 'Up' : 'Down'} ${text}`}
       >
         <span aria-hidden="true">{text}</span>
-        <Arrow size={variant === 'pill' ? 16 : 12} aria-hidden="true" />
+        <Arrow size={variant === 'pill' ? 16 : variant === 'small' ? 10 : 12} aria-hidden="true" />
       </span>
-      {suffix && <span className={styles.suffix}>{suffix}</span>}
+      {suffix && <span className={cx(styles.suffix, variant === 'small' && styles.small)}>{suffix}</span>}
     </span>
   );
 }

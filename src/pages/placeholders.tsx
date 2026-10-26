@@ -1,4 +1,4 @@
-import { AudioLines, Earth, House, ListOrdered, MicVocal, Music } from 'lucide-react';
+import { AudioLines, Earth, House, MicVocal, Music } from 'lucide-react';
 import { useLocation, useParams } from 'react-router-dom';
 import { artistById, marketByCode, songById } from '../lib/data';
 import { useUser } from '../lib/user';
@@ -143,33 +143,6 @@ export function CountryPage() {
       links={[{ to: '/data/countries', label: 'Back to Country tab' }]}
     >
       <p>Header card, trend, DSP split, top 10 artists and songs, share by label (“End-state, illustrative”), weekly trend.</p>
-    </PlaceholderPage>
-  );
-}
-
-export function RulesPage({ tab }: { tab: 'dsps' | 'enrichment' | 'history' }) {
-  const { search } = useLocation();
-  const config = {
-    dsps: { node: '607:5060', what: 'Field list on the left; DSP ranking (up to 10) with up/down chevrons, Add DSP picker, save bar with a required comment.' },
-    enrichment: {
-      node: search.includes('field=licensor') ? '611:5507' : '607:5712',
-      what: 'Enrichment source per field: Soundsys for Song and Artist names, RDx for Licensor, Label and Distributor.',
-    },
-    history: { node: '608:6057', what: 'Version history for the field, newest first; saving a change adds a row.' },
-  }[tab];
-  return (
-    <PlaceholderPage
-      title="Harmonisation rules"
-      icon={ListOrdered}
-      subtitle="Choose which source wins when DSPs disagree on a field"
-      figmaNode={config.node}
-      links={[
-        { to: '/rules', label: 'DSPs tab' },
-        { to: '/rules/enrichment', label: 'Enrichment tab' },
-        { to: '/rules/history', label: 'History tab' },
-      ]}
-    >
-      <p>{config.what}</p>
     </PlaceholderPage>
   );
 }

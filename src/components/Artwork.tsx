@@ -5,7 +5,8 @@ export interface ArtworkProps {
   /** Song title, for screen readers. */
   title: string;
   src?: string;
-  size?: 36 | 56;
+  /** 24 / 28 in sheet lists, 36 in tables, 56 in sheet headers. */
+  size?: 24 | 28 | 36 | 56;
   /** Picks the placeholder gradient when there is no image. */
   seed?: number;
 }
