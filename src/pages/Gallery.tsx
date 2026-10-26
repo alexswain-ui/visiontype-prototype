@@ -4,6 +4,7 @@ import ChipsSection from './gallery/ChipsSection';
 import ColourTokensSection from './gallery/ColourTokensSection';
 import DataDisplaySection from './gallery/DataDisplaySection';
 import InputsSection from './gallery/InputsSection';
+import OverlaysSection from './gallery/OverlaysSection';
 import TabsSection from './gallery/TabsSection';
 import styles from './gallery/Gallery.module.css';
 
@@ -27,6 +28,11 @@ const SECTIONS = [
   ['stat', 'Stat tile'],
   ['timeline', 'Timeline'],
   ['table', 'Table + sheet'],
+  ['menu', 'Menu'],
+  ['modal', 'Modal'],
+  ['not-in-prototype', 'Not in prototype'],
+  ['toast', 'Toast'],
+  ['tooltip', 'Tooltip'],
   ['colours', 'Colours'],
 ];
 
@@ -56,6 +62,7 @@ export default function Gallery() {
       <TabsSection />
       <InputsSection />
       <DataDisplaySection />
+      <OverlaysSection />
       <ColourTokensSection />
       <p className={styles.footnote}>Illustrative data. Prototype only.</p>
     </main>

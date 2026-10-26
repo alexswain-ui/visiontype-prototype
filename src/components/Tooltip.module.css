@@ -1,0 +1,55 @@
+.wrap {
+  display: inline-flex;
+}
+
+.floating {
+  position: fixed;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, calc(-100% - var(--space-1)));
+  pointer-events: none;
+  animation: tooltip-in var(--motion-duration-fast) var(--ease-standard);
+}
+
+@keyframes tooltip-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.bubble {
+  /* 7px x 11px, as in Figma */
+  padding: calc(var(--space-2) - 1px) calc(var(--space-3) - 1px);
+  border-radius: var(--corner-sm);
+  background: var(--surface-foreground);
+  color: var(--surface-background);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+/* 10 x 5 pointer */
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--surface-foreground);
+}
+
+/* Gallery: static tooltip above its trigger */
+.demo {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.bubbleWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

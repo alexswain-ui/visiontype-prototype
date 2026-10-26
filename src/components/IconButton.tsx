@@ -4,6 +4,7 @@ import { cx } from '../lib/cx';
 import type { DemoState } from '../lib/demoState';
 import type { ButtonSize, ButtonVariant } from './Button';
 import Spinner from './Spinner';
+import Tooltip from './Tooltip';
 import styles from './Button.module.css';
 
 export interface IconButtonProps extends ComponentPropsWithRef<'button'> {
@@ -17,7 +18,7 @@ export interface IconButtonProps extends ComponentPropsWithRef<'button'> {
   demoState?: DemoState;
 }
 
-/** Icon button v2: square 32 / 40 / 48, icon 14 on Small and 16 otherwise. */
+/** Icon button v2: square 32 / 40 / 48, icon 14 on Small and 16 otherwise. Shows its label as a tooltip. */
 export default function IconButton({
   icon: Icon,
   label,
@@ -32,17 +33,18 @@ export default function IconButton({
 }: IconButtonProps) {
   const iconSize = size === 'small' ? 14 : 16;
   return (
-    <button
-      type={type}
-      aria-label={label}
-      title={label}
-      className={cx(styles.button, styles.icon, styles[variant], styles[size], loading && styles.loading, className)}
-      data-demo={demoState}
-      aria-busy={loading || undefined}
-      onClick={loading ? undefined : onClick}
-      {...rest}
-    >
-      {loading ? <Spinner size={iconSize} /> : <Icon size={iconSize} aria-hidden="true" />}
-    </button>
+    <Tooltip label={label} describe={false}>
+      <button
+        type={type}
+        aria-label={label}
+        className={cx(styles.button, styles.icon, styles[variant], styles[size], loading && styles.loading, className)}
+        data-demo={demoState}
+        aria-busy={loading || undefined}
+        onClick={loading ? undefined : onClick}
+        {...rest}
+      >
+        {loading ? <Spinner size={iconSize} /> : <Icon size={iconSize} aria-hidden="true" />}
+      </button>
+    </Tooltip>
   );
 }

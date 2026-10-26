@@ -45,7 +45,7 @@
   align-items: center;
   justify-content: space-between;
   gap: calc(var(--space-1) + var(--space-0-5));
-  color: var(--line-placeholder);
+  color: var(--surface-muted-foreground);
   font-size: var(--font-size-xs);
   line-height: var(--line-height-xs);
 }

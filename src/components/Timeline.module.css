@@ -64,5 +64,5 @@
 }
 
 .meta {
-  color: var(--line-placeholder);
+  color: var(--surface-muted-foreground);
 }
