@@ -3,13 +3,12 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import AppShell from './components/AppShell';
 import { useUser } from './lib/user';
 import Gallery from './pages/Gallery';
+import CustomisePage from './pages/dashboard/CustomisePage';
 import DashboardPage from './pages/dashboard/DashboardPage';
 import {
   ArtistPage,
   AskPage,
   CountryPage,
-  CustomisePage,
-  CustomWidgetPage,
   DataListPage,
   DataSplitPage,
   RulesPage,
@@ -35,8 +34,9 @@ export default function App() {
       <Route element={<AppShell />}>
         <Route path="/" element={<Landing />} />
         <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/dashboard/customise" element={<CustomisePage />} />
-        <Route path="/dashboard/customise/widget" element={<CustomWidgetPage />} />
+        <Route path="/dashboard/customise" element={<CustomisePage />}>
+          <Route path="widget" element={null} />
+        </Route>
 
         <Route path="/data" element={<DataListPage tab="canonical" />} />
         <Route path="/data/canonical/:id" element={<DataSplitPage tab="canonical" />} />

@@ -10,6 +10,7 @@ import {
   File,
   FileChartLine,
   Globe,
+  List,
   MicVocal,
   Music,
   OctagonAlert,
@@ -27,10 +28,12 @@ import Delta from '../../components/Delta';
 import ListTile from '../../components/ListTile';
 import SelectButton from '../../components/SelectButton';
 import TrendBars from '../../components/TrendBars';
+import TopList from '../../components/TopList';
 import WidgetCard from '../../components/WidgetCard';
 import dashboard from '../../data/dashboard.json';
 import { artistPhoto, MORE_PHOTOS } from '../../lib/artistPhotos';
 import { artistById, cast, type Artist } from '../../lib/data';
+import { customWidgetRows, rangeText, readCustomWidget } from './WidgetBuilder';
 import styles from './Dashboard.module.css';
 
 /** What a widget needs from the page: where to go, and the "Not part of this prototype" dialog. */
@@ -215,6 +218,18 @@ export const WIDGETS: Record<string, WidgetDefinition> = {
         </div>
       </WidgetCard>
     ),
+  },
+
+  custom: {
+    title: 'Custom widget',
+    render: ({ go }) => {
+      const config = readCustomWidget();
+      return (
+        <WidgetCard title={config.title} subtitle={rangeText(config.range)} icon={List} flush>
+          <TopList rows={customWidgetRows(config)} label={config.title} onRowClick={(row) => go(`/song/${row.id}`)} />
+        </WidgetCard>
+      );
+    },
   },
 
   // Gallery widgets (not designed as dashboard cards: simple proposals built from the same data).

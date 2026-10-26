@@ -51,7 +51,11 @@ export default function WidgetCard({
             {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
           </div>
         </div>
-        {action}
+        {action && (
+          <div className={styles.action} data-widget-action>
+            {action}
+          </div>
+        )}
       </header>
       <div className={cx(styles.body, flush && styles.flush)}>{children}</div>
       {footer && <footer className={styles.footer}>{footer}</footer>}
