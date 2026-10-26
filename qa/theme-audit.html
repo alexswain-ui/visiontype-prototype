@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>VisionType: theme audit, decisions needed</title>
+<style>
+/* GENERATED from tokens.json (Figma design system file S5RTgBPZtxtXRcsIiBT5XB). Do not edit by hand. */
+
+:root {
+  /* Palette (primitives): use only to define semantic tokens, never directly in components */
+  --palette-primary-50: #fff4f0;
+  --palette-primary-100: #ffe8e0;
+  --palette-primary-200: #fed4c4;
+  --palette-primary-300: #feb69a;
+  --palette-primary-400: #ff834e;
+  --palette-primary-500: #f27743;
+  --palette-primary-600: #cf5a25;
+  --palette-primary-700: #aa420b;
+  --palette-primary-800: #822e01;
+  --palette-primary-900: #5e2001;
+  --palette-primary-950: #3a1000;
+  --palette-secondary-50: #f3f7ff;
+  --palette-secondary-100: #e0ebff;
+  --palette-secondary-200: #c3d7fe;
+  --palette-secondary-300: #98bbfe;
+  --palette-secondary-400: #6a9cfe;
+  --palette-secondary-500: #3d7bff;
+  --palette-secondary-600: #2863e2;
+  --palette-secondary-700: #194dbe;
+  --palette-secondary-800: #0f3998;
+  --palette-secondary-900: #0a2b72;
+  --palette-secondary-950: #041a4d;
+  --palette-tertiary-50: #f6f6ff;
+  --palette-tertiary-100: #ecebff;
+  --palette-tertiary-200: #dcdafe;
+  --palette-tertiary-300: #c6c2fe;
+  --palette-tertiary-400: #afa7fd;
+  --palette-tertiary-500: #9b8cff;
+  --palette-tertiary-600: #7f6fdd;
+  --palette-tertiary-700: #6455b6;
+  --palette-tertiary-800: #4b3d8e;
+  --palette-tertiary-900: #352b67;
+  --palette-tertiary-950: #1e1642;
+  --palette-neutral-50: #f9f9ff;
+  --palette-neutral-100: #f1f1f8;
+  --palette-neutral-200: #e1e2ef;
+  --palette-neutral-300: #c6c6d3;
+  --palette-neutral-400: #a3a3ba;
+  --palette-neutral-500: #888894;
+  --palette-neutral-600: #6b6b84;
+  --palette-neutral-700: #51515c;
+  --palette-neutral-800: #313235;
+  --palette-neutral-900: #242528;
+  --palette-neutral-950: #1a1a1a;
+  --palette-red-50: #fff4f3;
+  --palette-red-100: #ffe4e2;
+  --palette-red-200: #fec8c5;
+  --palette-red-300: #fe9f9a;
+  --palette-red-400: #fc6c6b;
+  --palette-red-500: #e5484d;
+  --palette-red-600: #c72d38;
+  --palette-red-700: #a61827;
+  --palette-red-800: #83091a;
+  --palette-red-900: #620812;
+  --palette-red-950: #410208;
+  --palette-amber-50: #fff5e9;
+  --palette-amber-100: #ffedd8;
+  --palette-amber-200: #ffe0ba;
+  --palette-amber-300: #fecd8e;
+  --palette-amber-400: #feb752;
+  --palette-amber-500: #f5a623;
+  --palette-amber-600: #ca8606;
+  --palette-amber-700: #9e6802;
+  --palette-amber-800: #744c04;
+  --palette-amber-900: #523300;
+  --palette-amber-950: #2e1b00;
+  --palette-green-50: #ebfcf1;
+  --palette-green-100: #d5f3e0;
+  --palette-green-200: #b0e5c5;
+  --palette-green-300: #82cea3;
+  --palette-green-400: #56b482;
+  --palette-green-500: #2b9a66;
+  --palette-green-600: #038251;
+  --palette-green-700: #096941;
+  --palette-green-800: #045131;
+  --palette-green-900: #033c23;
+  --palette-green-950: #002715;
+  --palette-white: #ffffff;
+  --palette-black: #000000;
+  --palette-data-pink: #e0459f;
+  --palette-data-cyan: #1fb5dc;
+
+  /* Foundations */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-0-5: 2px;
+  --space-2-5: 10px;
+  --corner-xs: 4px;
+  --corner-sm: 8px;
+  --corner-md: 10px;
+  --corner-lg: 12px;
+  --corner-xl: 20px;
+  --corner-full: 9999px;
+  --size-card-padding: 22px;
+  --size-control-sm: 32px;
+  --size-control-md: 40px;
+  --size-control-lg: 48px;
+  --size-sidebar-width: 240px;
+  --size-sidebar-width-collapsed: 72px;
+  --font-family: 'Special Gothic', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-size-2xs: 11px;
+  --line-height-2xs: 16px;
+  --font-size-xs: 12px;
+  --line-height-xs: 16px;
+  --font-size-sm: 13px;
+  --line-height-sm: 20px;
+  --font-size-base: 14px;
+  --line-height-base: 22px;
+  --font-size-md: 16px;
+  --line-height-md: 24px;
+  --font-size-lg: 20px;
+  --line-height-lg: 28px;
+  --font-size-xl: 24px;
+  --line-height-xl: 32px;
+  --font-size-2xl: 32px;
+  --line-height-2xl: 40px;
+  --font-size-3xl: 44px;
+  --line-height-3xl: 52px;
+  --font-size-4xl: 56px;
+  --line-height-4xl: 64px;
+  --font-size-5xl: 72px;
+  --line-height-5xl: 80px;
+  --blur-card: 28px;
+  --motion-duration-fast: 0.12s;
+  --motion-duration-base: 0.2s;
+  --motion-duration-slow: 0.32s;
+  --opacity-disabled: 0.4;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+:root, [data-theme="light"] {
+  color-scheme: light;
+  --surface-background: #f9f9ff;
+  --surface-foreground: #1a1a1a;
+  --surface-card: #ffffff;
+  --surface-card-foreground: #1a1a1a;
+  --surface-popover: #ffffff;
+  --surface-popover-foreground: #1a1a1a;
+  --surface-muted: #f1f1f8;
+  --surface-muted-foreground: #6b6b84;
+  --surface-secondary: #f1f1f8;
+  --surface-secondary-foreground: #242528;
+  --surface-accent: #ffe8e0;
+  --surface-accent-strong: #fed4c4;
+  --surface-accent-foreground: #aa420b;
+  --primary-primary: #f27743;
+  --primary-primary-foreground: #1a1a1a;
+  --primary-primary-hover: #ff834e;
+  --primary-primary-active: #cf5a25;
+  --primary-primary-text: #aa420b;
+  --line-border: rgba(26,26,26,0.122);
+  --line-input: rgba(26,26,26,0.22);
+  --line-ring: rgba(242,119,67,0.549);
+  --line-placeholder: #888894;
+  --line-gridline: rgba(26,26,26,0.078);
+  --brand-secondary-brand-secondary: #2863e2;
+  --brand-secondary-brand-secondary-foreground: #ffffff;
+  --brand-secondary-brand-secondary-hover: #194dbe;
+  --brand-secondary-brand-secondary-subtle: rgba(61,123,255,0.122);
+  --brand-secondary-brand-secondary-border: rgba(61,123,255,0.322);
+  --brand-secondary-brand-secondary-text: #2863e2;
+  --brand-tertiary-brand-tertiary: #9b8cff;
+  --brand-tertiary-brand-tertiary-foreground: #1a1a1a;
+  --brand-tertiary-brand-tertiary-subtle: rgba(155,140,255,0.122);
+  --brand-tertiary-brand-tertiary-border: rgba(155,140,255,0.322);
+  --brand-tertiary-brand-tertiary-text: #6455b6;
+  --status-destructive: #c72d38;
+  --status-destructive-foreground: #ffffff;
+  --status-destructive-subtle: rgba(229,72,77,0.122);
+  --status-destructive-border: rgba(229,72,77,0.322);
+  --status-destructive-text: #c72d38;
+  --status-warning: #f5a623;
+  --status-warning-foreground: #1a1a1a;
+  --status-warning-subtle: rgba(245,166,35,0.122);
+  --status-warning-border: rgba(245,166,35,0.322);
+  --status-warning-text: #9e6802;
+  --status-success: #038251;
+  --status-success-foreground: #ffffff;
+  --status-success-subtle: rgba(43,154,102,0.122);
+  --status-success-border: rgba(43,154,102,0.322);
+  --status-success-text: #038251;
+  --status-info: #2863e2;
+  --status-info-foreground: #ffffff;
+  --status-info-subtle: rgba(61,123,255,0.122);
+  --status-info-border: rgba(61,123,255,0.322);
+  --status-info-text: #2863e2;
+  --chart-chart-1: #f27743;
+  --chart-chart-2: #3d7bff;
+  --chart-chart-3: #9b8cff;
+  --chart-chart-4: #e0459f;
+  --chart-chart-5: #1fb5dc;
+  --sidebar-sidebar: #ffffff;
+  --sidebar-sidebar-foreground: #1a1a1a;
+  --sidebar-sidebar-primary: #f27743;
+  --sidebar-sidebar-primary-foreground: #1a1a1a;
+  --sidebar-sidebar-accent: #ffe8e0;
+  --sidebar-sidebar-accent-foreground: #aa420b;
+  --sidebar-sidebar-border: rgba(26,26,26,0.122);
+  --sidebar-sidebar-ring: rgba(242,119,67,0.549);
+  --component-button-secondary-border: rgba(26,26,26,0.141);
+  --component-hero-card-bg: #f27743;
+  --component-hero-card-foreground: #1a1a1a;
+  --component-texture-tint: #7f6fdd;
+  --component-scrim: rgba(26,26,26,0.451);
+  --elevation-sm-color: rgba(26,26,26,0.078);
+  --elevation-md-color: rgba(26,26,26,0.102);
+  --elevation-lg-color: rgba(26,26,26,0.161);
+  --chart-chart-1-subtle: rgba(242,119,67,0.149);
+  --chart-chart-1-border: rgba(242,119,67,0.141);
+  --chart-chart-2-subtle: rgba(61,123,255,0.149);
+  --chart-chart-2-border: rgba(61,123,255,0.141);
+  --chart-chart-3-subtle: rgba(155,140,255,0.149);
+  --chart-chart-3-border: rgba(155,140,255,0.141);
+  --chart-chart-4-subtle: rgba(224,69,159,0.149);
+  --chart-chart-4-border: rgba(224,69,159,0.141);
+  --chart-chart-5-subtle: rgba(31,181,220,0.149);
+  --chart-chart-5-border: rgba(31,181,220,0.141);
+  --button-primary-bg: #f27743;
+  --button-primary-bg-hover: #ff834e;
+  --button-primary-bg-pressed: #cf5a25;
+  --button-primary-fg: #3a1000;
+  --button-secondary-bg: rgba(26,26,26,0.05);
+  --button-secondary-bg-hover: rgba(26,26,26,0.09);
+  --button-secondary-bg-pressed: rgba(26,26,26,0.13);
+  --button-secondary-border: rgba(26,26,26,0.12);
+  --button-secondary-border-hover: rgba(26,26,26,0.2);
+  --button-secondary-fg: #1a1a1a;
+  --button-brand-bg: #2863e2;
+  --button-brand-bg-hover: #3d7bff;
+  --button-brand-bg-pressed: #194dbe;
+  --button-brand-fg: #f1f1f8;
+  --button-tertiary-bg: #9b8cff;
+  --button-tertiary-bg-hover: #afa7fd;
+  --button-tertiary-bg-pressed: #7f6fdd;
+  --button-tertiary-fg: #352b67;
+  --button-destructive-bg: #c72d38;
+  --button-destructive-bg-hover: #e5484d;
+  --button-destructive-bg-pressed: #a61827;
+  --button-destructive-fg: #f9f9ff;
+  --button-ghost-bg-hover: rgba(26,26,26,0.06);
+  --button-ghost-bg-pressed: rgba(26,26,26,0.1);
+  --button-ghost-fg: #1a1a1a;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --surface-background: #1a1a1a;
+  --surface-foreground: #f1f1f8;
+  --surface-card: #242528;
+  --surface-card-foreground: #f1f1f8;
+  --surface-popover: #242528;
+  --surface-popover-foreground: #f1f1f8;
+  --surface-muted: #313235;
+  --surface-muted-foreground: #a3a3ba;
+  --surface-secondary: #313235;
+  --surface-secondary-foreground: #f1f1f8;
+  --surface-accent: rgba(247,112,54,0.102);
+  --surface-accent-strong: rgba(247,112,54,0.2);
+  --surface-accent-foreground: #ff834e;
+  --primary-primary: #f27743;
+  --primary-primary-foreground: #1a1a1a;
+  --primary-primary-hover: #ff834e;
+  --primary-primary-active: #cf5a25;
+  --primary-primary-text: #ff834e;
+  --line-border: rgba(255,255,255,0.071);
+  --line-input: rgba(255,255,255,0.141);
+  --line-ring: rgba(242,119,67,0.549);
+  --line-placeholder: #6b6b84;
+  --line-gridline: rgba(255,255,255,0.078);
+  --brand-secondary-brand-secondary: #2863e2;
+  --brand-secondary-brand-secondary-foreground: #ffffff;
+  --brand-secondary-brand-secondary-hover: #194dbe;
+  --brand-secondary-brand-secondary-subtle: rgba(61,123,255,0.161);
+  --brand-secondary-brand-secondary-border: rgba(61,123,255,0.322);
+  --brand-secondary-brand-secondary-text: #6a9cfe;
+  --brand-tertiary-brand-tertiary: #9b8cff;
+  --brand-tertiary-brand-tertiary-foreground: #1a1a1a;
+  --brand-tertiary-brand-tertiary-subtle: rgba(155,140,255,0.161);
+  --brand-tertiary-brand-tertiary-border: rgba(155,140,255,0.322);
+  --brand-tertiary-brand-tertiary-text: #afa7fd;
+  --status-destructive: #c72d38;
+  --status-destructive-foreground: #ffffff;
+  --status-destructive-subtle: rgba(229,72,77,0.161);
+  --status-destructive-border: rgba(229,72,77,0.322);
+  --status-destructive-text: #fc6c6b;
+  --status-warning: #f5a623;
+  --status-warning-foreground: #1a1a1a;
+  --status-warning-subtle: rgba(245,166,35,0.161);
+  --status-warning-border: rgba(245,166,35,0.322);
+  --status-warning-text: #feb752;
+  --status-success: #038251;
+  --status-success-foreground: #ffffff;
+  --status-success-subtle: rgba(43,154,102,0.161);
+  --status-success-border: rgba(43,154,102,0.322);
+  --status-success-text: #56b482;
+  --status-info: #2863e2;
+  --status-info-foreground: #ffffff;
+  --status-info-subtle: rgba(61,123,255,0.161);
+  --status-info-border: rgba(61,123,255,0.322);
+  --status-info-text: #6a9cfe;
+  --chart-chart-1: #f27743;
+  --chart-chart-2: #3d7bff;
+  --chart-chart-3: #9b8cff;
+  --chart-chart-4: #e0459f;
+  --chart-chart-5: #1fb5dc;
+  --sidebar-sidebar: #242528;
+  --sidebar-sidebar-foreground: #f1f1f8;
+  --sidebar-sidebar-primary: #f27743;
+  --sidebar-sidebar-primary-foreground: #1a1a1a;
+  --sidebar-sidebar-accent: rgba(247,112,54,0.102);
+  --sidebar-sidebar-accent-foreground: #ff834e;
+  --sidebar-sidebar-border: rgba(255,255,255,0.071);
+  --sidebar-sidebar-ring: rgba(242,119,67,0.549);
+  --component-button-secondary-border: rgba(255,255,255,0.078);
+  --component-hero-card-bg: #f27743;
+  --component-hero-card-foreground: #1a1a1a;
+  --component-texture-tint: #d7cdff;
+  --component-scrim: rgba(0,0,0,0.6);
+  --elevation-sm-color: rgba(0,0,0,0.302);
+  --elevation-md-color: rgba(0,0,0,0.349);
+  --elevation-lg-color: rgba(0,0,0,0.451);
+  --chart-chart-1-subtle: rgba(242,119,67,0.149);
+  --chart-chart-1-border: rgba(242,119,67,0.141);
+  --chart-chart-2-subtle: rgba(61,123,255,0.149);
+  --chart-chart-2-border: rgba(61,123,255,0.141);
+  --chart-chart-3-subtle: rgba(155,140,255,0.149);
+  --chart-chart-3-border: rgba(155,140,255,0.141);
+  --chart-chart-4-subtle: rgba(224,69,159,0.149);
+  --chart-chart-4-border: rgba(224,69,159,0.141);
+  --chart-chart-5-subtle: rgba(31,181,220,0.149);
+  --chart-chart-5-border: rgba(31,181,220,0.141);
+  --button-primary-bg: #f27743;
+  --button-primary-bg-hover: #ff834e;
+  --button-primary-bg-pressed: #cf5a25;
+  --button-primary-fg: #3a1000;
+  --button-secondary-bg: rgba(255,255,255,0.06);
+  --button-secondary-bg-hover: rgba(255,255,255,0.1);
+  --button-secondary-bg-pressed: rgba(255,255,255,0.03);
+  --button-secondary-border: rgba(255,255,255,0.08);
+  --button-secondary-border-hover: rgba(255,255,255,0.16);
+  --button-secondary-fg: #f1f1f8;
+  --button-brand-bg: #2863e2;
+  --button-brand-bg-hover: #3d7bff;
+  --button-brand-bg-pressed: #194dbe;
+  --button-brand-fg: #f1f1f8;
+  --button-tertiary-bg: #9b8cff;
+  --button-tertiary-bg-hover: #afa7fd;
+  --button-tertiary-bg-pressed: #7f6fdd;
+  --button-tertiary-fg: #352b67;
+  --button-destructive-bg: #c72d38;
+  --button-destructive-bg-hover: #e5484d;
+  --button-destructive-bg-pressed: #a61827;
+  --button-destructive-fg: #f9f9ff;
+  --button-ghost-bg-hover: rgba(255,255,255,0.06);
+  --button-ghost-bg-pressed: rgba(255,255,255,0.1);
+  --button-ghost-fg: #f1f1f8;
+}
+
+/* 'System' mode is handled in JS: set data-theme from matchMedia('(prefers-color-scheme: dark)'). */
+body{margin:0;padding:32px;font-family:var(--font-family);font-size:14px;line-height:22px;background:#f4f4f8;color:#1a1a1a;max-width:1000px}
+h1{font-size:24px;margin:0 0 4px} h2{font-size:17px;margin:0 0 6px}
+section{background:#fff;border:1px solid #e1e2ef;border-radius:16px;padding:20px;margin:20px 0}
+p{margin:4px 0} .where{color:#51515c} code{font-size:12px;background:#f1f1f8;padding:1px 4px;border-radius:4px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.colhead{font-size:12px;font-weight:600;text-transform:uppercase;color:#6b6b84}
+.panel{position:relative;background:var(--surface-background);color:var(--surface-foreground);border-radius:12px;padding:28px 18px 14px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;min-height:90px}
+.panel .tag{position:absolute;top:6px;left:10px;font-size:11px;color:var(--surface-muted-foreground)}
+.ratios{flex-basis:100%;font-size:12px;color:var(--surface-muted-foreground)} .ratios b.fail{color:var(--status-destructive-text)} .ratios b.pass{color:var(--status-success-text)}
+.btn{height:40px;padding:0 16px;border-radius:10px;border:1px solid var(--button-secondary-border);background:var(--button-secondary-bg);color:var(--button-secondary-fg);font:inherit;font-weight:500}
+.ring{outline:2px solid;outline-offset:2px}
+.av{display:inline-flex;width:32px;height:32px;border-radius:50%;align-items:center;justify-content:center;font-size:12px;font-weight:600}
+.tile-muted{background:var(--surface-muted);border-radius:12px;padding:10px 14px;display:flex;gap:8px;align-items:baseline}
+.big{font-size:20px} .muted{color:var(--surface-muted-foreground)} .small{font-size:12px}
+.rowtint{background:var(--surface-accent);box-shadow:inset 2px 0 0 var(--primary-primary);padding:10px 14px;border-radius:4px}
+.row{display:flex;gap:20px;align-items:center;font-size:13px;line-height:18px;flex:1}
+.conflict{background:var(--surface-card);padding:12px;border-radius:12px;flex:1}
+.conflict{background:linear-gradient(var(--status-warning-subtle),var(--status-warning-subtle)),var(--surface-card);border:1px solid var(--status-warning-border)}
+.badge{display:inline-flex;height:22px;align-items:center;padding:0 8px;border-radius:8px;font-size:11px;font-weight:500;background:var(--status-warning-subtle);border:1px solid var(--status-warning-border)}
+.chip{display:inline-flex;height:28px;align-items:center;padding:0 10px;border-radius:8px;color:var(--surface-accent-foreground);font-size:13px}
+.page{display:inline-flex;width:32px;height:32px;align-items:center;justify-content:center;border-radius:8px;color:var(--surface-accent-foreground)}
+.ptile{display:flex;flex-direction:column;gap:8px;width:240px;padding:14px;border:1px solid var(--line-border);border-radius:14px}
+</style></head><body>
+<h1>Theme audit: decisions needed</h1>
+<p>Drawn with the prototype's real tokens (<code>src/styles/tokens.css</code>), not screenshots. The number under each sample is measured live in this page; the target is 4.5:1 for text and 3:1 for focus rings. Nothing on this page has been changed in the app yet.</p>
+
+<section>
+  <h2>1. Focus ring is too faint (both themes)</h2>
+  <p class="where"><b>Where:</b> Every button, tab, link and field (global focus ring, plus Button, Tabs, Chip, Checkbox, ThemeSwitch).</p>
+  <p><code>--line-ring</code> is orange at 55% opacity. A focus indicator needs 3:1 against what is next to it. Proposal: draw the ring in <code>--primary-primary-text</code> (deep orange in Light, bright orange in Dark), same 2px gap + 2px ring. Ideally the <code>line/ring</code> token itself changes in the Figma theme.</p>
+  <div class="grid"><div class="colhead">Before</div><div class="colhead">After (proposal)</div>
+  <div class="panel" data-theme="light"><div class="tag">light</div><button class="btn ring" style="outline-color:var(--line-ring)" data-measure="outline">Save search</button><div class="ratios"></div></div><div class="panel" data-theme="light"><div class="tag">light</div><button class="btn ring" style="outline-color:var(--primary-primary-text)" data-measure="outline">Save search</button><div class="ratios"></div></div><div class="panel" data-theme="dark"><div class="tag">dark</div><button class="btn ring" style="outline-color:var(--line-ring)" data-measure="outline">Save search</button><div class="ratios"></div></div><div class="panel" data-theme="dark"><div class="tag">dark</div><button class="btn ring" style="outline-color:var(--primary-primary-text)" data-measure="outline">Save search</button><div class="ratios"></div></div>
+  </div>
+</section>
+<section>
+  <h2>2. White initials on blue and pink avatars (both themes)</h2>
+  <p class="where"><b>Where:</b> Avatar tones 2 and 4: the signed-in user (IFPI user, Dev), people on Rules and Country pages. Tones 1 and 3 already use dark initials.</p>
+  <p>White on <code>--chart-chart-4</code> pink is 3.8:1 and on <code>--chart-chart-2</code> blue 3.8:1 (needs 4.5:1). Proposal: dark initials (<code>--primary-primary-foreground</code>) on every tone, so all four match.</p>
+  <div class="grid"><div class="colhead">Before</div><div class="colhead">After (proposal)</div>
+  <div class="panel" data-theme="dark"><div class="tag">dark</div><span class="av" style="background:var(--chart-chart-4);color:var(--brand-secondary-brand-secondary-foreground)" data-measure>IU</span><span class="av" style="background:var(--chart-chart-2);color:var(--brand-secondary-brand-secondary-foreground)" data-measure>DE</span><div class="ratios"></div></div><div class="panel" data-theme="dark"><div class="tag">dark</div><span class="av" style="background:var(--chart-chart-4);color:var(--primary-primary-foreground)" data-measure>IU</span><span class="av" style="background:var(--chart-chart-2);color:var(--primary-primary-foreground)" data-measure>DE</span><div class="ratios"></div></div>
+  </div>
+</section>
+<section>
+  <h2>3. Green "up" text is slightly too light (Light only)</h2>
+  <p class="where"><b>Where:</b> Delta on stat tiles (Song, Artist, Country headers) and the Change column in a selected row.</p>
+  <p><code>--status-success-text</code> in Light is green-600 <code>#038251</code>: 4.3:1 on a muted tile and 4.1:1 on a selected row. This is a <b>token value</b> (I have not edited tokens). Proposal: green-700 <code>#096941</code> for Light <code>status/success-text</code> in Figma. Dark is fine.</p>
+  <div class="grid"><div class="colhead">Before</div><div class="colhead">After (proposal)</div>
+  <div class="panel" data-theme="light"><div class="tag">light</div><div class="tile-muted"><b class="big">14.31M</b><span style="color:var(--status-success-text)" data-measure>5.8% ↑</span> <span class="muted">vs last week</span></div><div class="rowtint"><span style="color:var(--status-success-text)" data-measure>9% ↑</span></div><div class="ratios"></div></div><div class="panel" data-theme="light"><div class="tag">light</div><div class="tile-muted"><b class="big">14.31M</b><span style="color:var(--palette-green-700)" data-measure>5.8% ↑</span> <span class="muted">vs last week</span></div><div class="rowtint"><span style="color:var(--palette-green-700)" data-measure>9% ↑</span></div><div class="ratios"></div></div>
+  </div>
+</section>
+<section>
+  <h2>4. Amber badge text is slightly too light (Light only)</h2>
+  <p class="where"><b>Where:</b> "Conflict" chip and the "In Progress" badge in the rights conflict card (Data split view).</p>
+  <p><code>--status-warning-text</code> in Light is amber-700 <code>#9e6802</code>: 4.0 to 4.4:1 on the amber tints (the in-app card is the 4.0 end). Also a <b>token value</b>. Proposal: amber-800 <code>#744c04</code> for Light <code>status/warning-text</code>.</p>
+  <div class="grid"><div class="colhead">Before</div><div class="colhead">After (proposal)</div>
+  <div class="panel" data-theme="light"><div class="tag">light</div><div class="conflict"><span class="badge" style="color:var(--status-warning-text)" data-measure>In Progress</span></div><div class="ratios"></div></div><div class="panel" data-theme="light"><div class="tag">light</div><div class="conflict"><span class="badge" style="color:var(--palette-amber-800)" data-measure>In Progress</span></div><div class="ratios"></div></div>
+  </div>
+</section>
+<section>
+  <h2>5. Orange chip and current page number (Light only)</h2>
+  <p class="where"><b>Where:</b> Market chip on Data and entity pages; current page in Pagination.</p>
+  <p>Deep orange text on <code>--surface-accent-strong</code> is 4.4:1. Proposal: use the paler <code>--surface-accent</code> fill in these two components (5.1:1). In Dark nothing changes visibly: both fills read as orange tint.</p>
+  <div class="grid"><div class="colhead">Before</div><div class="colhead">After (proposal)</div>
+  <div class="panel" data-theme="light"><div class="tag">light</div><span class="chip" style="background:var(--surface-accent-strong)" data-measure>Market: UK, FR, DE +5 ✕</span> <span class="page" style="background:var(--surface-accent-strong)" data-measure>1</span><div class="ratios"></div></div><div class="panel" data-theme="light"><div class="tag">light</div><span class="chip" style="background:var(--surface-accent)" data-measure>Market: UK, FR, DE +5 ✕</span> <span class="page" style="background:var(--surface-accent)" data-measure>1</span><div class="ratios"></div></div>
+  </div>
+</section>
+<section>
+  <h2>6. Grey text in a selected table row (Light only)</h2>
+  <p class="where"><b>Where:</b> Date, ISRC, market and licensor columns of the selected row (Data, all tabs).</p>
+  <p>Muted grey on the orange 12% row is 4.4:1, just under 4.5:1. Two options: accept it (it is marginal and only on one row), or make secondary text in the selected row use the normal text colour.</p>
+  <div class="grid"><div class="colhead">Before</div><div class="colhead">After (proposal)</div>
+  <div class="panel" data-theme="light"><div class="tag">light</div><div class="rowtint row"><span class="muted" data-measure>14 Oct</span><span><b>Glass Orchard</b><br><span class="muted small" data-measure>XAK7Q1100042</span></span><span class="muted" data-measure>Quillfern Records</span></div><div class="ratios"></div></div><div class="panel" data-theme="light"><div class="tag">light</div><div class="rowtint row"><span data-measure>14 Oct</span><span><b>Glass Orchard</b><br><span class="small" data-measure>XAK7Q1100042</span></span><span data-measure>Quillfern Records</span></div><div class="ratios"></div></div>
+  </div>
+</section>
+<section>
+  <h2>7. Saved prompt tiles look disabled (Light only)</h2>
+  <p class="where"><b>Where:</b> Ask home, "Saved prompts" row.</p>
+  <p>The tiles use a glass gradient (secondary button fills) that reads as glass on dark but as flat grey on light, next to white cards elsewhere. Text contrast passes; this is a look-and-feel call. Proposal: white card fill (<code>--surface-card</code>) with the normal border in Light; Dark stays as designed.</p>
+  <div class="grid"><div class="colhead">Before</div><div class="colhead">After (proposal)</div>
+  <div class="panel" data-theme="light"><div class="tag">light</div><div class="ptile" style="background:linear-gradient(123deg, var(--button-secondary-bg-hover) 7%, var(--button-secondary-bg) 80%)"><b>Weekly roster summary</b><span class="muted">What moved on my roster this week, by market.</span><span class="muted small">Last run today</span></div><div class="ratios"></div></div><div class="panel" data-theme="light"><div class="tag">light</div><div class="ptile" style="background:var(--surface-card)"><b>Weekly roster summary</b><span class="muted">What moved on my roster this week, by market.</span><span class="muted small">Last run today</span></div><div class="ratios"></div></div>
+  </div>
+</section>
+<script>
+const parse=s=>{const m=s.match(/rgba?\(([^)]+)\)/);if(!m)return null;const p=m[1].split(/[ ,/]+/).filter(Boolean).map(Number);return [p[0],p[1],p[2],p[3]??1]};
+const over=(t,b)=>[0,1,2].map(i=>t[i]*t[3]+b[i]*(1-t[3])).concat(1);
+const lum=c=>{const f=v=>{v/=255;return v<=0.03928?v/12.92:((v+0.055)/1.055)**2.4};return .2126*f(c[0])+.7152*f(c[1])+.0722*f(c[2])};
+const ratio=(a,b)=>{const x=lum(a),y=lum(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05)};
+const bgOf=el=>{const L=[];let n=el;while(n&&n.nodeType===1){const c=parse(getComputedStyle(n).backgroundColor);if(c&&c[3]>0){L.push(c);if(c[3]>=1)break}n=n.parentElement}let bg=[255,255,255,1];for(let i=L.length-1;i>=0;i--)bg=over(L[i],bg);return bg};
+for(const panel of document.querySelectorAll('.panel')){const out=[];for(const el of panel.querySelectorAll('[data-measure]')){const ring=el.dataset.measure==='outline';const bg=ring?bgOf(el.parentElement):bgOf(el);const fg=over(parse(getComputedStyle(el)[ring?'outlineColor':'color']),bg);const r=ratio(fg,bg);const need=ring?3:4.5;out.push('<b class="'+(r>=need?'pass':'fail')+'">'+r.toFixed(2)+':1</b>'+(ring?' ring':''))}panel.querySelector('.ratios').innerHTML=out.join(' · ')}
+</script></body></html>
