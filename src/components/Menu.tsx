@@ -1,6 +1,7 @@
 import { useEffect, useId, useRef, useState, type KeyboardEvent, type ReactNode, type Ref } from 'react';
 import { Check, type LucideIcon } from 'lucide-react';
 import { cx } from '../lib/cx';
+import { firstFocusable } from '../lib/focusTrap';
 import styles from './Menu.module.css';
 
 export interface MenuItem {
@@ -38,7 +39,7 @@ export interface MenuProps {
   header?: ReactNode;
   /** Small uppercase label above the options. */
   sectionLabel?: string;
-  /** Content below the options, e.g. the Appearance switch. Not part of arrow-key movement. */
+  /** Content below the options, e.g. the Appearance switch. Reached with Tab, not the arrow keys. */
   footer?: ReactNode;
   align?: 'start' | 'end';
   width?: number;
@@ -110,10 +111,28 @@ export default function Menu({
   };
 
   const listRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLDivElement>(null);
 
   const onMenuKeyDown = (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
       event.preventDefault();
+      close();
+      return;
+    }
+    // Tab moves between the options and the footer (e.g. the Appearance switch); leaving either end closes.
+    if (event.key === 'Tab' && footerRef.current) {
+      const inFooter = footerRef.current.contains(event.target as Node);
+      if (!inFooter && !event.shiftKey) {
+        event.preventDefault();
+        (footerRef.current.querySelector<HTMLElement>('input:checked') ?? firstFocusable(footerRef.current))?.focus();
+        return;
+      }
+      if (inFooter && event.shiftKey) {
+        event.preventDefault();
+        focusItem(active >= 0 ? active : enabled[0]);
+        return;
+      }
+      // Back on the button first, so the browser's own Tab carries on from there.
       close();
       return;
     }
@@ -193,7 +212,9 @@ export default function Menu({
           {footer && (
             <>
               <div className={styles.divider} role="separator" />
-              <div className={styles.footer}>{footer}</div>
+              <div ref={footerRef} className={styles.footer}>
+                {footer}
+              </div>
             </>
           )}
         </div>

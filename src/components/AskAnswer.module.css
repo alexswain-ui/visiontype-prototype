@@ -24,7 +24,7 @@
 
 .sparkle {
   flex-shrink: 0;
-  color: var(--brand-tertiary-brand-tertiary);
+  color: var(--brand-tertiary-brand-tertiary-text);
 }
 
 .summary {
