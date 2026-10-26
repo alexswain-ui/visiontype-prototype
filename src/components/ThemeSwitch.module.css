@@ -1,0 +1,44 @@
+.root {
+  display: inline-flex;
+  gap: var(--space-1);
+  margin: 0;
+  padding: var(--space-1);
+  border: 0;
+  border-radius: var(--corner-lg);
+  background: var(--surface-secondary);
+}
+
+.option {
+  display: flex;
+  cursor: pointer;
+}
+
+.segment {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--size-control-sm);
+  padding: 0 var(--space-3);
+  border-radius: var(--corner-sm);
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  font-weight: var(--font-weight-medium);
+  transition: background-color var(--motion-duration-fast) var(--ease-standard),
+    color var(--motion-duration-fast) var(--ease-standard);
+}
+
+.option:hover .segment {
+  color: var(--surface-secondary-foreground);
+}
+
+.input:checked + .segment {
+  background: var(--surface-background);
+  color: var(--surface-foreground);
+  box-shadow: 0 var(--space-0-5) var(--space-2) var(--elevation-sm-color);
+}
+
+.input:focus-visible + .segment {
+  outline: 2px solid var(--line-ring);
+  outline-offset: 2px;
+}
