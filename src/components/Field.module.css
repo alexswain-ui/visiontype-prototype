@@ -69,6 +69,12 @@
   line-height: var(--line-height-base);
 }
 
+/* The field box shows focus (2px orange border), so the input itself draws no ring. */
+.input:focus,
+.input:focus-visible {
+  outline: none;
+}
+
 .input::placeholder {
   color: var(--line-placeholder);
   opacity: 1;
