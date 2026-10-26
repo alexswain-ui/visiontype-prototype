@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState, type KeyboardEvent } from 'react';
+import { useEffect, useId, useLayoutEffect, useRef, useState, type KeyboardEvent } from 'react';
 import { Check, ChevronDown, ChevronRight } from 'lucide-react';
 import { ask } from '../lib/ask';
 import { cx } from '../lib/cx';
@@ -12,12 +12,15 @@ export interface ModelPickerProps {
 
 /**
  * Model selector in the Ask composer (Figma "Model selector" and "Model menu", Ask · 4). Visual only:
- * the choice changes the label, never the answer. Opens upwards. Arrow keys move, Enter picks, Esc closes.
+ * the choice changes the label, never the answer. Opens upwards, or downwards when there is no room above.
+ * Arrow keys move, Enter picks, Esc closes.
  */
 export default function ModelPicker({ value, onChange }: ModelPickerProps) {
   const id = useId();
   const notInPrototype = useNotInPrototype();
   const [open, setOpen] = useState(false);
+  const [below, setBelow] = useState(false);
+  const popoverRef = useRef<HTMLDivElement>(null);
   const rootRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const itemRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -37,6 +40,16 @@ export default function ModelPicker({ value, onChange }: ModelPickerProps) {
     setOpen(false);
     if (returnFocus) triggerRef.current?.focus();
   };
+
+  // Flip below the composer before paint if the menu would run off the top of the window.
+  useLayoutEffect(() => {
+    if (!open) {
+      setBelow(false);
+      return;
+    }
+    const top = popoverRef.current?.getBoundingClientRect().top ?? 0;
+    if (top < 0) setBelow(true);
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
@@ -85,7 +98,14 @@ export default function ModelPicker({ value, onChange }: ModelPickerProps) {
       </button>
 
       {open && (
-        <div id={id} role="menu" aria-label="Choose a model" className={styles.popover} onKeyDown={onMenuKeyDown}>
+        <div
+          ref={popoverRef}
+          id={id}
+          role="menu"
+          aria-label="Choose a model"
+          className={cx(styles.popover, below && styles.below)}
+          onKeyDown={onMenuKeyDown}
+        >
           {ask.home.modelGroups.map((group, g) => (
             <div key={group.label} role="group" aria-label={group.label} className={styles.group}>
               {g > 0 && <div className={styles.divider} role="separator" />}
