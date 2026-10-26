@@ -1,0 +1,104 @@
+.frame {
+  position: relative;
+  height: 100%;
+  min-width: 0;
+}
+
+.content {
+  height: 100%;
+}
+
+/* Figma hides the widget's own header controls (See All, Artists) while editing. */
+.content [data-widget-action] {
+  visibility: hidden;
+}
+
+/* Figma "Edit / scrim": dims the widget while editing. */
+.scrim {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--corner-xl);
+  background: var(--component-scrim);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* Figma "Edit / outline": 1.5px dashed blue; solid 2px when selected. */
+.outline {
+  position: absolute;
+  inset: 0;
+  border: 1.5px dashed var(--brand-secondary-brand-secondary-border);
+  border-radius: var(--corner-xl);
+  pointer-events: none;
+  transition: border-color var(--motion-duration-fast) var(--ease-standard);
+}
+
+.frame:hover .outline,
+.frame:focus-within .outline {
+  border-color: var(--brand-secondary-brand-secondary);
+}
+
+.selected .outline {
+  border: 2px solid var(--brand-secondary-brand-secondary);
+}
+
+.handle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-6);
+  height: var(--space-6);
+  padding: 0;
+  border: 0;
+  border-radius: var(--corner-sm);
+  color: var(--button-brand-fg);
+  cursor: pointer;
+  transition: background-color var(--motion-duration-fast) var(--ease-standard);
+}
+
+.move {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-3);
+  cursor: grab;
+}
+
+.move:active {
+  cursor: grabbing;
+}
+
+.move,
+.resize {
+  background: var(--button-brand-bg);
+}
+
+.move:hover,
+.resize:hover {
+  background: var(--button-brand-bg-hover);
+}
+
+.move:active,
+.resize:active {
+  background: var(--button-brand-bg-pressed);
+}
+
+.remove {
+  background: var(--button-destructive-bg);
+  color: var(--button-destructive-fg);
+}
+
+.remove:hover {
+  background: var(--button-destructive-bg-hover);
+}
+
+.remove:active {
+  background: var(--button-destructive-bg-pressed);
+}
+
+.tools {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-3);
+  display: flex;
+  gap: var(--space-2);
+}

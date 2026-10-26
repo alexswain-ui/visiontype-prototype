@@ -5,12 +5,11 @@ import { useUser } from './lib/user';
 import DataPage from './pages/data/DataPage';
 import EntityPage from './pages/EntityPage';
 import Gallery from './pages/Gallery';
+import CustomisePage from './pages/dashboard/CustomisePage';
+import DashboardPage from './pages/dashboard/DashboardPage';
 import RulesPage from './pages/RulesPage';
 import {
   AskPage,
-  CustomisePage,
-  CustomWidgetPage,
-  DashboardPage,
 } from './pages/placeholders';
 
 /** Rules is only for the IFPI user; anyone else goes to their own landing page. */
@@ -32,8 +31,9 @@ export default function App() {
       <Route element={<AppShell />}>
         <Route path="/" element={<Landing />} />
         <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/dashboard/customise" element={<CustomisePage />} />
-        <Route path="/dashboard/customise/widget" element={<CustomWidgetPage />} />
+        <Route path="/dashboard/customise" element={<CustomisePage />}>
+          <Route path="widget" element={null} />
+        </Route>
 
         {/* One route for all four tabs and their split views, so search and filters survive tab switches. */}
         <Route path="/data/*" element={<DataPage />} />
