@@ -1,0 +1,131 @@
+/* Figma 491:6935: 520px settings column, preview panel fills the rest. */
+.config {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: var(--space-4);
+  width: 520px;
+  padding: var(--space-6) var(--space-8);
+}
+
+.field {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.label {
+  margin: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.pair {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.source {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--line-border);
+  border-radius: var(--corner-lg);
+  background: var(--surface-card);
+}
+
+.sourceIcon {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: var(--space-2);
+  border-radius: var(--corner-md);
+  background: var(--brand-secondary-brand-secondary-subtle);
+  color: var(--brand-secondary-brand-secondary-text);
+}
+
+.sourceText {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-0-5);
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.sourceName {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  font-weight: var(--font-weight-medium);
+}
+
+.sourceDetail {
+  overflow: hidden;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  text-overflow: ellipsis;
+}
+
+.preview {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+  padding: var(--space-6) var(--space-8) var(--space-6) var(--space-6);
+  background: var(--surface-background);
+}
+
+.previewCard {
+  overflow: hidden;
+  border: 1px solid var(--line-border);
+  border-radius: var(--corner-xl);
+  background: var(--surface-card);
+  color: var(--surface-card-foreground);
+}
+
+.previewHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-4) calc(var(--space-3) + var(--space-0-5));
+  border-bottom: 1px solid var(--line-border);
+}
+
+.previewTitle {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  font-weight: var(--font-weight-semibold);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.previewRange {
+  flex-shrink: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+}
+
+.previewEmpty {
+  margin: 0;
+  padding: var(--space-8) var(--space-4);
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-sm);
+  text-align: center;
+}
+
+.previewNote {
+  margin: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}

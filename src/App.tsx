@@ -4,14 +4,13 @@ import AppShell from './components/AppShell';
 import { useUser } from './lib/user';
 import DataPage from './pages/data/DataPage';
 import Gallery from './pages/Gallery';
+import CustomisePage from './pages/dashboard/CustomisePage';
+import DashboardPage from './pages/dashboard/DashboardPage';
 import RulesPage from './pages/RulesPage';
 import {
   ArtistPage,
   AskPage,
   CountryPage,
-  CustomisePage,
-  CustomWidgetPage,
-  DashboardPage,
   SongPage,
 } from './pages/placeholders';
 
@@ -34,8 +33,9 @@ export default function App() {
       <Route element={<AppShell />}>
         <Route path="/" element={<Landing />} />
         <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/dashboard/customise" element={<CustomisePage />} />
-        <Route path="/dashboard/customise/widget" element={<CustomWidgetPage />} />
+        <Route path="/dashboard/customise" element={<CustomisePage />}>
+          <Route path="widget" element={null} />
+        </Route>
 
         {/* One route for all four tabs and their split views, so search and filters survive tab switches. */}
         <Route path="/data/*" element={<DataPage />} />

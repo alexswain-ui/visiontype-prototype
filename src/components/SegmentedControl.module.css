@@ -1,0 +1,91 @@
+.group {
+  display: flex;
+  gap: var(--space-0-5);
+  width: 100%;
+}
+
+.option {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 0 var(--space-2);
+  border: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--motion-duration-fast) var(--ease-standard),
+    color var(--motion-duration-fast) var(--ease-standard),
+    border-color var(--motion-duration-fast) var(--ease-standard);
+}
+
+.option:hover {
+  color: var(--surface-foreground);
+}
+
+.checked {
+  color: var(--surface-foreground);
+  font-weight: var(--font-weight-medium);
+}
+
+/* ---- pill: one bar, chosen option lifted ---- */
+
+.pill {
+  padding: var(--space-0-5);
+  border: 1px solid var(--line-border);
+  border-radius: var(--corner-md);
+  background: var(--surface-background);
+}
+
+.pill .option {
+  height: var(--size-control-sm);
+  border-radius: var(--corner-sm);
+  background: transparent;
+}
+
+.pill .option:hover {
+  background: var(--surface-muted);
+}
+
+.pill .checked,
+.pill .checked:hover {
+  background: var(--surface-secondary);
+}
+
+.pill .option:active {
+  background: var(--surface-accent);
+}
+
+/* ---- tile: separate 72px tiles, chosen one outlined in blue ---- */
+
+.tile {
+  gap: var(--space-2);
+}
+
+.tile .option {
+  flex-direction: column;
+  gap: var(--space-2);
+  height: calc(var(--size-control-lg) + var(--space-6));
+  border: 1px solid var(--line-border);
+  border-radius: var(--corner-lg);
+  background: var(--surface-background);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.tile .option:hover {
+  border-color: var(--line-input);
+}
+
+.tile .option:active {
+  background: var(--surface-muted);
+}
+
+.tile .checked,
+.tile .checked:hover {
+  border: 1.5px solid var(--brand-secondary-brand-secondary);
+  background: var(--brand-secondary-brand-secondary-subtle);
+}
