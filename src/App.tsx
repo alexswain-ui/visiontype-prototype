@@ -4,6 +4,7 @@ import AppShell from './components/AppShell';
 import { useUser } from './lib/user';
 import DataPage from './pages/data/DataPage';
 import Gallery from './pages/Gallery';
+import RulesPage from './pages/RulesPage';
 import {
   ArtistPage,
   AskPage,
@@ -11,7 +12,6 @@ import {
   CustomisePage,
   CustomWidgetPage,
   DashboardPage,
-  RulesPage,
   SongPage,
 } from './pages/placeholders';
 
