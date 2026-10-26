@@ -1,0 +1,27 @@
+.delta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-0-5);
+  white-space: nowrap;
+}
+
+.xs {
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.xxs {
+  font-size: var(--font-size-2xs);
+  line-height: var(--line-height-2xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.up {
+  color: var(--status-success-text);
+}
+.down {
+  color: var(--status-destructive-text);
+}
+.flat {
+  color: var(--surface-muted-foreground);
+}

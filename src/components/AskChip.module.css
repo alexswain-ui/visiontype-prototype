@@ -1,0 +1,53 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  border: 1px solid var(--line-input);
+  background: transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--motion-duration-fast) var(--ease-standard),
+    border-color var(--motion-duration-fast) var(--ease-standard);
+}
+
+.chip:hover:not(:disabled) {
+  background: var(--button-ghost-bg-hover);
+  border-color: var(--button-secondary-border-hover);
+}
+
+.chip:active:not(:disabled) {
+  background: var(--button-ghost-bg-pressed);
+}
+
+.chip:disabled {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+}
+
+/* Ask home: 9px 14px 9px 12px in Figma */
+.suggestion {
+  padding: var(--space-2) calc(var(--space-3) + var(--space-0-5)) var(--space-2) var(--space-3);
+  border-radius: var(--corner-lg);
+  color: var(--surface-foreground);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--surface-muted-foreground);
+}
+
+/* Under an answer: 6px 12px, 14px radius in Figma */
+.followUp {
+  padding: calc(var(--space-1) + var(--space-0-5)) var(--space-3);
+  border-radius: calc(var(--corner-lg) + var(--space-0-5));
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.followUp:hover:not(:disabled) {
+  color: var(--surface-foreground);
+}

@@ -1,0 +1,162 @@
+.answer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  /* 18px between blocks, as in Figma */
+  gap: calc(var(--space-4) + var(--space-0-5));
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2-5);
+  margin: 0;
+  color: var(--surface-foreground);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+.sparkle {
+  flex-shrink: 0;
+  color: var(--brand-tertiary-brand-tertiary);
+}
+
+.summary {
+  min-height: var(--line-height-sm);
+  margin: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-sm);
+}
+
+.reveal {
+  animation: reveal var(--motion-duration-slow) var(--ease-standard);
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-1));
+  }
+}
+
+/* Charts and tables sit in cards: 16px padding, 16px radius */
+.card {
+  padding: var(--space-4);
+  border: 1px solid var(--line-border);
+  border-radius: calc(var(--corner-lg) + var(--space-1));
+  background: var(--surface-card);
+}
+
+.tableCard {
+  overflow-x: auto;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--space-3);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0-5);
+  padding: var(--space-3) calc(var(--space-3) + var(--space-0-5));
+  border-radius: var(--corner-lg);
+  background: var(--button-secondary-bg);
+}
+
+.stat p {
+  margin: 0;
+}
+
+.statValue {
+  color: var(--surface-foreground);
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+.negative {
+  color: var(--status-destructive-text);
+}
+
+.statLabel {
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-2xs);
+  line-height: var(--line-height-2xs);
+}
+
+.explainer {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-1) + var(--space-0-5));
+}
+
+.explainer p {
+  margin: 0;
+}
+
+.explainerTitle {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--space-1) + var(--space-0-5));
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-2xs);
+  line-height: var(--line-height-2xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.explainerText {
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.messageActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-0-5);
+  /* Figma pulls the icon row up a little closer to the actions */
+  margin-top: calc(-1 * var(--space-1));
+}
+
+.rated {
+  color: var(--brand-tertiary-brand-tertiary-text);
+}
+
+.spacer {
+  flex: 1;
+}
+
+.model {
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.followUps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.followUpLabel {
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}

@@ -1,0 +1,34 @@
+.fallback {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.text {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2-5);
+  margin: 0;
+  color: var(--surface-foreground);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-sm);
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--brand-tertiary-brand-tertiary);
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding-left: calc(var(--space-5) + var(--space-2-5));
+  animation: reveal var(--motion-duration-slow) var(--ease-standard);
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+  }
+}

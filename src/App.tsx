@@ -2,10 +2,10 @@ import type { ReactNode } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import AppShell from './components/AppShell';
 import { useUser } from './lib/user';
+import AskPage from './pages/AskPage';
 import Gallery from './pages/Gallery';
 import {
   ArtistPage,
-  AskPage,
   CountryPage,
   CustomisePage,
   CustomWidgetPage,

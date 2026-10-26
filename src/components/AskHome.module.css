@@ -1,0 +1,196 @@
+/* Figma: 820px column, 28px between sections */
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--space-6) + var(--space-1));
+  width: 100%;
+  max-width: 820px;
+}
+
+.greeting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  text-align: center;
+}
+
+.sparkle {
+  color: var(--brand-tertiary-brand-tertiary);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-2xl);
+  line-height: var(--line-height-2xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+.headline {
+  margin: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2-5);
+  max-width: 624px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.saved {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+  padding-top: var(--space-4);
+}
+
+.savedHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.muted {
+  flex-shrink: 0;
+  color: var(--surface-muted-foreground);
+}
+
+.savedTitle {
+  flex: 1;
+  margin: 0;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.viewAll {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  border: 0;
+  border-radius: var(--corner-sm);
+  background: transparent;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+  cursor: pointer;
+}
+
+.viewAll:hover {
+  color: var(--surface-foreground);
+  background: var(--button-ghost-bg-hover);
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tiles li {
+  display: flex;
+}
+
+/* Saved prompt tile: 14px padding and radius, faint diagonal glass gradient, contour texture top right */
+.tile {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2-5);
+  padding: calc(var(--space-3) + var(--space-0-5));
+  overflow: hidden;
+  border: 1px solid var(--line-border);
+  border-radius: calc(var(--corner-lg) + var(--space-0-5));
+  background: linear-gradient(123deg, var(--button-secondary-bg-hover) 7%, var(--button-secondary-bg) 80%);
+  color: var(--surface-foreground);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--motion-duration-fast) var(--ease-standard),
+    transform var(--motion-duration-fast) var(--ease-standard);
+}
+
+.tile:hover {
+  border-color: var(--brand-tertiary-brand-tertiary-border);
+}
+
+.tile:hover .tileTop svg:last-child {
+  color: var(--brand-tertiary-brand-tertiary-text);
+}
+
+.tile:active {
+  transform: scale(0.99);
+}
+
+.texture {
+  position: absolute;
+  top: calc(-1 * var(--space-6) - var(--space-0-5));
+  left: var(--space-12);
+  width: 277px;
+  height: 199px;
+  background: var(--surface-muted-foreground);
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+  pointer-events: none;
+}
+
+.tileTop {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.tileIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--space-6) + var(--space-1));
+  height: calc(var(--space-6) + var(--space-1));
+  border-radius: var(--corner-sm);
+  background: var(--button-secondary-bg);
+  color: var(--brand-tertiary-brand-tertiary-text);
+}
+
+.tileTitle,
+.tileText,
+.tileMeta {
+  position: relative;
+}
+
+.tileTitle {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.tileText {
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.tileMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--space-1) + var(--space-0-5));
+  margin-top: auto;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-2xs);
+  line-height: var(--line-height-2xs);
+}

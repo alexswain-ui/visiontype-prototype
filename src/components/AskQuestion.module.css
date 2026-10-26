@@ -1,0 +1,16 @@
+.row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bubble {
+  max-width: 520px;
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  border-radius: calc(var(--corner-lg) + var(--space-1));
+  background: var(--brand-secondary-brand-secondary);
+  color: var(--brand-secondary-brand-secondary-foreground);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-sm);
+  white-space: pre-wrap;
+}

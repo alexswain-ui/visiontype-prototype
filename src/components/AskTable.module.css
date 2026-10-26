@@ -1,0 +1,53 @@
+.table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  text-align: left;
+}
+
+.table thead th {
+  padding: calc(var(--space-1) + var(--space-0-5)) var(--space-3) calc(var(--space-1) + var(--space-0-5)) 0;
+  border-bottom: 1px solid var(--line-border);
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-2xs);
+  line-height: var(--line-height-2xs);
+  font-weight: var(--font-weight-regular);
+  white-space: nowrap;
+}
+
+.table tbody th,
+.table td {
+  padding: calc(var(--space-2) + 1px) var(--space-3) calc(var(--space-2) + 1px) 0;
+  white-space: nowrap;
+}
+
+.table tbody tr + tr > * {
+  border-top: 1px solid var(--line-border);
+}
+
+.table tbody th {
+  color: var(--surface-foreground);
+  font-weight: var(--font-weight-medium);
+}
+
+.table td {
+  color: var(--surface-muted-foreground);
+}
+
+/* Figma column widths: name 160, figures about 100, and the last column (Markets, Why, Method) takes the rest. */
+.table thead th:first-child {
+  width: 180px;
+}
+.table thead th {
+  width: 100px;
+}
+.table thead th:last-child {
+  width: auto;
+}
+.table th:last-child,
+.table td:last-child {
+  padding-right: 0;
+}

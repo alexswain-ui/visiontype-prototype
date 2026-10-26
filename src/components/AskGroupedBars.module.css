@@ -1,0 +1,79 @@
+.chart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.plot {
+  display: flex;
+  padding-inline: var(--space-4);
+}
+
+.group {
+  display: grid;
+  flex: 1;
+  /* Baseline sits 150px down, as in Figma; the band below holds falls and their labels. */
+  grid-template-rows: 150px calc(var(--space-6) + var(--space-1)) auto;
+  justify-items: center;
+}
+
+.up,
+.down {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-1);
+  width: 100%;
+}
+
+.up {
+  align-items: flex-end;
+}
+
+.down {
+  align-items: flex-start;
+  border-top: 1px solid var(--line-input);
+}
+
+.slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-0-5);
+  width: calc(var(--space-6) + var(--space-1) + var(--space-0-5));
+}
+
+.up .slot {
+  justify-content: flex-end;
+}
+
+.bar {
+  width: 100%;
+  border-radius: var(--corner-xs) var(--corner-xs) 0 0;
+  transform-origin: bottom;
+  animation: grow var(--motion-duration-slow) var(--ease-standard);
+}
+
+.negative {
+  border-radius: 0 0 var(--corner-xs) var(--corner-xs);
+  transform-origin: top;
+}
+
+.bar[data-series='1'] {
+  background: var(--chart-chart-1);
+}
+.bar[data-series='2'] {
+  background: var(--chart-chart-2);
+}
+
+@keyframes grow {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+.label {
+  margin: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-2xs);
+  line-height: var(--line-height-2xs);
+}

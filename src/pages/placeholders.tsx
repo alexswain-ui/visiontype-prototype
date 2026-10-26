@@ -1,4 +1,4 @@
-import { AudioLines, Earth, House, ListOrdered, MicVocal, Music, Sparkles } from 'lucide-react';
+import { AudioLines, Earth, House, ListOrdered, MicVocal, Music } from 'lucide-react';
 import { useLocation, useParams } from 'react-router-dom';
 import { artistById, marketByCode, songById } from '../lib/data';
 import { useUser } from '../lib/user';
@@ -170,29 +170,6 @@ export function RulesPage({ tab }: { tab: 'dsps' | 'enrichment' | 'history' }) {
       ]}
     >
       <p>{config.what}</p>
-    </PlaceholderPage>
-  );
-}
-
-const ASK_SCRIPTS: Record<string, { title: string; node: string }> = {
-  'odalie-vs-petra': { title: 'Odalie Brask vs Petra Lindqvane', node: '467:2701' },
-  restated: { title: 'What was restated this week', node: '467:2956' },
-  'uk-share': { title: 'Quillfern vs Larchway UK share', node: '467:3200' },
-};
-
-export function AskPage() {
-  const { script } = useParams();
-  const { user } = useUser();
-  const conversation = script ? ASK_SCRIPTS[script] : undefined;
-  return (
-    <PlaceholderPage
-      title="Ask"
-      icon={Sparkles}
-      subtitle={conversation ? conversation.title : `New chat · greets ${user.name}`}
-      figmaNode={conversation?.node ?? '478:2842'}
-      links={Object.entries(ASK_SCRIPTS).map(([key, value]) => ({ to: `/ask/${key}`, label: value.title }))}
-    >
-      <p>Scripted Ask: composer, thinking row, streamed answer cards with stat tiles, chart, table and follow-up chips.</p>
     </PlaceholderPage>
   );
 }

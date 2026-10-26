@@ -1,0 +1,51 @@
+.chart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-3) + var(--space-0-5));
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-1) + var(--space-0-5));
+}
+
+.label {
+  margin: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.bar {
+  display: flex;
+  gap: var(--space-0-5);
+  height: calc(var(--space-5) + var(--space-0-5));
+}
+
+.segment {
+  flex-basis: 0;
+  min-width: var(--space-0-5);
+  border-radius: var(--corner-xs);
+  background: var(--line-gridline);
+  transform-origin: left;
+  animation: grow var(--motion-duration-slow) var(--ease-standard);
+}
+.segment[data-series='1'] {
+  background: var(--chart-chart-1);
+}
+.segment[data-series='2'] {
+  background: var(--chart-chart-2);
+}
+
+@keyframes grow {
+  from {
+    transform: scaleX(0);
+  }
+}

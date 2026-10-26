@@ -4,8 +4,21 @@
     "greeting": "Good afternoon, {firstName}",
     "headline": "What would you like to find out today?",
     "placeholder": "Ask about your catalogue, markets or reports…",
+    "followUpPlaceholder": "Ask a follow-up or something new…",
     "model": "Claude Sonnet 5.5",
     "models": ["Claude Sonnet 5.5", "Claude Opus 5.5", "Claude Haiku 5.5"],
+    "_modelGroupsNote": "Model picker text from Figma 468:3016. Visual only: choosing a model changes the label, never the answer.",
+    "modelGroups": [
+      { "label": "Claude", "models": [
+        { "name": "Claude Opus 5.5", "description": "Most capable, for complex work" },
+        { "name": "Claude Sonnet 5.5", "description": "Balanced speed and intelligence" },
+        { "name": "Claude Haiku 5.5", "description": "Fastest, for quick answers" }
+      ] },
+      { "label": "OpenAI", "models": [
+        { "name": "GPT-5", "description": "Flagship reasoning model" },
+        { "name": "GPT-5 mini", "description": "Fast and efficient" }
+      ] }
+    ],
     "chips": [
       { "label": "Generate a report", "script": "odalie-vs-petra" },
       { "label": "Compare two artists", "script": "odalie-vs-petra" },
@@ -37,7 +50,8 @@
     "fallback": "In this prototype I can answer a few sample questions. Try one of these:",
     "fallbackSuggestions": ["Compare Odalie Brask to Petra Lindqvane", "Which of my songs were restated this week?", "What is Quillfern’s share of UK streams vs Larchway?"],
     "followUpOpensScript": { "Break this down by market": null, "Same for France and Germany": null },
-    "note": "Follow-up chips without a script show the fallback with a friendly line: 'That follow-up isn't scripted in this prototype.'"
+    "note": "Follow-up chips without a script show the fallback with a friendly line: 'That follow-up isn't scripted in this prototype.'",
+    "followUpLine": "That follow-up isn't scripted in this prototype."
   },
   "scripts": [
     {

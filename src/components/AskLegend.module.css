@@ -1,0 +1,30 @@
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--space-1) + var(--space-0-5));
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-2xs);
+  line-height: var(--line-height-2xs);
+}
+
+.dot {
+  width: var(--space-2);
+  height: var(--space-2);
+  border-radius: var(--corner-full);
+  background: var(--line-input);
+}
+.dot[data-series='1'] {
+  background: var(--chart-chart-1);
+}
+.dot[data-series='2'] {
+  background: var(--chart-chart-2);
+}

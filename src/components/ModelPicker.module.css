@@ -1,0 +1,138 @@
+.root {
+  position: relative;
+  display: inline-flex;
+}
+
+/* Figma "Model selector": 13px Medium label, chevron, 7px 8px 7px 10px, 8px radius */
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--space-1) + var(--space-0-5));
+  height: var(--size-control-sm);
+  padding: 0 var(--space-2) 0 var(--space-2-5);
+  border: 0;
+  border-radius: var(--corner-sm);
+  background: transparent;
+  color: var(--surface-foreground);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--motion-duration-fast) var(--ease-standard);
+}
+
+.trigger svg {
+  color: var(--surface-muted-foreground);
+}
+
+.trigger:hover,
+.trigger[aria-expanded='true'] {
+  background: var(--button-ghost-bg-hover);
+}
+
+.trigger:active {
+  background: var(--button-ghost-bg-pressed);
+}
+
+/* Figma "Model menu": 336px, 6px padding, 16px radius, large soft shadow; opens above the composer */
+.popover {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + var(--space-3));
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0-5);
+  width: 336px;
+  padding: calc(var(--space-1) + var(--space-0-5));
+  border: 1px solid var(--line-border);
+  border-radius: calc(var(--corner-lg) + var(--space-1));
+  background: var(--surface-popover);
+  color: var(--surface-popover-foreground);
+  box-shadow: 0 calc(var(--space-4) + var(--space-0-5)) var(--space-10) var(--elevation-lg-color);
+  animation: menu-in var(--motion-duration-fast) var(--ease-standard);
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-1));
+  }
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0-5);
+}
+
+.section {
+  margin: 0;
+  padding: var(--space-2) var(--space-2-5) var(--space-1);
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.divider {
+  height: 1px;
+  margin-block: var(--space-0-5);
+  background: var(--line-border);
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-2) var(--space-3) var(--space-2) var(--space-2-5);
+  border: 0;
+  border-radius: var(--corner-md);
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--motion-duration-fast) var(--ease-standard);
+}
+
+.option:hover,
+.option:focus-visible,
+.selected {
+  background: var(--button-ghost-bg-hover);
+}
+
+.option:focus-visible {
+  outline-offset: -2px;
+}
+
+.more {
+  padding-block: var(--space-2-5);
+}
+
+.text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-0-5);
+  min-width: 0;
+}
+
+.name {
+  flex: 1;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.description {
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.tick {
+  flex-shrink: 0;
+  color: var(--surface-muted-foreground);
+}
