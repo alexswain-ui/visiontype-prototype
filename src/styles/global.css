@@ -27,9 +27,9 @@ body {
     color var(--motion-duration-base) var(--ease-standard);
 }
 
-/* Shared focus ring: 2px gap plus 2px ring. */
+/* Shared focus ring: 2px gap plus 2px ring. Solid text orange, not --line-ring (55%), so it reaches 3:1 in both themes. */
 :focus-visible {
-  outline: 2px solid var(--line-ring);
+  outline: 2px solid var(--primary-primary-text);
   outline-offset: 2px;
 }
 

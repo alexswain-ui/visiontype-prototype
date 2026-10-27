@@ -124,6 +124,11 @@
     transform var(--motion-duration-fast) var(--ease-standard);
 }
 
+/* Light: the glass gradient reads as flat grey, so the tile is a plain card. */
+:global([data-theme='light']) .tile {
+  background: var(--surface-card);
+}
+
 .tile:hover {
   border-color: var(--brand-tertiary-brand-tertiary-border);
 }

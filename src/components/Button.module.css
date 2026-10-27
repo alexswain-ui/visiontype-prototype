@@ -142,7 +142,7 @@
 
 /* Focus: 2px gap + 2px ring (also drawn for the gallery's forced focus state) */
 .button[data-demo='focus'] {
-  outline: 2px solid var(--line-ring);
+  outline: 2px solid var(--primary-primary-text);
   outline-offset: 2px;
 }
 

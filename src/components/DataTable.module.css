@@ -133,6 +133,11 @@
   background: var(--surface-accent);
 }
 
+/* Light: muted grey on the orange tint is 4.4:1, so secondary text in the selected row uses the normal text colour. */
+:global([data-theme='light']) .selected {
+  --surface-muted-foreground: var(--surface-foreground);
+}
+
 .selected td:first-child {
   box-shadow: inset 2px 0 0 var(--primary-primary);
 }

@@ -52,7 +52,7 @@
 }
 
 .input:focus-visible + .box {
-  outline: 2px solid var(--line-ring);
+  outline: 2px solid var(--primary-primary-text);
   outline-offset: 2px;
 }
 
