@@ -23,6 +23,12 @@
   color: var(--surface-accent-foreground);
 }
 
+/* Light: the stronger fill leaves the deep orange text at 4.4:1; the paler one gives 5.1:1. */
+:global([data-theme='light']) .orange {
+  background: var(--surface-accent);
+  border-color: var(--surface-accent);
+}
+
 .neutral {
   background: var(--surface-muted);
   border-color: var(--line-border);
@@ -54,6 +60,6 @@
 }
 
 .remove[data-demo='focus'] {
-  outline: 2px solid var(--line-ring);
+  outline: 2px solid var(--primary-primary-text);
   outline-offset: 2px;
 }

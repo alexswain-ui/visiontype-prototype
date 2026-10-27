@@ -20,7 +20,7 @@
 }
 .tone2 {
   background: var(--chart-chart-2);
-  color: var(--brand-secondary-brand-secondary-foreground);
+  color: var(--primary-primary-foreground);
 }
 .tone3 {
   background: var(--chart-chart-3);
@@ -28,7 +28,7 @@
 }
 .tone4 {
   background: var(--chart-chart-4);
-  color: var(--brand-secondary-brand-secondary-foreground);
+  color: var(--primary-primary-foreground);
 }
 
 .s18 {
