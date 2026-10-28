@@ -29,5 +29,8 @@
     }
   },
   "exportOptions": ["CSV", "Excel", "Plain text", "Databricks", "Snowflake"],
-  "moreOptions": ["Generate report", "Add to dashboard", "Add to dataset", "Edit columns"]
+  "moreOptions": ["Generate report", "Add to dashboard", "Add to dataset", "Edit columns"],
+  "extraSongs": ["Velvet Static", "Harbour Lights", "Cinder Hearts", "Northern Pulse", "Orchid Season", "Paper Lanterns", "Slow Meridian", "Copper Rain", "Static Bloom", "Dust and Daylight", "Tidewater", "Hollow Crown", "Afterglow Avenue", "Quiet Engines", "Marigold", "Blue Hour Radio", "Fever Dial", "Salt and Smoke", "Lanterns Down", "Wild Mercury", "Glasshouse", "Echo Park Sunday", "Night Ferry", "Honey Circuit", "Rust and Roses", "Vapour Trail", "Small Hours", "Open Water", "Silver Thread", "Last Train Home"],
+  "extraArtists": ["Mira Calloway", "Theo Marchetti", "Sana Okafor", "Lukas Brandt", "Ines Duarte", "Kai Nakamura", "Freya Holloway", "Dante Rossi", "Amara Njoku", "Oskar Lindqvist", "Priya Venkat", "Mateo Ibarra", "Hana Sato", "Callum Reid", "Zora Petrovic", "Elias Moreau", "Noor Haddad", "Ruben Alvarez", "Tilda Strand", "Joaquin Vega", "Leila Farah", "Anders Holm", "Chiara Bellini", "Femi Adeyemi", "Maren Voss", "Ivo Kessler", "Sofia Lindgren", "Rafael Moura", "Yuki Tanabe", "Greta Winter"],
+  "extraCountries": [["NL", "Netherlands", "NLD"], ["AU", "Australia", "AUS"], ["KR", "South Korea", "KOR"], ["PL", "Poland", "POL"], ["IN", "India", "IND"], ["NO", "Norway", "NOR"], ["DK", "Denmark", "DNK"], ["AR", "Argentina", "ARG"], ["CH", "Switzerland", "CHE"], ["ZA", "South Africa", "ZAF"], ["CL", "Chile", "CHL"], ["BE", "Belgium", "BEL"], ["AT", "Austria", "AUT"], ["PT", "Portugal", "PRT"], ["IE", "Ireland", "IRL"], ["NZ", "New Zealand", "NZL"], ["FI", "Finland", "FIN"], ["CO", "Colombia", "COL"], ["TR", "Turkey", "TUR"]]
 }

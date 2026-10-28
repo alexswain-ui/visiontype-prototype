@@ -23,7 +23,10 @@ export interface MarketInfo {
   share?: number;
 }
 
-export const MARKETS: MarketInfo[] = [...cast.markets, ...extra.extraMarkets];
+/** Extra fictional countries (see data-page.json) so the Country tab shows a realistic amount of data. */
+const EXTRA_COUNTRY_MARKETS: MarketInfo[] = extra.extraCountries.map(([iso, name, short]) => ({ code: iso, iso, name, short }));
+
+export const MARKETS: MarketInfo[] = [...cast.markets, ...extra.extraMarkets, ...EXTRA_COUNTRY_MARKETS];
 export const marketInfo = (code: string) => MARKETS.find((m) => m.iso === code.toUpperCase());
 /** Label used in tables and chips: "UK" for GB, otherwise the ISO code. */
 export const marketLabel = (code: string) => (code === 'GB' ? 'UK' : code);
@@ -34,7 +37,7 @@ export const MORE_OPTIONS = extra.moreOptions;
 export const WEEK_LABELS = ['W35', 'W36', 'W37', 'W38', 'W39', 'W40', 'W41', 'W42'];
 
 export const EMPTY_FILTERS: Filters = { markets: [], artists: [], songs: [], labels: [], distributors: [], licensors: [] };
-export const DEFAULT_FILTERS: Filters = { ...EMPTY_FILTERS, markets: extra.defaultMarkets };
+export const DEFAULT_FILTERS: Filters = { ...EMPTY_FILTERS, markets: [...extra.defaultMarkets, ...EXTRA_COUNTRY_MARKETS.map((m) => m.iso)] };
 
 /* ---------- Formatting ---------- */
 
@@ -71,6 +74,9 @@ function songMarketCapped(song: Song, market: string) {
   return Math.round(song.capped * (MARKET_WEIGHT[market] ?? 0.01) * jitter);
 }
 
+/** Display ID for a song (cast songs only have a slug), in the same style as the artist IDs: "SG" plus 9 digits. */
+export const songIdLabel = (songId: string) => `SG${String(100000000 + ((hash(songId) * 90001) % 900000000)).padStart(9, '0')}`;
+
 /* ---------- Rows ---------- */
 
 interface Rights {
@@ -82,7 +88,10 @@ interface Rights {
 /** Licensor, label and distributor for a song, from its canonical row. */
 function rightsFor(songId: string): Rights {
   const row = cast.canonicalRows.find((r) => r.song === songId);
-  return { licensor: row?.licensor ?? '', label: row?.label ?? '', distributor: row?.distributor ?? '' };
+  if (row) return { licensor: row.licensor, label: row.label, distributor: row.distributor };
+  // Extra rows added for a more realistic amount of data: pick stable rights from the cast lists.
+  const h = hash(songId);
+  return { licensor: cast.licensors[h % cast.licensors.length], label: cast.labels[(h >> 1) % cast.labels.length], distributor: cast.distributors[(h >> 2) % cast.distributors.length] };
 }
 
 /** What a row can be filtered on. Leave a key out when the filter does not apply to that tab. */
@@ -156,8 +165,42 @@ export const CANONICAL_ROWS: CanonicalRow[] = (() => {
   return rows;
 })();
 
-export const SONG_ROWS: SongRow[] = cast.songs.map((song) => {
-  const artist = artistById(song.artist)!;
+/* Extra fictional artists, songs and countries so the Song, Artist and Country tabs show a realistic amount of data. Names come from data-page.json. */
+const slug = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
+const EXTRA_ARTISTS = extra.extraArtists.map(
+  (name, i) =>
+    ({
+      id: slug(name),
+      name,
+      artistId: `AR2041${String(18900 + i * 137).padStart(5, '0')}`,
+      label: cast.labels[hash(name) % cast.labels.length],
+      songs: 3 + (hash(name) % 20),
+      capped: Math.round(4900000 - i * 150000 - (hash(name) % 90) * 1000),
+      delta: (hash(name) % 15) - 5,
+      photo: 0,
+    }) as Artist,
+);
+const ALL_ARTISTS: Artist[] = [...cast.artists, ...EXTRA_ARTISTS];
+const findArtist = (id: string) => ALL_ARTISTS.find((a) => a.id === id)!;
+
+const EXTRA_SONGS = extra.extraSongs.map(
+  (title, i) =>
+    ({
+      id: slug(title),
+      title,
+      isrc: `XAK7Q24${String(300 + i * 11).padStart(5, '0')}`,
+      artist: ALL_ARTISTS[(i * 7 + 3) % ALL_ARTISTS.length].id,
+      markets: 6 + (hash(title) % 30),
+      capped: Math.round(2900000 - i * 70000 - (hash(title) % 50) * 1000),
+      status: null,
+      art: 10 + i,
+    }) as Song,
+);
+const ALL_SONGS: Song[] = [...cast.songs, ...EXTRA_SONGS];
+
+export const SONG_ROWS: SongRow[] = ALL_SONGS.map((song) => {
+  const artist = findArtist(song.artist);
   const rights = rightsFor(song.id);
   return {
     id: song.id,
@@ -175,9 +218,9 @@ export const SONG_ROWS: SongRow[] = cast.songs.map((song) => {
   };
 });
 
-export const ARTIST_ROWS: ArtistRow[] = cast.artists.map((artist) => {
-  const songIds = cast.songs.filter((s) => s.artist === artist.id).map((s) => s.id);
-  const rights = rightsFor(songIds[0] ?? '');
+export const ARTIST_ROWS: ArtistRow[] = ALL_ARTISTS.map((artist) => {
+  const songIds = ALL_SONGS.filter((s) => s.artist === artist.id).map((s) => s.id);
+  const rights = rightsFor(songIds[0] ?? artist.id);
   const licensor = (artist as { licensor?: string }).licensor ?? rights.licensor;
   return {
     id: artist.id,
@@ -197,7 +240,12 @@ export const ARTIST_ROWS: ArtistRow[] = cast.artists.map((artist) => {
   };
 });
 
-export const COUNTRY_ROWS: CountryRow[] = cast.markets.map((market) => ({
+const EXTRA_COUNTRIES = extra.extraCountries.map(([iso, name, short], i) => {
+  const capped = Math.round(128000000 - i * 6200000 - (hash(iso) % 40) * 10000);
+  return { code: iso, iso, name, short, capped, delta: (hash(iso) % 13) - 4, share: +(capped / 1204882310).toFixed(3) };
+});
+
+export const COUNTRY_ROWS: CountryRow[] = [...cast.markets, ...EXTRA_COUNTRIES].map((market) => ({
   id: market.iso.toLowerCase(),
   market,
   filterValues: { markets: [market.iso] },
@@ -284,7 +332,11 @@ export function canonicalDetail(row: CanonicalRow) {
 }
 
 export function songSheet(song: Song) {
-  const kpi = (extra.songKpis as Record<string, (typeof extra.songKpis)['saffron-ferry']>)[song.id];
+  const kpi = (extra.songKpis as Record<string, (typeof extra.songKpis)['saffron-ferry']>)[song.id] ?? {
+    totalDelta: (hash(song.id) % 12) - 3,
+    capped: Math.round(song.capped * 0.84),
+    cappedDelta: (hash(song.id + 'c') % 12) - 3,
+  };
   const figma = (cast.songPage as Record<string, (typeof cast.songPage)['saffron-ferry']>)[song.id];
   const markets = figma
     ? figma.marketTable.map((m) => ({ market: m.market, streams: m.streams, capped: m.capped }))
@@ -293,6 +345,7 @@ export function songSheet(song: Song) {
         return { market, capped, streams: Math.round(capped * (1.02 + (hash(market + song.id) % 5) / 100)) };
       }).sort((a, b) => b.streams - a.streams);
   return {
+    base: { total: song.capped, capped: kpi.capped, totalDelta: kpi.totalDelta, cappedDelta: kpi.cappedDelta },
     kpis: [
       { label: 'Total streams', value: formatCompact(song.capped), delta: kpi.totalDelta },
       { label: 'Markets', value: String(song.markets), sub: 'all reporting' },
@@ -310,7 +363,7 @@ export function artistSheet(artist: Artist) {
   const figma = (cast.artistPage as Record<string, (typeof cast.artistPage)['luna-sky']>)[artist.id];
   const songs = figma
     ? figma.songs.map((s, i) => ({ id: songByTitle(s.title)?.id ?? `${artist.id}-${i}`, title: s.title, capped: s.capped }))
-    : cast.songs.filter((s) => s.artist === artist.id).map((s) => ({ id: s.id, title: s.title, capped: s.capped }));
+    : ALL_SONGS.filter((s) => s.artist === artist.id).map((s) => ({ id: s.id, title: s.title, capped: s.capped }));
   const shown = songs.sort((a, b) => b.capped - a.capped).slice(0, 5);
   return {
     trend: artist.id === 'luna-sky' ? base.current : scaleSeries(base.current, artist.capped / 18412330),

@@ -36,3 +36,12 @@
   height: 100%;
   padding: var(--space-8) var(--size-card-padding) var(--space-5) var(--space-4);
 }
+
+/* Dashed key for the previous period in compare mode */
+.keyDashed {
+  width: var(--space-4);
+  height: 0;
+  border-top: 2px dashed var(--chart-chart-2);
+  border-radius: 0;
+  background: none;
+}

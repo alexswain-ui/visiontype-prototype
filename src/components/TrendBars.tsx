@@ -6,6 +6,8 @@ export interface TrendBarsProps {
   magnitude?: number;
   /** Changes the small wobble so neighbouring rows don't look identical. */
   seed?: number;
+  /** Real weekly values (oldest first, up to 7). When given they draw the bars and set the colour. */
+  values?: number[];
 }
 
 const BOX_W = 32;
@@ -39,9 +41,19 @@ export function trendHeights(direction: 'up' | 'down', magnitude = 0.7, seed = 1
   return direction === 'up' ? clamped : clamped.reverse();
 }
 
+/** One bar per value, scaled between the lowest and highest value of the series. */
+function heightsFromValues(values: number[]) {
+  const lo = Math.min(...values);
+  const hi = Math.max(...values);
+  const span = hi - lo || 1;
+  return values.map((v) => Math.round(2 + ((v - lo) / span) * (BOX_H - 3)));
+}
+
 /** 7-bar sparkline: 2px bars on a 4px pitch, bottom-aligned in a 32x16 box. */
-export default function TrendBars({ direction, magnitude = 0.7, seed = 1 }: TrendBarsProps) {
-  const heights = trendHeights(direction, magnitude, seed);
+export default function TrendBars({ direction: given, magnitude = 0.7, seed = 1, values }: TrendBarsProps) {
+  const real = values && values.length > 0 ? values : null;
+  const direction = real ? (real[real.length - 1] >= real[0] ? 'up' : 'down') : given;
+  const heights = real ? heightsFromValues(real) : trendHeights(direction, magnitude, seed);
   return (
     <svg
       width={BOX_W}

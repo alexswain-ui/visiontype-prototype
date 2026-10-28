@@ -4,6 +4,7 @@
 }
 
 .main {
+  position: relative;
   flex: 1;
   min-width: 0;
   padding: var(--space-6) var(--space-10);

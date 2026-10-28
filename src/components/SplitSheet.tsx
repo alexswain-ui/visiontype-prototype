@@ -11,6 +11,8 @@ export interface SplitSheetProps {
   media?: ReactNode;
   /** Small chips under the subtitle (ISRC, Conflict, ...). */
   chips?: ReactNode;
+  /** Extra button before expand and close, e.g. Follow. */
+  headerAction?: ReactNode;
   onClose: () => void;
   /** Shows the "expand to page" button. */
   onExpand?: () => void;
@@ -23,7 +25,7 @@ export interface SplitSheetProps {
  * 444px detail sheet beside a table (Figma "Sheet" on Data · Canonical + split).
  * Slides in over 200ms. Esc closes it. Focus moves to the sheet when it opens.
  */
-export default function SplitSheet({ title, subtitle, media, chips, onClose, onExpand, footer, children }: SplitSheetProps) {
+export default function SplitSheet({ title, subtitle, media, chips, headerAction, onClose, onExpand, footer, children }: SplitSheetProps) {
   const ref = useRef<HTMLElement>(null);
   const closeRef = useRef(onClose);
   closeRef.current = onClose;
@@ -49,6 +51,7 @@ export default function SplitSheet({ title, subtitle, media, chips, onClose, onE
           {chips && <div className={styles.chips}>{chips}</div>}
         </div>
         <div className={styles.buttons}>
+          {headerAction}
           {onExpand && <IconButton icon={Expand} label="Open as page" size="small" onClick={onExpand} />}
           <IconButton icon={X} label="Close" size="small" onClick={onClose} />
         </div>

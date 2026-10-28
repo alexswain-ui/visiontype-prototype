@@ -16,6 +16,8 @@ export interface ModalProps {
   children?: ReactNode;
   /** 440 for confirmations; up to 900 for pickers and builders. */
   width?: number;
+  /** Text or controls on the right of the title (e.g. "Step 1 of 4"). */
+  headerAside?: ReactNode;
   /** Shows a close (x) button in the corner. */
   showClose?: boolean;
   /** Gallery only: draw it in place on a scrim, not over the page. */
@@ -34,6 +36,7 @@ export default function Modal({
   actions,
   children,
   width = 440,
+  headerAside,
   showClose = false,
   preview = false,
 }: ModalProps) {
@@ -80,6 +83,7 @@ export default function Modal({
           <h2 id={titleId} className={styles.title}>
             {title}
           </h2>
+          {headerAside}
           {showClose && <IconButton icon={X} label="Close" variant="ghost" size="small" onClick={onClose} />}
         </div>
         {description && (

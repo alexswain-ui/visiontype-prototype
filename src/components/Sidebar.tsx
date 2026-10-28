@@ -1,4 +1,5 @@
-import { AudioLines, BadgeAlert, FileChartLine, GitCompare, House, ListOrdered, Settings, Sparkles, Star } from 'lucide-react';
+import { AudioLines, BadgeAlert, FileChartLine, GitCompare, House, ListOrdered, Settings, Star, UserCheck } from 'lucide-react';
+import AiIcon from './AiIcon';
 import { useLocation } from 'react-router-dom';
 import { useNotInPrototype } from '../lib/notInPrototype';
 import { useUser } from '../lib/user';
@@ -8,7 +9,7 @@ import styles from './Sidebar.module.css';
 
 /**
  * App sidebar (Figma "Sidebar - Collapsed", 200px). Rules appears after Issues for the IFPI user only.
- * Reports, Saved Searches, Issues, Connections and Settings open "Not part of this prototype".
+ * Reports, Saved Searches, Issues and Settings open "Not part of this prototype".
  */
 export default function Sidebar() {
   const { pathname } = useLocation();
@@ -33,6 +34,11 @@ export default function Sidebar() {
           <li>
             <SidebarItem label="Saved Searches" icon={Star} currentPath={pathname} onClick={notDesigned('Saved Searches')} />
           </li>
+          {user.tier === 'Premium' && (
+            <li>
+              <SidebarItem label="Following" icon={UserCheck} to="/following" currentPath={pathname} />
+            </li>
+          )}
           <li>
             <SidebarItem label="Issues" icon={BadgeAlert} currentPath={pathname} onClick={notDesigned('Issues')} />
           </li>
@@ -41,12 +47,14 @@ export default function Sidebar() {
               <SidebarItem label="Rules" icon={ListOrdered} to="/rules" currentPath={pathname} />
             </li>
           )}
-          <li>
-            <SidebarItem label="Connections" icon={GitCompare} currentPath={pathname} onClick={notDesigned('Connections')} />
-          </li>
+          {user.tier !== 'Premium' && (
+            <li>
+              <SidebarItem label="Connections" icon={GitCompare} to="/connections" currentPath={pathname} />
+            </li>
+          )}
           <li role="separator" className={styles.separator} />
           <li>
-            <SidebarItem label="Ask" icon={Sparkles} to="/ask" tone="ai" currentPath={pathname} />
+            <SidebarItem label="Ask" icon={AiIcon} to="/ask" tone="ai" currentPath={pathname} />
           </li>
         </ul>
       </div>

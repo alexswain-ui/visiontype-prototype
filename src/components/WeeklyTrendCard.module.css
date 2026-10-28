@@ -8,3 +8,14 @@
 .short {
   color: var(--status-warning-text);
 }
+
+.showAll {
+  margin-left: var(--space-2);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--primary-primary-text);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}

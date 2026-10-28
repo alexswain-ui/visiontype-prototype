@@ -4,7 +4,7 @@
   "dataAsOf": "Data as of: Week 42, 10–16 Oct 2026",
   "askPlaceholder": "Generate me a report for the top 50 trending artists in the UK this week vs last week...",
   "overall": {
-    "title": "Overall Roster Performance",
+    "title": "Overall Catalogue Performance",
     "subtitle": "Capped Streams · All Markets",
     "_unit": "millions of capped streams per day",
     "labels": [
@@ -37,7 +37,7 @@
     "delta": -5.4
   },
   "roster": {
-    "title": "Roster Performance",
+    "title": "Catalogue Performance",
     "subtitle": "Capped Streams · All Markets",
     "artistIds": [
       "luna-sky",

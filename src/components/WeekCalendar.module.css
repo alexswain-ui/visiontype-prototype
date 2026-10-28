@@ -1,0 +1,125 @@
+.calendar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.month {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 40px repeat(7, minmax(0, 1fr));
+  align-items: center;
+  height: 36px;
+  border-radius: var(--corner-sm);
+}
+
+/* The weekday header row is shorter */
+.row:first-child {
+  height: 24px;
+}
+
+.gutter {
+  padding-left: var(--space-2);
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-2xs);
+  line-height: var(--line-height-2xs);
+}
+
+.weekLabel {
+  opacity: 0.7;
+}
+
+.weekLabelOn {
+  color: var(--primary-primary-text);
+  font-weight: var(--font-weight-semibold);
+  opacity: 1;
+}
+
+.weekday {
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  text-align: center;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Selected weeks: an orange 12% band across the row */
+.selectedRow {
+  background: color-mix(in srgb, var(--primary-primary) 12%, transparent);
+}
+
+.picking {
+  background: color-mix(in srgb, var(--primary-primary) 8%, transparent);
+}
+
+.day {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: var(--surface-foreground);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+
+.day:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--primary-primary) 22%, transparent);
+}
+
+.day:focus-visible {
+  outline: 2px solid var(--primary-primary-text);
+  outline-offset: 1px;
+}
+
+/* First and last day of the selection: orange squares */
+.edge .day {
+  background: var(--primary-primary);
+  color: var(--primary-primary-foreground);
+  font-weight: var(--font-weight-semibold);
+}
+
+.outside .day {
+  color: var(--surface-muted-foreground);
+}
+
+/* Weeks after the latest published week: dimmed, not clickable */
+.future .day {
+  color: var(--surface-muted-foreground);
+  opacity: 0.4;
+  cursor: default;
+}
+.future .gutter {
+  opacity: 0.4;
+}

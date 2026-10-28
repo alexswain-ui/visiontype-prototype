@@ -26,6 +26,9 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+.dashed {
+  stroke-dasharray: 6 5;
+}
 .lineCurrent {
   stroke: var(--chart-chart-1);
 }

@@ -1,10 +1,15 @@
 import type { ReactNode } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import AppShell from './components/AppShell';
+import { DateRangeProvider } from './lib/dateRange';
+import { FollowProvider } from './lib/follow';
 import { useUser } from './lib/user';
 import AskPage from './pages/AskPage';
+import ConnectionsPage from './pages/ConnectionsPage';
 import DataPage from './pages/data/DataPage';
 import EntityPage from './pages/EntityPage';
+import FollowComparePage from './pages/FollowComparePage';
+import FollowingPage from './pages/FollowingPage';
 import Gallery from './pages/Gallery';
 import CustomisePage from './pages/dashboard/CustomisePage';
 import DashboardPage from './pages/dashboard/DashboardPage';
@@ -24,6 +29,8 @@ function Landing() {
 /** Routes from docs/screens-manifest.md. */
 export default function App() {
   return (
+    <DateRangeProvider>
+    <FollowProvider>
     <Routes>
       <Route path="/gallery" element={<Gallery />} />
       <Route element={<AppShell />}>
@@ -43,11 +50,18 @@ export default function App() {
         <Route path="/rules/enrichment" element={<IfpiOnly><RulesPage tab="enrichment" /></IfpiOnly>} />
         <Route path="/rules/history" element={<IfpiOnly><RulesPage tab="history" /></IfpiOnly>} />
 
+        <Route path="/following" element={<FollowingPage />} />
+        <Route path="/following/compare/:id" element={<FollowComparePage />} />
+
+        <Route path="/connections" element={<ConnectionsPage />} />
+
         <Route path="/ask" element={<AskPage />} />
         <Route path="/ask/:script" element={<AskPage />} />
 
         <Route path="*" element={<Landing />} />
       </Route>
     </Routes>
+    </FollowProvider>
+    </DateRangeProvider>
   );
 }

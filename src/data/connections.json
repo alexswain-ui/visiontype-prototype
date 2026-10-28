@@ -1,0 +1,416 @@
+{
+ "_note": "FICTIONAL and ILLUSTRATIVE. The tool list is a placeholder: Snowflake and Databricks (data sharing) and an API come from the RFP; the rest are examples. Analytics tools (Chartmetric, SpotOnTrack, Soundcharts, Plates) were mentioned in the Merlin and IFPI interview; no partnership is implied. Use generic Lucide icons for tools, NOT brand logos. AI tools use the project's own AI icon (assets/ai-icon.svg). Visible to Enterprise (Dev) only; Premium sees the locked state.",
+ "access": {
+  "enterprise": "full",
+  "premium": {
+   "state": "locked",
+   "title": "Connections are available on Enterprise",
+   "text": "Deliver each week's data straight to your warehouse, BI tool or AI assistant.",
+   "action": "Talk to your account manager"
+  },
+  "ifpi": "full"
+ },
+ "dates": {
+  "lastDelivery": "Fri 23 Oct",
+  "nextDelivery": "Fri 30 Oct",
+  "newConnectionFirstDelivery": "Fri 30 Oct 2026"
+ },
+ "categories": [
+  "All",
+  "Warehouses",
+  "BI",
+  "Files & sheets",
+  "Music analytics",
+  "AI"
+ ],
+ "tools": [
+  {
+   "id": "databricks",
+   "name": "Databricks",
+   "category": "Warehouses",
+   "icon": "database",
+   "description": "Delta Sharing: query the weekly data in your own workspace.",
+   "connected": true,
+   "authFields": [
+    [
+     "Workspace URL",
+     "https://example.databricks.net"
+    ],
+    [
+     "Sharing identifier",
+     "gdp-weekly"
+    ],
+    [
+     "Access token",
+     "secret"
+    ]
+   ]
+  },
+  {
+   "id": "snowflake",
+   "name": "Snowflake",
+   "category": "Warehouses",
+   "icon": "cloud",
+   "description": "Secure data share into your Snowflake account.",
+   "connected": true,
+   "authFields": [
+    [
+     "Account identifier",
+     "example-account"
+    ],
+    [
+     "Share name",
+     "gdp_weekly"
+    ],
+    [
+     "Role",
+     "ANALYST"
+    ]
+   ]
+  },
+  {
+   "id": "bigquery",
+   "name": "Google BigQuery",
+   "category": "Warehouses",
+   "icon": "server",
+   "description": "Scheduled loads into a BigQuery dataset.",
+   "connected": false,
+   "authFields": [
+    [
+     "Project ID",
+     "example-project"
+    ],
+    [
+     "Dataset",
+     "gdp_weekly"
+    ],
+    [
+     "Service account key",
+     "secret"
+    ]
+   ]
+  },
+  {
+   "id": "powerbi",
+   "name": "Power BI",
+   "category": "BI",
+   "icon": "chart-no-axes-column",
+   "description": "Live connector for reports and dashboards.",
+   "connected": true,
+   "needsAttention": true,
+   "authFields": [
+    [
+     "Tenant ID",
+     "example-tenant"
+    ],
+    [
+     "Workspace",
+     "Insights"
+    ],
+    [
+     "Client secret",
+     "secret"
+    ]
+   ]
+  },
+  {
+   "id": "tableau",
+   "name": "Tableau",
+   "category": "BI",
+   "icon": "chart-no-axes-column",
+   "description": "Published data source for your Tableau site.",
+   "connected": false,
+   "authFields": [
+    [
+     "Server URL",
+     "https://tableau.example.com"
+    ],
+    [
+     "Site name",
+     "example-site"
+    ],
+    [
+     "Token name",
+     "gdp-weekly"
+    ],
+    [
+     "Token secret",
+     "secret"
+    ]
+   ]
+  },
+  {
+   "id": "looker",
+   "name": "Looker Studio",
+   "category": "BI",
+   "icon": "layout-dashboard",
+   "description": "Community connector for quick dashboards.",
+   "connected": false,
+   "authFields": [
+    [
+     "Google account",
+     "name@example.com"
+    ]
+   ]
+  },
+  {
+   "id": "s3",
+   "name": "File drop (S3 or SFTP)",
+   "category": "Files & sheets",
+   "icon": "folder-input",
+   "description": "Weekly CSV or Parquet files delivered to your bucket.",
+   "connected": false,
+   "authFields": [
+    [
+     "Destination path",
+     "s3://example-bucket/gdp/"
+    ],
+    [
+     "Access key ID",
+     "example-key"
+    ],
+    [
+     "Secret access key",
+     "secret"
+    ]
+   ]
+  },
+  {
+   "id": "sheets",
+   "name": "Google Sheets",
+   "category": "Files & sheets",
+   "icon": "file-spreadsheet",
+   "description": "Append each week's summary to a sheet.",
+   "connected": false,
+   "authFields": [
+    [
+     "Google account",
+     "name@example.com"
+    ]
+   ]
+  },
+  {
+   "id": "api",
+   "name": "REST API",
+   "category": "API",
+   "icon": "key-round",
+   "description": "Query the aggregated data with your own keys.",
+   "connected": true,
+   "authFields": []
+  },
+  {
+   "id": "chartmetric",
+   "name": "Chartmetric",
+   "category": "Music analytics",
+   "icon": "chart-line",
+   "description": "Overlay your GDP data on artist and playlist analytics.",
+   "connected": false,
+   "authFields": [
+    [
+     "API token",
+     "secret"
+    ]
+   ]
+  },
+  {
+   "id": "spotontrack",
+   "name": "SpotOnTrack",
+   "category": "Music analytics",
+   "icon": "list-music",
+   "description": "Follow tracks and compare them with playlist tracking.",
+   "connected": false,
+   "authFields": [
+    [
+     "API key",
+     "secret"
+    ]
+   ]
+  },
+  {
+   "id": "soundcharts",
+   "name": "Soundcharts",
+   "category": "Music analytics",
+   "icon": "radio",
+   "description": "Combine GDP data with radio, social and playlist data.",
+   "connected": false,
+   "authFields": [
+    [
+     "API key",
+     "secret"
+    ]
+   ]
+  },
+  {
+   "id": "plates",
+   "name": "Plates",
+   "category": "Music analytics",
+   "icon": "megaphone",
+   "description": "Feed GDP data to an AI marketing assistant for your team.",
+   "connected": false,
+   "authFields": [
+    [
+     "Workspace",
+     "example-workspace"
+    ],
+    [
+     "API key",
+     "secret"
+    ]
+   ]
+  },
+  {
+   "id": "claude-mcp",
+   "name": "Claude (MCP)",
+   "category": "AI",
+   "icon": "ai-icon",
+   "tone": "ai",
+   "description": "Let Claude read the data you are entitled to via MCP.",
+   "connected": false,
+   "authFields": [
+    [
+     "Assistant",
+     "Sign in with Claude"
+    ]
+   ]
+  },
+  {
+   "id": "chatgpt",
+   "name": "ChatGPT connector",
+   "category": "AI",
+   "icon": "ai-icon",
+   "tone": "ai",
+   "description": "Let ChatGPT answer questions from data you can access.",
+   "connected": false,
+   "authFields": [
+    [
+     "Assistant",
+     "Sign in with ChatGPT"
+    ]
+   ]
+  }
+ ],
+ "connections": [
+  {
+   "id": "c1",
+   "tool": "databricks",
+   "type": "Delta Sharing",
+   "delivers": "Weekly aggregate · all markets",
+   "schedule": "After each weekly publication",
+   "last": "Fri 23 Oct · 14:05",
+   "detail": "248,112 rows",
+   "status": "Active"
+  },
+  {
+   "id": "c2",
+   "tool": "snowflake",
+   "type": "Data share",
+   "delivers": "Weekly aggregate · all markets",
+   "schedule": "After each weekly publication",
+   "last": "Fri 23 Oct · 14:07",
+   "detail": "248,112 rows",
+   "status": "Active"
+  },
+  {
+   "id": "c3",
+   "tool": "powerbi",
+   "type": "BI connector",
+   "delivers": "Entity summaries (songs, artists, countries)",
+   "schedule": "Fridays at 15:00",
+   "last": "Fri 16 Oct · 15:02",
+   "detail": "Credentials expired",
+   "status": "Needs attention"
+  },
+  {
+   "id": "c4",
+   "tool": "api",
+   "type": "Production key",
+   "delivers": "On request",
+   "schedule": "On demand",
+   "last": "Today · 09:41",
+   "detail": "1,204 calls this week",
+   "status": "Active"
+  }
+ ],
+ "statuses": {
+  "Active": "green",
+  "Needs attention": "amber",
+  "Paused": "neutral"
+ },
+ "rowMenu": [
+  "View details",
+  "Edit schedule",
+  "Pause",
+  "Reconnect",
+  "Remove"
+ ],
+ "addFlow": {
+  "steps": [
+   "Tool",
+   "Authenticate",
+   "Data",
+   "Review"
+  ],
+  "defaultTool": "tableau",
+  "datasets": [
+   {
+    "id": "weekly",
+    "title": "Weekly aggregate",
+    "description": "Every row of the weekly data, per market, format and ISRC.",
+    "badge": "248,112 rows",
+    "default": true
+   },
+   {
+    "id": "entities",
+    "title": "Entity summaries",
+    "description": "Songs, artists and countries with trend and change."
+   },
+   {
+    "id": "followed",
+    "title": "Followed items only",
+    "description": "Only the songs, artists and markets you follow.",
+    "badge": "6 of 25"
+   }
+  ],
+  "scopeNote": "Scope: all markets in your access · all rows (Enterprise). Set by your access level.",
+  "schedule": [
+   "After each weekly publication",
+   "Custom"
+  ],
+  "formats": [
+   "Data source",
+   "CSV"
+  ],
+  "authSuccess": "Credentials accepted · site reachable",
+  "testSuccess": {
+   "title": "Test delivery succeeded",
+   "text": "1,000 sample rows delivered in 4.2 s. Nothing is scheduled until you finish."
+  },
+  "testFail": {
+   "title": "Test delivery failed",
+   "text": "Authentication failed (401). Check the token secret, then try again."
+  },
+  "failureRule": "If any secret field contains the text 'bad' (case-insensitive), the test fails. Otherwise it passes. This lets the presenter show both states.",
+  "done": {
+   "title": "{tool} is connected",
+   "text": "First delivery is {firstDelivery}, after the weekly publication.",
+   "primary": "View connection",
+   "secondary": "Add another"
+  },
+  "onFinish": "Prepend a new row to connections (status Active, last delivery 'Not yet delivered', detail 'First delivery Fri 30 Oct'), update the Active count tile, keep it in memory only."
+ },
+ "reconnect": "Power BI 'Reconnect' opens the add flow at step 2 (Authenticate) with fields prefilled except the secret. On success the row becomes Active and the Needs attention tile goes to 0.",
+ "availableGridRule": "The 'Available connections' grid and the Choose tool step show ONLY tools with connected=false (currently 11). Connected tools (including Power BI, which needs attention) are managed in 'Your connections'. When a tool is connected, remove it from the grid; when a connection is removed, it returns to the grid.",
+ "availableGridOrder": [
+  "bigquery",
+  "tableau",
+  "looker",
+  "s3",
+  "sheets",
+  "chartmetric",
+  "spotontrack",
+  "soundcharts",
+  "plates",
+  "claude-mcp",
+  "chatgpt"
+ ]
+}

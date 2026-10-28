@@ -1,0 +1,253 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  width: 444px;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid var(--line-border);
+  border-radius: var(--corner-xl);
+  background: var(--surface-card);
+  color: var(--surface-card-foreground);
+  box-shadow: calc(-1 * var(--space-2)) var(--space-2) var(--space-8) var(--elevation-lg-color);
+  animation: panel-in var(--motion-duration-base) var(--ease-standard);
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateX(var(--space-6));
+  }
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: calc(var(--space-3) + var(--space-0-5));
+  padding: var(--space-4) var(--space-4) var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--line-border);
+}
+
+.tile {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-control-md);
+  height: var(--size-control-md);
+  border: 1px solid var(--brand-tertiary-brand-tertiary-border);
+  border-radius: var(--corner-lg);
+  background: var(--brand-tertiary-brand-tertiary-subtle);
+  color: var(--brand-tertiary-brand-tertiary-text);
+}
+
+.titles {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+  font-weight: var(--font-weight-semibold);
+}
+
+.context {
+  margin: 0;
+  overflow: hidden;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-5);
+  min-height: 0;
+  padding: var(--space-4) var(--space-5);
+  overflow-y: auto;
+}
+
+.turns {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* ---------- Empty state ---------- */
+
+.sees {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-3) calc(var(--space-3) + var(--space-0-5));
+  border: 1px solid var(--line-border);
+  border-radius: var(--corner-lg);
+  background: var(--button-secondary-bg);
+}
+
+.seesTitle,
+.overline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  font-weight: var(--font-weight-semibold);
+}
+
+.overline {
+  margin-bottom: var(--space-2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.seesChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.seesChip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-0-5) var(--space-2);
+  border: 1px solid var(--line-input);
+  border-radius: var(--corner-sm);
+  background: var(--surface-card);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.seesLabel {
+  color: var(--surface-muted-foreground);
+}
+
+.seesValue {
+  font-weight: var(--font-weight-medium);
+}
+
+.prompts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.prompt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-2-5) var(--space-3);
+  border: 1px solid var(--line-input);
+  border-radius: var(--corner-lg);
+  background: transparent;
+  color: var(--surface-foreground);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color var(--motion-duration-fast) var(--ease-standard),
+    border-color var(--motion-duration-fast) var(--ease-standard);
+}
+
+.prompt:hover {
+  border-color: var(--brand-tertiary-brand-tertiary-border);
+  background: var(--brand-tertiary-brand-tertiary-subtle);
+}
+
+/* ---------- Composer (Figma Composer 7:233) ---------- */
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--line-border);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* 44px field, 12px radius, 1px purple border at 50%, 14px side padding */
+.input {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  min-width: 0;
+  min-height: 44px;
+  padding-inline: calc(var(--space-3) + var(--space-0-5));
+  border: 1px solid color-mix(in srgb, var(--brand-tertiary-brand-tertiary) 50%, transparent);
+  border-radius: var(--corner-lg);
+  background: var(--button-secondary-bg);
+  transition:
+    border-color var(--motion-duration-fast) var(--ease-standard),
+    box-shadow var(--motion-duration-fast) var(--ease-standard);
+}
+
+.input:hover {
+  border-color: var(--brand-tertiary-brand-tertiary);
+}
+
+/* Focus: a solid purple outline */
+.input:focus-within {
+  border-color: var(--brand-tertiary-brand-tertiary);
+  box-shadow: 0 0 0 var(--space-0-5) var(--brand-tertiary-brand-tertiary-subtle);
+}
+
+.field {
+  flex: 1;
+  min-width: 0;
+  max-height: calc(var(--line-height-sm) * 4);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--surface-foreground);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-sm);
+  resize: none;
+  field-sizing: content;
+}
+
+.field::placeholder {
+  color: var(--palette-neutral-500);
+  opacity: 1;
+}
+
+.field:focus-visible {
+  outline: none;
+}
+
+.note {
+  margin: 0;
+  color: var(--palette-neutral-500);
+  font-size: var(--font-size-2xs);
+  line-height: normal;
+}
+
+.buttons {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--space-2);
+}

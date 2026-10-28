@@ -6,7 +6,7 @@ import AskHome from '../components/AskHome';
 import AskNav from '../components/AskNav';
 import AskTurnView from '../components/AskTurnView';
 import TopBar from '../components/TopBar';
-import { ask, followUpTurn, matchScript, scriptById, turnFor, type AskTurn } from '../lib/ask';
+import { ask, followUpTurn, isBenchFollowUp, knownScript, matchScript, scriptById, scriptPrompt, scriptTitle, turnFor, type AskTurn } from '../lib/ask';
 import { cx } from '../lib/cx';
 import { useUser } from '../lib/user';
 import styles from './AskPage.module.css';
@@ -17,6 +17,8 @@ interface AskNavState {
   animate?: boolean;
   /** A typed question with no matching script: shown on /ask with the fallback. */
   fallback?: string;
+  /** A typed benchmark follow-up with no script: answered with the one-line reply. */
+  followUp?: string;
 }
 
 /**
@@ -27,7 +29,7 @@ interface AskNavState {
 export default function AskPage() {
   const { script } = useParams();
   const location = useLocation();
-  if (script && !scriptById(script)) return <Navigate to="/ask" replace />;
+  if (script && !knownScript(script)) return <Navigate to="/ask" replace />;
   // A fresh session per navigation, so Recents and New chat always start clean.
   return <AskSession key={location.key} scriptId={script} navState={(location.state ?? {}) as AskNavState} />;
 }
@@ -37,8 +39,8 @@ function AskSession({ scriptId, navState }: { scriptId?: string; navState: AskNa
   const { user } = useUser();
   const [model, setModel] = useState(ask.home.model);
   const [turns, setTurns] = useState<AskTurn[]>(() => {
-    const script = scriptById(scriptId);
-    if (script) return [turnFor(navState.question ?? script.prompt, { animate: Boolean(navState.animate), scriptId: script.id })];
+    if (scriptId && knownScript(scriptId)) return [turnFor(navState.question ?? scriptPrompt(scriptId), { animate: Boolean(navState.animate), scriptId })];
+    if (navState.followUp) return [turnFor(navState.followUp, { animate: true })];
     // An id that matches no script forces the fallback, whatever words the question contains.
     if (navState.fallback) return [turnFor(navState.fallback, { animate: true, scriptId: 'fallback' })];
     return [];
@@ -76,17 +78,20 @@ function AskSession({ scriptId, navState }: { scriptId?: string; navState: AskNa
 
   // From the home screen a script opens its own URL, so Recents highlight and the link can be shared.
   const startScript = (id: string, question?: string) => {
-    const target = scriptById(id);
-    if (target) navigate(`/ask/${target.id}`, { state: { question: question ?? target.prompt, animate: true } satisfies AskNavState });
+    if (knownScript(id)) navigate(`/ask/${id}`, { state: { question: question ?? scriptPrompt(id), animate: true } satisfies AskNavState });
   };
 
   const askFromHome = (question: string) => {
+    if (isBenchFollowUp(question)) {
+      navigate('/ask', { state: { followUp: question } satisfies AskNavState });
+      return;
+    }
     const match = matchScript(question);
     if (match) startScript(match.id, question);
     else navigate('/ask', { state: { fallback: question } satisfies AskNavState });
   };
 
-  const title = script?.title ?? (home ? undefined : 'New chat');
+  const title = scriptTitle(scriptId) ?? (home ? undefined : 'New chat');
 
   return (
     <div className={styles.root}>

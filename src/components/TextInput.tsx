@@ -13,6 +13,8 @@ export interface TextInputProps {
   hint?: string;
   disabled?: boolean;
   required?: boolean;
+  /** "password" masks secrets. */
+  type?: 'text' | 'password';
   width?: number | string;
   /** Gallery only. */
   demoState?: DemoState;
@@ -28,6 +30,7 @@ export default function TextInput({
   hint,
   disabled = false,
   required = false,
+  type = 'text',
   width,
   demoState,
 }: TextInputProps) {
@@ -45,6 +48,8 @@ export default function TextInput({
       >
         <input
           id={id}
+          type={type}
+          autoComplete={type === 'password' ? 'off' : undefined}
           className={styles.input}
           value={value}
           placeholder={placeholder}

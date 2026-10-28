@@ -1,4 +1,5 @@
-import { Download, Plus, Sparkles, Star, Trash2 } from 'lucide-react';
+import { Download, Plus, Star, Trash2 } from 'lucide-react';
+import AiIcon from '../../components/AiIcon';
 import Button, { type ButtonSize, type ButtonVariant } from '../../components/Button';
 import IconButton from '../../components/IconButton';
 import type { DemoState } from '../../lib/demoState';
@@ -63,7 +64,7 @@ export default function ButtonsSection() {
             <Button variant="brand" leadingIcon={Plus}>
               Customise
             </Button>
-            <Button variant="tertiary" leadingIcon={Sparkles}>
+            <Button variant="tertiary" leadingIcon={AiIcon}>
               Ask AI
             </Button>
             <Button variant="destructive" leadingIcon={Trash2}>

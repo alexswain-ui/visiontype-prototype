@@ -71,6 +71,8 @@
 }
 
 .secondary {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   background: var(--button-secondary-bg);
   border-color: var(--button-secondary-border);
   color: var(--button-secondary-fg);

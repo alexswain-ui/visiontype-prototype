@@ -1,4 +1,5 @@
-import { Bookmark, ChevronsUpDown, Ellipsis, FileText, Folder, GitCompareArrows, PanelLeft, Plus, Search, Sparkles } from 'lucide-react';
+import { Bookmark, ChevronsUpDown, Ellipsis, FileText, Folder, GitCompareArrows, PanelLeft, Plus, Search } from 'lucide-react';
+import AiIcon from './AiIcon';
 import { Link } from 'react-router-dom';
 import { ask } from '../lib/ask';
 import { cx } from '../lib/cx';
@@ -31,7 +32,7 @@ export default function AskNav({ activeScript, home }: AskNavProps) {
       <div className={styles.top}>
         <div className={styles.header}>
           <p className={styles.title}>
-            <Sparkles size={16} aria-hidden="true" />
+            <AiIcon size={16} aria-hidden="true" />
             Ask
           </p>
           <IconButton icon={PanelLeft} label="Hide panel" variant="ghost" size="small" onClick={() => notInPrototype('Hiding the Ask panel')} />

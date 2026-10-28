@@ -41,6 +41,11 @@
   text-overflow: ellipsis;
 }
 
+.compact {
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-xl);
+}
+
 .sub {
   margin: 0;
   color: var(--surface-muted-foreground);

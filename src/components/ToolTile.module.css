@@ -1,0 +1,38 @@
+.tile {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line-border);
+  background: var(--surface-secondary);
+  color: var(--surface-muted-foreground);
+}
+
+.small {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--corner-sm);
+}
+
+.large {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--corner-md);
+}
+
+/* AI tools: purple-tinted tile with the AI icon */
+.ai {
+  border-color: var(--brand-tertiary-brand-tertiary-border);
+  background: var(--brand-tertiary-brand-tertiary-subtle);
+  color: var(--brand-tertiary-brand-tertiary);
+}
+
+.logo {
+  display: block;
+  object-fit: contain;
+}
+
+/* The ChatGPT mark is white; flip it to dark on the light theme so it stays visible. */
+:global([data-theme='light']) .whiteLogo {
+  filter: invert(1);
+}

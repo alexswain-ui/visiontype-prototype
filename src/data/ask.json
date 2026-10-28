@@ -27,11 +27,16 @@
       { "label": "Find rights conflicts", "script": "restated" }
     ],
     "savedPrompts": [
-      { "title": "Weekly roster summary", "text": "What moved on my roster this week, by market.", "meta": "Last run today", "script": "odalie-vs-petra" },
+      { "title": "Weekly catalogue summary", "text": "What moved on my catalogue this week, by market.", "meta": "Last run today", "script": "odalie-vs-petra" },
       { "title": "Restated songs check", "text": "Songs restated since the last release.", "meta": "Last run yesterday", "script": "restated" },
       { "title": "UK share vs Larchway", "text": "Quarterly share by distributor of record.", "meta": "Saved 3 days ago", "script": "uk-share" }
     ],
     "recents": [
+      { "title": "Luna Sky vs UK artists", "script": "artist-vs-uk-artists" },
+      { "title": "Luna Sky vs the market", "script": "markets-growing-faster" },
+      { "title": "Petra Lindqvane dip · UK", "script": "dip-just-me" },
+      { "title": "Luna Sky vs electronic artists", "script": "vs-electronic" },
+      { "title": "UK vs France · Q3", "script": "uk-vs-france" },
       { "title": "Odalie Brask vs Petra Lindqvane", "script": "odalie-vs-petra" },
       { "title": "Restated songs this week", "script": "restated" },
       { "title": "Quillfern vs Larchway · UK share", "script": "uk-share" },
@@ -39,12 +44,12 @@
       { "title": "Top movers · France · W42" },
       { "title": "DE top 100 week on week" },
       { "title": "Possible duplicate ISRCs" },
-      { "title": "Roster YoY for board pack" }
+      { "title": "Catalogue YoY for board pack" }
     ],
     "connectedTools": "Databricks · 1 agent connector"
   },
   "behaviour": {
-    "thinkingSteps": ["Reading your roster", "Checking what you are entitled to see", "Comparing the weeks"],
+    "thinkingSteps": ["Reading your catalogue", "Checking what you are entitled to see", "Comparing the weeks"],
     "thinkingMs": 900,
     "streamMs": 1500,
     "fallback": "In this prototype I can answer a few sample questions. Try one of these:",
@@ -57,8 +62,8 @@
     {
       "id": "odalie-vs-petra",
       "title": "Odalie Brask vs Petra Lindqvane",
-      "keywords": ["odalie", "petra", "compare", "versus", " vs ", "roster summary", "report"],
-      "context": "Restated songs · Quillfern roster · release 2026-W42-v2",
+      "keywords": ["odalie", "petra", "compare", "versus", " vs ", "roster summary", "catalogue summary", "report"],
+      "context": "Artist comparison · Odalie Brask vs Petra Lindqvane · release 2026-W42-v2",
       "prompt": "Compare Odalie Brask's streams to Petra Lindqvane — week on week, month on month and year on year.",
       "answer": "Odalie Brask is ahead on every horizon and the gap is widening: +31% month on month against +4% for Petra Lindqvane, driven by UK and France.",
       "tiles": [
@@ -77,9 +82,9 @@
       "title": "Restated songs this week",
       "keywords": ["restat", "redeliver", "changed", "what changed", "deezer", "conflict"],
       "entitlementNote": "Answers use only data you're entitled to · UK, FR, DE · Top 100k · release 2026-W42-v2",
-      "context": "Restated songs · Quillfern roster · release 2026-W42-v2",
-      "prompt": "Which of my roster’s songs were restated this week, and by how much?",
-      "answer": "Two of your roster’s songs changed when Deezer redelivered week 41. Both moved down. Nothing else on your roster was affected and no policy changed.",
+      "context": "Restated songs · Quillfern catalogue · release 2026-W42-v2",
+      "prompt": "Which of my catalogue’s songs were restated this week, and by how much?",
+      "answer": "Two of your catalogue’s songs changed when Deezer redelivered week 41. Both moved down. Nothing else on your catalogue was affected and no policy changed.",
       "tiles": [ { "label": "songs restated", "value": "2" }, { "label": "streams net", "value": "−3,114" }, { "label": "week affected", "value": "W41" }, { "label": "source", "value": "Deezer" } ],
       "table": { "columns": ["Song", "ISRC", "Was", "Now", "Δ", "Why"], "rows": [ ["Lost in the Echo", "CD123456789", "1,001,118", "998,004", "−3,114", "Deezer redelivery · W41"], ["Glass Orchard", "XAK7Q1100042", "26,000", "0", "−26,000", "Re-flagged · duplicate candidate"] ] },
       "explainer": { "title": "How this was answered", "text": "Canonical rows where your label is label of record · diff between 2026-W41-v1 and 2026-W41-v2 · published 16 Oct 11:04 · change log entry 2026-W42-v2" },
@@ -90,7 +95,7 @@
       "id": "uk-share",
       "title": "Quillfern vs Larchway · UK share",
       "keywords": ["share", "quillfern", "larchway", "distributor", "market share", "uk share"],
-      "context": "Restated songs · Quillfern roster · release 2026-W42-v2",
+      "context": "UK distributor share · Quillfern vs Larchway · release 2026-W42-v2",
       "prompt": "What's Quillfern's share of UK streams this quarter compared to Larchway, and how has it changed since last quarter?",
       "answer": "Quillfern holds 12.4% of UK streams in Q3, up from 10.9% in Q2. Larchway fell from 9.8% to 8.1% over the same period — most of the movement is the Altamere switch on 1 Sep.",
       "chart": { "type": "bars", "title": "UK share of capped streams", "groups": ["Q2 2026", "Q3 2026"], "series": [ { "name": "Quillfern", "values": [10.9, 12.4] }, { "name": "Larchway", "values": [9.8, 8.1] }, { "name": "All other distributors", "values": [79.3, 79.5] } ] },

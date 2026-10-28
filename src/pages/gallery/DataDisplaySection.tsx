@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ChartLine, Download, Ellipsis, Repeat, Sparkles, Star, TriangleAlert } from 'lucide-react';
+import { ChartLine, Download, Ellipsis, Repeat, Star, TriangleAlert } from 'lucide-react';
+import AiIcon from '../../components/AiIcon';
 import AreaChart from '../../components/AreaChart';
 import Artwork from '../../components/Artwork';
 import Avatar from '../../components/Avatar';
@@ -111,7 +112,7 @@ function TableDemo({ narrow = false }: { narrow?: boolean }) {
       title={
         <>
           Showing 1–100 of 248,112 results
-          <IconButton icon={Sparkles} label="Ask AI about these results" variant="secondary" size="small" />
+          <IconButton icon={AiIcon} label="Ask AI about these results" variant="secondary" size="small" />
         </>
       }
       actions={
