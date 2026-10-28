@@ -1,0 +1,349 @@
+{
+ "_note": "Benchmark Ask scripts for the Data side panel and the full Ask page. FICTIONAL. Numbers are consistent with data/cast.json (UK top 10 artists, market growth by country). Genre answers are ILLUSTRATIVE: genre is not a confirmed field in the dataset (the RFP lists it as an optional DSP field; 'mega categories' are to be supplied by the GDP entity).",
+ "scripts": [
+  {
+   "id": "artist-vs-uk-artists",
+   "panelPrompt": "How does Luna Sky compare with other artists in the UK?",
+   "keywords": [
+    "compare",
+    "other artists",
+    "how does",
+    "against"
+   ],
+   "heading": "Compared with the 9 other artists in the UK top 10",
+   "answer": "Luna Sky is #2 of the UK top 10 by capped streams (6.92M) and #2 for growth (+6% against a median of +2.5%). Only Odalie Brask is ahead on both.",
+   "tiles": [
+    {
+     "label": "Streams rank",
+     "value": "#2",
+     "sub": "of 10"
+    },
+    {
+     "label": "Growth rank",
+     "value": "#2",
+     "sub": "of 10"
+    },
+    {
+     "label": "vs median",
+     "value": "+3.5",
+     "sub": "pts"
+    }
+   ],
+   "bars": {
+    "title": "UK capped streams · W42",
+    "unit": "M",
+    "rows": [
+     [
+      "Odalie Brask",
+      8.41,
+      false
+     ],
+     [
+      "Luna Sky",
+      6.92,
+      true
+     ],
+     [
+      "Petra Lindqvane",
+      4.21,
+      false
+     ],
+     [
+      "Nova Ray",
+      3.8,
+      false
+     ],
+     [
+      "Maxine Harmon",
+      3.52,
+      false
+     ]
+    ]
+   },
+   "how": "Artists in this table, UK only, W42 vs W41, top 100k access.",
+   "actions": [
+    "Apply to table",
+    "Open in Ask",
+    "Add to report"
+   ],
+   "followUps": [
+    "Same by market",
+    "Compare with Nova Ray"
+   ],
+   "applyToTable": {
+    "markets": [
+     "GB"
+    ],
+    "highlight": "luna-sky",
+    "sortBy": "capped"
+   }
+  },
+  {
+   "id": "markets-growing-faster",
+   "panelPrompt": "Which markets is Luna Sky growing faster than the market in?",
+   "keywords": [
+    "growing faster",
+    "markets",
+    "faster than the market"
+   ],
+   "heading": "Luna Sky growth vs each market, W42 vs W41",
+   "answer": "Luna Sky grew faster than the market in 8 of 10 markets, level in the UK and slower only in Mexico. The biggest gap is Germany (+7 pts).",
+   "tiles": [
+    {
+     "label": "Faster",
+     "value": "8",
+     "sub": "markets"
+    },
+    {
+     "label": "Level",
+     "value": "1",
+     "sub": "UK"
+    },
+    {
+     "label": "Slower",
+     "value": "1",
+     "sub": "Mexico"
+    }
+   ],
+   "table": {
+    "columns": [
+     "Market",
+     "Luna Sky",
+     "Market",
+     "Gap (pts)"
+    ],
+    "rows": [
+     [
+      "DE",
+      9,
+      2,
+      7
+     ],
+     [
+      "FR",
+      1,
+      -1,
+      2
+     ],
+     [
+      "BR",
+      11,
+      9,
+      2
+     ],
+     [
+      "US",
+      5,
+      4,
+      1
+     ],
+     [
+      "JP",
+      -2,
+      -3,
+      1
+     ],
+     [
+      "CA",
+      4,
+      3,
+      1
+     ]
+    ]
+   },
+   "how": "Artist and market capped streams, W42 vs W41, all markets in your access.",
+   "actions": [
+    "Apply to table",
+    "Open in Ask",
+    "Add to report"
+   ],
+   "followUps": [
+    "Why is Germany higher?",
+    "Show Mexico"
+   ],
+   "note_FOR_DEV": "Do not invent a reason for Germany. The follow-up 'Why is Germany higher?' must use the fallback line: 'I can show what changed, not why. Try: which songs drove it?'"
+  },
+  {
+   "id": "dip-just-me",
+   "panelPrompt": "Is my dip this week just me, or the whole market?",
+   "keywords": [
+    "dip",
+    "just me",
+    "whole market",
+    "drop",
+    "fell"
+   ],
+   "subject": "Petra Lindqvane (Quillfern roster)",
+   "heading": "Petra Lindqvane vs the UK market, W42 vs W41",
+   "answer": "It is mostly you: the UK grew +6% and 7 of the UK top 10 artists grew, while Petra Lindqvane fell 4%, the biggest fall in the top 10. Autumn Phillips (-1%) and David Elson (-2%) also dipped, so a small part is wider.",
+   "tiles": [
+    {
+     "label": "Petra Lindqvane",
+     "value": "-4%",
+     "sub": "UK, WoW"
+    },
+    {
+     "label": "UK market",
+     "value": "+6%",
+     "sub": "UK, WoW"
+    },
+    {
+     "label": "Top 10 growing",
+     "value": "7 of 10",
+     "sub": "artists"
+    }
+   ],
+   "bars": {
+    "title": "UK growth by artist · W42 vs W41",
+    "unit": "%",
+    "rows": [
+     [
+      "Petra Lindqvane",
+      -4,
+      true
+     ],
+     [
+      "David Elson",
+      -2,
+      false
+     ],
+     [
+      "Autumn Phillips",
+      -1,
+      false
+     ],
+     [
+      "Jaxon Beat",
+      1,
+      false
+     ],
+     [
+      "Ella Vibe",
+      2,
+      false
+     ]
+    ]
+   },
+   "how": "UK capped streams per artist, W42 vs W41, top 100k access.",
+   "actions": [
+    "Open in Data",
+    "Add to report"
+   ],
+   "followUps": [
+    "Which songs fell?",
+    "Set up a follow"
+   ]
+  },
+  {
+   "id": "vs-electronic",
+   "panelPrompt": "How does Luna Sky compare with other electronic artists in the UK?",
+   "keywords": [
+    "electronic",
+    "genre",
+    "same genre"
+   ],
+   "illustrative": true,
+   "banner": "Illustrative: genre is not yet a confirmed field in the dataset, so this comparison is a placeholder.",
+   "heading": "Luna Sky vs electronic artists in the UK top 10",
+   "answer": "Luna Sky is #1 of the 4 electronic artists in the UK top 10 by capped streams (6.92M) and #1 for growth (+6% against a median of +2.5% for the others).",
+   "tiles": [
+    {
+     "label": "Streams rank",
+     "value": "#1",
+     "sub": "of 4"
+    },
+    {
+     "label": "Growth rank",
+     "value": "#1",
+     "sub": "of 4"
+    },
+    {
+     "label": "Cohort median",
+     "value": "+2.5%",
+     "sub": "WoW"
+    }
+   ],
+   "bars": {
+    "title": "UK capped streams · electronic",
+    "unit": "M",
+    "rows": [
+     [
+      "Luna Sky",
+      6.92,
+      true
+     ],
+     [
+      "Nova Ray",
+      3.8,
+      false
+     ],
+     [
+      "Ella Vibe",
+      3.1,
+      false
+     ],
+     [
+      "Jaxon Beat",
+      2.64,
+      false
+     ]
+    ]
+   },
+   "how": "Illustrative cohort: artists tagged electronic in the UK top 10.",
+   "actions": [
+    "Open in Ask"
+   ],
+   "followUps": [
+    "How is genre defined?"
+   ]
+  },
+  {
+   "id": "uk-vs-france",
+   "panelPrompt": "Is the UK growing faster than France this quarter?",
+   "keywords": [
+    "france",
+    "uk growing",
+    "this quarter",
+    "uk vs"
+   ],
+   "illustrative": true,
+   "heading": "UK vs France, Q3 vs Q2",
+   "answer": "Yes. The UK grew 11.4% quarter on quarter against 2.3% for France, and the UK grew in 10 of the last 13 weeks against 6 for France.",
+   "tiles": [
+    {
+     "label": "UK",
+     "value": "11.4%",
+     "sub": "Q3 vs Q2",
+     "dir": "up"
+    },
+    {
+     "label": "France",
+     "value": "2.3%",
+     "sub": "Q3 vs Q2",
+     "dir": "up"
+    },
+    {
+     "label": "Weeks growing",
+     "value": "10 vs 6",
+     "sub": "of 13"
+    }
+   ],
+   "how": "Capped streams, Q3 = W27 to W39 vs Q2 = W14 to W26, all rights holders.",
+   "actions": [
+    "Open in Data",
+    "Add to report"
+   ],
+   "followUps": [
+    "Add Germany",
+    "Show weekly"
+   ]
+  }
+ ],
+ "fallback": "In this prototype I can answer a few sample questions. Try one of these:",
+ "panelSuggestionOrder": [
+  "artist-vs-uk-artists",
+  "markets-growing-faster",
+  "dip-just-me",
+  "vs-electronic"
+ ]
+}

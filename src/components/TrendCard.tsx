@@ -20,6 +20,13 @@ export interface TrendCardProps {
 }
 
 const HEIGHT = 70;
+const MAX_LABELS = 8;
+
+/** At most `max` week labels, evenly spread, always keeping the first and last. */
+function thinLabels(labels: string[], max: number) {
+  if (labels.length <= max) return labels;
+  return Array.from({ length: max }, (_, i) => labels[Math.round((i * (labels.length - 1)) / (max - 1))]);
+}
 const PAD_TOP = 10;
 const DOT = 4;
 
@@ -65,8 +72,8 @@ export default function TrendCard({ label, value, delta, series, labels, descrip
         </svg>
       </div>
       <div className={styles.labels} aria-hidden="true">
-        {labels.map((l) => (
-          <span key={l}>{l}</span>
+        {thinLabels(labels, MAX_LABELS).map((l, i) => (
+          <span key={`${l}-${i}`}>{l}</span>
         ))}
       </div>
     </section>

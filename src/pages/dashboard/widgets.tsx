@@ -124,7 +124,7 @@ export const WIDGETS: Record<string, WidgetDefinition> = {
           currentName="Last week"
           previousName="This week"
           height={290}
-          description={`Capped streams per day for the whole roster. This week is down ${Math.abs(dashboard.overall.delta)}% on last week.`}
+          description={`Capped streams per day for the whole catalogue. This week is down ${Math.abs(dashboard.overall.delta)}% on last week.`}
         />
       </WidgetCard>
     ),
@@ -141,7 +141,7 @@ export const WIDGETS: Record<string, WidgetDefinition> = {
         flush
         className={styles.roster}
         action={
-          <SelectButton icon={MicVocal} onClick={() => notInPrototype('Switching the roster to songs or labels')}>
+          <SelectButton icon={MicVocal} onClick={() => notInPrototype('Switching the catalogue to songs or labels')}>
             Artists
           </SelectButton>
         }
@@ -155,12 +155,12 @@ export const WIDGETS: Record<string, WidgetDefinition> = {
               </span>
               +{dashboard.roster.moreCount} more
             </span>
-            <CardLink label="See All" to="/data/artists" ariaLabel="See all roster artists in Data" />
+            <CardLink label="See All" to="/data/artists" ariaLabel="See all catalogue artists in Data" />
           </>
         }
       >
         <DataTable
-          label="Roster performance this week"
+          label="Catalogue performance this week"
           columns={rosterColumns}
           rows={rosterRows}
           rowKey={(row) => row.artist.id}

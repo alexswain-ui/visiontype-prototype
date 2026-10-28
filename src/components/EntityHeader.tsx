@@ -7,6 +7,8 @@ import Badge from './Badge';
 import Button from './Button';
 import Delta from './Delta';
 import Flag from './Flag';
+import FollowButton from './FollowButton';
+import type { FollowKind } from '../lib/follow';
 import IconButton from './IconButton';
 import styles from './EntityHeader.module.css';
 
@@ -15,6 +17,8 @@ export interface EntityHeaderStat {
   value: string;
   /** Percent change vs last week. */
   delta?: number;
+  /** Text after the change; "vs last week" when left out. */
+  deltaSuffix?: string;
   sub?: string;
   /** Flag before the value (Top market). */
   flag?: string;
@@ -29,10 +33,12 @@ export interface EntityHeaderProps {
   /** Small grey tags, e.g. "24 songs", "51 of 51 DSPs reported". */
   chips?: string[];
   stats: EntityHeaderStat[];
+  /** Shows the Follow button for this song, artist or market. */
+  follow?: { kind: FollowKind; id: string };
 }
 
 /** Entity page header card (Figma "Header card"): media, title, meta line, tags, actions, four stats. */
-export default function EntityHeader({ title, media, meta = [], chips = [], stats }: EntityHeaderProps) {
+export default function EntityHeader({ title, media, meta = [], chips = [], stats, follow }: EntityHeaderProps) {
   const notInPrototype = useNotInPrototype();
   return (
     <section className={styles.card} aria-label={`${title} summary`}>
@@ -66,6 +72,7 @@ export default function EntityHeader({ title, media, meta = [], chips = [], stat
           )}
         </div>
         <div className={styles.actions}>
+          {follow && <FollowButton kind={follow.kind} id={follow.id} />}
           <Button onClick={() => notInPrototype('Compare with')}>Compare with</Button>
           <Button onClick={() => notInPrototype('Add to dashboard')}>Add to dashboard</Button>
           <IconButton icon={EllipsisVertical} label="More actions" onClick={() => notInPrototype('More actions')} />
@@ -82,7 +89,7 @@ export default function EntityHeader({ title, media, meta = [], chips = [], stat
               </dd>
               {stat.delta !== undefined ? (
                 <dd className={styles.statChange}>
-                  <Delta value={stat.delta} suffix="vs last week" />
+                  <Delta value={stat.delta} suffix={stat.deltaSuffix ?? 'vs last week'} />
                 </dd>
               ) : (
                 stat.sub && <dd className={styles.statSub}>{stat.sub}</dd>

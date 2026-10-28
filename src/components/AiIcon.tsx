@@ -1,0 +1,29 @@
+import { forwardRef } from 'react';
+import type { LucideProps } from 'lucide-react';
+
+/**
+ * "AI Icon" from the Figma Local Components (node 1:64): a four-point sparkle, drawn on a 16px grid.
+ * Same shape as the Figma asset, but filled with currentColor so it follows the text colour of the
+ * button, nav item or heading it sits in (purple in Ask, dark on the purple AI buttons, and so on).
+ * Takes the same props as a Lucide icon, so it can be passed anywhere an `icon` is expected.
+ */
+const AiIcon = forwardRef<SVGSVGElement, Omit<LucideProps, 'ref'>>(({ size = 16, color, className, style, ...rest }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 16 16"
+    fill="none"
+    className={className}
+    style={color ? { ...style, color } : style}
+    {...rest}
+  >
+    <path
+      d="M7.63542 15C7.50174 14.2101 7.14931 13.3594 6.57812 12.4479C6.00694 11.5243 5.19271 10.6675 4.13542 9.8776C3.09028 9.08767 2.04514 8.58333 1 8.36458V7.59896C2.03299 7.3559 3.02344 6.90625 3.97135 6.25C4.93142 5.5816 5.73351 4.77951 6.3776 3.84375C7.03385 2.88368 7.45312 1.93576 7.63542 1H8.40104C8.51042 1.60764 8.72917 2.23351 9.05729 2.8776C9.38542 3.50955 9.80469 4.11719 10.3151 4.70052C10.8377 5.2717 11.421 5.78819 12.0651 6.25C13.0252 6.93056 14.0035 7.38021 15 7.59896V8.36458C14.3316 8.49826 13.6389 8.7717 12.9219 9.1849C12.217 9.59809 11.5608 10.0903 10.9531 10.6615C10.3455 11.2205 9.84722 11.8099 9.45833 12.4297C8.88715 13.3411 8.53472 14.1979 8.40104 15H7.63542Z"
+      fill="currentColor"
+    />
+  </svg>
+));
+AiIcon.displayName = 'AiIcon';
+
+export default AiIcon;

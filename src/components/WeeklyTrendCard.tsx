@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Repeat } from 'lucide-react';
 import { cx } from '../lib/cx';
 import type { WeekRow } from '../lib/entities';
@@ -42,10 +43,28 @@ const COLUMNS: CardColumn<WeekRow>[] = [
 ];
 
 /** Weekly trend card: one row per published Friday, with "X of 51 DSPs reported" and restatements. */
+const MAX_ROWS = 13;
+
 export default function WeeklyTrendCard({ rows }: { rows: WeekRow[] }) {
+  const [showAll, setShowAll] = useState(false);
+  const long = rows.length > MAX_ROWS;
+  const shown = long && !showAll ? rows.slice(0, MAX_ROWS) : rows;
   return (
-    <SectionCard title="Weekly trend" meta="Data as published">
-      <CardTable columns={COLUMNS} rows={rows} rowKey={(r) => r.week} density="compact" defaultSort={{ key: 'capped', direction: 'desc' }} label="Weekly trend" />
+    <SectionCard
+      title="Weekly trend"
+      meta="Data as published"
+      footer={
+        long && (
+          <>
+            {showAll ? `Showing all ${rows.length} weeks` : `Showing ${MAX_ROWS} of ${rows.length} weeks`} ·
+            <button type="button" className={styles.showAll} onClick={() => setShowAll((v) => !v)}>
+              {showAll ? 'Show fewer' : `Show all ${rows.length} weeks`}
+            </button>
+          </>
+        )
+      }
+    >
+      <CardTable columns={COLUMNS} rows={shown} rowKey={(r) => r.week} density="compact" defaultSort={{ key: 'capped', direction: 'desc' }} label="Weekly trend" />
     </SectionCard>
   );
 }

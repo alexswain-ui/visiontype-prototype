@@ -1,0 +1,2 @@
+# Store these small logos as regular files, not LFS
+*.png -filter -diff -merge binary

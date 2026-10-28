@@ -81,6 +81,23 @@
   text-align: right !important;
 }
 
+/* Pinned column: stays at the right edge while the table scrolls sideways. Opaque so scrolled cells do not show through. */
+.table th.pinned,
+.table td.pinned {
+  position: sticky;
+  right: 0;
+  z-index: 1;
+  background: var(--surface-card);
+  box-shadow: inset 1px 0 0 var(--line-border);
+}
+.clickable:hover td.pinned {
+  background: linear-gradient(var(--button-ghost-bg-hover), var(--button-ghost-bg-hover)), var(--surface-card);
+}
+.selected td.pinned,
+.selected:hover td.pinned {
+  background: linear-gradient(var(--surface-accent), var(--surface-accent)), var(--surface-card);
+}
+
 .sort {
   display: inline-flex;
   align-items: center;
@@ -187,4 +204,14 @@
   gap: var(--space-2);
   font-size: var(--font-size-md);
   line-height: var(--line-height-md);
+}
+
+/* Row pointed out by Ask: purple (AI) tint with a purple bar on the left */
+.highlighted,
+.highlighted:hover {
+  background: var(--brand-tertiary-brand-tertiary-subtle);
+}
+
+.highlighted td:first-child {
+  box-shadow: inset 2px 0 0 var(--brand-tertiary-brand-tertiary);
 }

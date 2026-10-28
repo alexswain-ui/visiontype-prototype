@@ -30,6 +30,8 @@ export interface EntityStat {
   label: string;
   value: string;
   delta?: number;
+  /** Text after the change, e.g. "vs last week" (default) or "vs previous period". */
+  deltaSuffix?: string;
   sub?: string;
   flag?: string;
 }
@@ -51,6 +53,11 @@ export interface Trend {
   current: number[];
   previous: number[];
   labels: string[];
+  /** Set for a selected date range: card title and the name of the previous-period line. */
+  title?: string;
+  previousName?: string;
+  /** True when the previous period should be drawn dashed (compare mode). */
+  compare?: boolean;
 }
 
 export interface TrendList {
@@ -109,6 +116,8 @@ export interface MarketRow {
   share: number;
   capped: number;
   delta: number;
+  /** Weekly values for the trend bars of the selected range. */
+  bars?: number[];
 }
 
 export interface ArtistSongRow {
@@ -123,6 +132,7 @@ export interface ArtistSongRow {
   markets: number;
   capped: number;
   delta: number;
+  bars?: number[];
 }
 
 export interface LabelRow {
@@ -172,6 +182,24 @@ function scaledSeries(kind: EntityKind, latest: number, delta?: number) {
   const current = scale(series.current);
   if (delta !== undefined) current[n - 2] = +(current[n - 1] / (1 + delta / 100)).toFixed(2);
   return { current, previous: scale(series.previous) };
+}
+
+/** The 8-week series (and the 8 weeks before) an entity page uses, or null when the entity does not exist. */
+export function entityBaseSeries(kind: EntityKind, id: string): { current: number[]; previous: number[] } | null {
+  if (kind === 'song') {
+    const song = songById(id);
+    if (!song) return null;
+    return cast.songPage[id as keyof typeof cast.songPage] ? seriesFor(`song:${id}`) : scaledSeries('song', song.capped / 1e6);
+  }
+  if (kind === 'artist') {
+    const artist = artistById(id);
+    if (!artist) return null;
+    return cast.artistPage[id as keyof typeof cast.artistPage] ? seriesFor(`artist:${id}`) : scaledSeries('artist', artist.capped / 1e6, artist.delta);
+  }
+  const code = id.toUpperCase();
+  const market = marketByCode(code);
+  if (!market) return null;
+  return cast.countryPage[code as keyof typeof cast.countryPage] ? seriesFor(`country:${code}`) : scaledSeries('country', market.capped / 1e6, market.delta);
 }
 
 function buildTrend(series: { current: number[]; previous: number[] }): Trend {

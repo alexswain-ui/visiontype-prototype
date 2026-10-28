@@ -160,3 +160,67 @@
   font-size: var(--font-size-xs);
   line-height: var(--line-height-xs);
 }
+
+.statSub {
+  margin-left: var(--space-1);
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+}
+
+.up {
+  margin-left: var(--space-1);
+  vertical-align: middle;
+  color: var(--status-success-text);
+}
+
+.down {
+  margin-left: var(--space-1);
+  vertical-align: middle;
+  color: var(--status-destructive-text);
+}
+
+/* Compact variant for the Data side panel (444px wide) */
+.compact,
+.compact .body {
+  gap: var(--space-3);
+}
+
+.compact .heading {
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-sm);
+}
+
+.compact .sparkle {
+  margin-top: var(--space-0-5);
+}
+
+.compact .summary {
+  font-size: var(--font-size-sm);
+}
+
+.compact .stats {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.compact .stat {
+  padding: var(--space-2) var(--space-2-5);
+}
+
+.compact .statValue {
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+}
+
+.compact .statSub {
+  display: block;
+  margin-left: 0;
+}
+
+.compact .card {
+  padding: var(--space-3);
+  border-radius: var(--corner-lg);
+}

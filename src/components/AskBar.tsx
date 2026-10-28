@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
-import { ArrowUp, Sparkles } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
+import AiIcon from './AiIcon';
 import IconButton from './IconButton';
 import styles from './AskBar.module.css';
 
@@ -18,7 +19,7 @@ export default function AskBar({ placeholder, onSubmit }: AskBarProps) {
   };
   return (
     <form className={styles.bar} onSubmit={submit} role="search">
-      <Sparkles size={16} className={styles.sparkle} aria-hidden="true" />
+      <AiIcon size={16} className={styles.sparkle} aria-hidden="true" />
       <input
         className={styles.input}
         value={value}

@@ -13,6 +13,17 @@ export interface DeltaProps {
 
 /** Change indicator: value then arrow. Up is green, down is red. No leading + or minus sign. */
 export default function Delta({ value, suffix, variant = 'inline' }: DeltaProps) {
+  // No earlier period to compare with (e.g. all time): show a dash.
+  if (!Number.isFinite(value)) {
+    return (
+      <span className={styles.wrap}>
+        <span className={cx(styles.delta, styles[variant])} aria-label="No earlier period to compare with">
+          <span aria-hidden="true">—</span>
+        </span>
+        {suffix && <span className={cx(styles.suffix, variant === 'small' && styles.small)}>{suffix}</span>}
+      </span>
+    );
+  }
   const up = value >= 0;
   const Arrow = up ? ArrowUp : ArrowDown;
   const text = `${Math.abs(value)}%`;

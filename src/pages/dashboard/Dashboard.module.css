@@ -1,17 +1,16 @@
 .page {
-  position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
   isolation: isolate;
 }
 
-/* Figma "Texture / Ripple field": top right, behind everything, runs past the content edge. */
+/* Figma "Texture / Ripple field": top right, behind everything. Positioned against the app shell's main area (not the centred page), so it stays on the right edge of the screen on wide windows. */
 .texture {
   position: absolute;
   z-index: -1;
-  top: var(--space-16);
-  right: calc(-1 * var(--space-10));
+  top: calc(var(--space-6) + var(--space-16));
+  right: 0;
   width: 455px;
   height: auto;
   pointer-events: none;

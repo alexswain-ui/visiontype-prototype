@@ -8,6 +8,7 @@ import SplitSheet from '../../components/SplitSheet';
 import Timeline from '../../components/Timeline';
 import { canonicalDetail, marketLabel, type CanonicalRow } from '../../lib/dataPage';
 import { artworkFor } from '../../lib/media';
+import { useRangeName } from '../../lib/useRangeStats';
 import { useNotInPrototype } from '../../lib/notInPrototype';
 import styles from './sheets.module.css';
 
@@ -21,10 +22,11 @@ interface Props {
 export default function CanonicalSheet({ row, onClose, onOpenPage }: Props) {
   const notInPrototype = useNotInPrototype();
   const { conflict, timeline } = canonicalDetail(row);
+  const rangeName = useRangeName();
   return (
     <SplitSheet
       title={row.song.title}
-      subtitle={`${row.artist.name} · ${marketLabel(row.market)} · Week 42`}
+      subtitle={`${row.artist.name} · ${marketLabel(row.market)} · ${rangeName}`}
       media={<Artwork title={row.song.title} src={artworkFor(row.song.id, row.song.art)} size={56} />}
       chips={
         <>

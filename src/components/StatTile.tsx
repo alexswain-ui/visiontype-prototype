@@ -12,14 +12,16 @@ export interface StatTileProps {
   sub?: string;
   /** hero = solid orange, for the single most important number on a page. */
   variant?: 'standard' | 'hero';
+  /** Smaller 24px value, for pages whose design uses it (Connections). */
+  compact?: boolean;
 }
 
 /** Stat tile (Figma "Stat card"): label, big value, then change or a short sub line. */
-export default function StatTile({ label, value, delta, sub, variant = 'standard' }: StatTileProps) {
+export default function StatTile({ label, value, delta, sub, variant = 'standard', compact = false }: StatTileProps) {
   return (
     <div className={cx(styles.tile, styles[variant])}>
       <p className={styles.label}>{label}</p>
-      <p className={styles.value}>{value}</p>
+      <p className={cx(styles.value, compact && styles.compact)}>{value}</p>
       {delta !== undefined && variant === 'standard' && <Delta value={delta} suffix="vs last week" />}
       {sub && <p className={styles.sub}>{sub}</p>}
     </div>

@@ -14,3 +14,10 @@
   line-height: var(--line-height-sm);
   white-space: pre-wrap;
 }
+
+/* In the Data side panel: narrower, smaller */
+.compact {
+  max-width: 85%;
+  padding: var(--space-2-5) var(--space-3);
+  font-size: var(--font-size-sm);
+}

@@ -37,6 +37,11 @@
   pointer-events: none;
 }
 
+/* Ask page only: lighter purple wave in dark mode */
+:global([data-theme='dark']) .texture {
+  background: #9b8cff;
+}
+
 .header {
   position: relative;
   display: flex;

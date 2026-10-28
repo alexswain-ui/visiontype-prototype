@@ -1,4 +1,5 @@
-import { ArrowRight, Bookmark, ChartColumn, Clock, FileText, GitCompareArrows, Play, RefreshCw, Sparkles, TrendingUp, TriangleAlert, type LucideIcon } from 'lucide-react';
+import { ArrowRight, Bookmark, ChartColumn, Clock, FileText, GitCompareArrows, Play, RefreshCw, TrendingUp, TriangleAlert, type LucideIcon } from 'lucide-react';
+import AiIcon from './AiIcon';
 import contourFlow from '../assets/textures/contour-flow-tile.svg';
 import { ask, greeting } from '../lib/ask';
 import { useNotInPrototype } from '../lib/notInPrototype';
@@ -7,8 +8,8 @@ import AskComposer from './AskComposer';
 import styles from './AskHome.module.css';
 
 /** Icons from Figma 478:2842, in the order of the chips and saved prompts in ask.json. */
-const CHIP_ICONS: LucideIcon[] = [FileText, GitCompareArrows, TrendingUp, ChartColumn, TriangleAlert];
-const SAVED_ICONS: LucideIcon[] = [FileText, RefreshCw, ChartColumn];
+const CHIP_ICONS: LucideIcon[] = [FileText, GitCompareArrows, TrendingUp, ChartColumn, TriangleAlert, GitCompareArrows, TrendingUp, TriangleAlert, ChartColumn];
+const SAVED_ICONS: LucideIcon[] = [FileText, RefreshCw, ChartColumn, GitCompareArrows, TrendingUp, TriangleAlert];
 
 export interface AskHomeProps {
   firstName: string;
@@ -26,7 +27,7 @@ export default function AskHome({ firstName, model, onModelChange, onAsk, onStar
   return (
     <div className={styles.home}>
       <div className={styles.greeting}>
-        <Sparkles size={32} aria-hidden="true" className={styles.sparkle} />
+        <AiIcon size={32} aria-hidden="true" className={styles.sparkle} />
         <h1 className={styles.title}>{greeting(firstName)}</h1>
         <p className={styles.headline}>{ask.home.headline}</p>
       </div>

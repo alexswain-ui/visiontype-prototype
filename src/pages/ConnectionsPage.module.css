@@ -1,0 +1,85 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.amber {
+  color: var(--status-warning-text);
+}
+
+.available {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.availableHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.availableTitle {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+.note {
+  margin: var(--space-1) 0 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+}
+
+/* 3 columns; cards in a row stretch to the same height */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.none {
+  margin: 0;
+  padding: var(--space-8) 0;
+  color: var(--surface-muted-foreground);
+  text-align: center;
+}
+
+.locked {
+  border: 1px solid var(--line-border);
+  border-radius: var(--corner-xl);
+  background: var(--surface-card);
+}
+
+.lockedText {
+  margin: 0 0 var(--space-4);
+}
+
+@media (max-width: 1100px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

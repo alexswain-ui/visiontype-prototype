@@ -1,4 +1,5 @@
 import { useId, useState, type KeyboardEvent, type MouseEvent } from 'react';
+import { cx } from '../lib/cx';
 import { formatMillions, niceTicks, smoothPath, type Point } from '../lib/chartMath';
 import { useElementWidth } from '../lib/useElementWidth';
 import styles from './AreaChart.module.css';
@@ -8,6 +9,8 @@ export interface AreaChartProps {
   current: number[];
   /** Previous period, same length. Drawn in blue behind the current period. */
   previous?: number[];
+  /** Draw the previous period as a dashed line without an area (compare mode). */
+  dashedPrevious?: boolean;
   /** One label per point, e.g. "W42". Shown under the chart and in the tooltip. */
   labels: string[];
   currentName?: string;
@@ -19,6 +22,7 @@ export interface AreaChartProps {
   description: string;
 }
 
+const MAX_X_LABELS_BEFORE_THINNING = 26;
 const LABEL_GUTTER = 36;
 const X_LABEL_SPACE = 24;
 const TOP = 8;
@@ -30,6 +34,7 @@ const TOP = 8;
 export default function AreaChart({
   current,
   previous,
+  dashedPrevious = false,
   labels,
   currentName = 'This period',
   previousName = 'Previous period',
@@ -53,6 +58,9 @@ export default function AreaChart({
 
   const area = (points: Point[]) =>
     `${smoothPath(points)} L${points[points.length - 1].x},${plotBottom} L${points[0].x},${plotBottom} Z`;
+
+  // Long ranges: at most 8 evenly spread week labels (the tooltip still names every week).
+  const shownLabels = new Set(count > MAX_X_LABELS_BEFORE_THINNING ? Array.from({ length: 8 }, (_, i) => Math.round((i * (count - 1)) / 7)) : labels.map((_, i) => i));
 
   const currentPoints = toPoints(current);
   const previousPoints = previous ? toPoints(previous) : null;
@@ -109,16 +117,18 @@ export default function AreaChart({
           </g>
         ))}
 
-        {labels.map((label, i) => (
-          <text key={label} x={x(i)} y={height - 6} textAnchor={i === 0 ? 'start' : i === count - 1 ? 'end' : 'middle'} className={styles.axisLabel}>
-            {label}
-          </text>
-        ))}
+        {labels.map((label, i) =>
+          shownLabels.has(i) ? (
+            <text key={`${label}-${i}`} x={x(i)} y={height - 6} textAnchor={i === 0 ? 'start' : i === count - 1 ? 'end' : 'middle'} className={styles.axisLabel}>
+              {label}
+            </text>
+          ) : null,
+        )}
 
         {previousPoints && (
           <>
-            <path d={area(previousPoints)} fill={`url(#${id}-prev)`} />
-            <path d={smoothPath(previousPoints)} className={styles.linePrevious} />
+            {!dashedPrevious && <path d={area(previousPoints)} fill={`url(#${id}-prev)`} />}
+            <path d={smoothPath(previousPoints)} className={cx(styles.linePrevious, dashedPrevious && styles.dashed)} />
           </>
         )}
         <path d={area(currentPoints)} fill={`url(#${id}-cur)`} />

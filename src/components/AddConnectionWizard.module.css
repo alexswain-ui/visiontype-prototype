@@ -1,0 +1,461 @@
+.wizard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.stepCount {
+  flex-shrink: 0;
+  padding-top: var(--space-1);
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-height: 320px;
+}
+
+.heading {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+.heading:focus {
+  outline: none;
+}
+
+.centred {
+  text-align: center;
+}
+
+.back {
+  margin-right: auto;
+}
+
+/* ---------- Step 1 ---------- */
+
+.choose {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.choose > div[role='group'] {
+  flex-wrap: wrap;
+}
+
+.gridWrap {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+  max-height: 264px;
+  margin: 0;
+  /* Room for the selected outline so it is not clipped by the scroll area */
+  padding: var(--space-1);
+  overflow-y: auto;
+  list-style: none;
+}
+
+.toolCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0-5);
+  height: 100%;
+  padding: var(--space-3);
+  border: 1px solid var(--line-border);
+  border-radius: var(--corner-lg);
+  background: var(--surface-card);
+  cursor: pointer;
+  transition: border-color var(--motion-duration-fast) var(--ease-standard);
+}
+
+.toolCard:hover {
+  border-color: var(--line-input);
+}
+
+.selected,
+.selected:hover {
+  border-color: var(--primary-primary);
+  box-shadow: 0 0 0 1px var(--primary-primary);
+}
+
+.toolCard:has(input:focus-visible),
+.radioCard:has(input:focus-visible) {
+  outline: 2px solid var(--line-ring);
+  outline-offset: 2px;
+}
+
+.toolTop {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.tick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-5);
+  height: var(--space-5);
+  margin-left: auto;
+  border-radius: var(--corner-full);
+  background: var(--primary-primary);
+  color: var(--primary-primary-foreground);
+}
+
+.toolName {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.toolCategory {
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.note,
+.none {
+  margin: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.none {
+  padding: var(--space-6) 0;
+  text-align: center;
+  font-size: var(--font-size-sm);
+}
+
+/* ---------- Step 2 ---------- */
+
+.auth {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.toolHead {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.toolText {
+  flex: 1;
+  margin: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3) var(--space-4);
+}
+
+.helpBox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3) calc(var(--space-3) + var(--space-0-5));
+  border-radius: var(--corner-lg);
+  background: var(--button-secondary-bg);
+}
+
+.helpTitle {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.help {
+  margin: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.testRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.testing {
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-sm);
+}
+
+/* ---------- Result boxes ---------- */
+
+.notice {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) calc(var(--space-3) + var(--space-0-5));
+  border: 1px solid var(--line-border);
+  border-radius: var(--corner-lg);
+}
+
+.success {
+  border-color: var(--status-success-border);
+  background: var(--status-success-subtle);
+}
+
+.success .noticeIcon {
+  color: var(--status-success-text);
+}
+
+.error {
+  border-color: var(--status-destructive-border);
+  background: var(--status-destructive-subtle);
+}
+
+.error .noticeIcon {
+  color: var(--status-destructive-text);
+}
+
+.info .noticeIcon {
+  color: var(--surface-muted-foreground);
+}
+
+.noticeIcon {
+  flex-shrink: 0;
+}
+
+.noticeText {
+  flex: 1;
+  min-width: 0;
+}
+
+.noticeTitle,
+.noticeBody {
+  margin: 0;
+}
+
+.noticeTitle {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.noticeBody {
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+/* ---------- Step 3 ---------- */
+
+.data {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.radios {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.radioCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) calc(var(--space-3) + var(--space-0-5));
+  border: 1px solid var(--line-border);
+  border-radius: var(--corner-lg);
+  background: var(--surface-card);
+  cursor: pointer;
+}
+
+.radioCard:hover {
+  border-color: var(--line-input);
+}
+
+.radioDot {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-5);
+  height: var(--space-5);
+  border: 2px solid var(--line-input);
+  border-radius: var(--corner-full);
+}
+
+.selected .radioDot {
+  border-color: var(--primary-primary);
+}
+
+.selected .radioDot::after {
+  width: var(--space-2-5);
+  height: var(--space-2-5);
+  border-radius: var(--corner-full);
+  background: var(--primary-primary);
+  content: '';
+}
+
+.radioText {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.radioTitle {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.radioDescription {
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.scope {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-6);
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-1) + var(--space-0-5));
+}
+
+.optionLabel {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.first {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+/* ---------- Step 4 and 5 ---------- */
+
+.review,
+.doneBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  border: 1px solid var(--line-border);
+  border-radius: var(--corner-lg);
+}
+
+.summary > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: var(--size-control-md);
+  padding: var(--space-2) calc(var(--space-3) + var(--space-0-5));
+  border-bottom: 1px solid var(--line-border);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+}
+
+.summary > div:last-child {
+  border-bottom: 0;
+}
+
+.summary dt {
+  color: var(--surface-muted-foreground);
+}
+
+.summary dd {
+  margin: 0;
+  text-align: right;
+  font-weight: var(--font-weight-medium);
+}
+
+.doneIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: var(--space-12);
+  height: var(--space-12);
+  border-radius: var(--corner-full);
+  background: var(--status-success);
+  color: var(--status-success-foreground);
+}
+
+.doneText {
+  margin: 0;
+  color: var(--surface-muted-foreground);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fields {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* The segmented control fills its parent by default; here each one is as wide as its labels */
+.option > [role='radiogroup'] {
+  width: max-content;
+  max-width: 100%;
+}
+
+.option > [role='radiogroup'] button {
+  flex: 1 1 auto;
+  min-width: max-content;
+  padding-inline: var(--space-3);
+}

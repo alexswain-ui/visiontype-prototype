@@ -20,6 +20,8 @@ export interface Column<Row> {
   sortValue?: (row: Row) => string | number;
   /** Visually hidden header, for status or icon columns. */
   hideHeader?: boolean;
+  /** Keeps the (last) column fixed at the right edge while the table scrolls sideways. */
+  pinned?: boolean;
 }
 
 export interface TableSort {
@@ -35,6 +37,8 @@ export interface DataTableProps<Row> {
   title?: ReactNode;
   actions?: ReactNode;
   selectedKey?: string | null;
+  /** A row to point out (Ask's "Apply to table"): purple tint, no sheet. */
+  highlightKey?: string | null;
   onRowClick?: (row: Row) => void;
   /** Starting sort, e.g. { key: 'capped', direction: 'desc' }. */
   defaultSort?: TableSort;
@@ -73,6 +77,7 @@ export default function DataTable<Row>({
   title,
   actions,
   selectedKey,
+  highlightKey,
   onRowClick,
   defaultSort,
   sort: controlledSort,
@@ -140,7 +145,7 @@ export default function DataTable<Row>({
                   <th
                     key={c.key}
                     scope="col"
-                    className={cx(right && styles.right)}
+                    className={cx(right && styles.right, c.pinned && styles.pinned)}
                     aria-sort={active ? (sort.direction === 'asc' ? 'ascending' : 'descending') : undefined}
                   >
                     {c.hideHeader ? (
@@ -164,7 +169,7 @@ export default function DataTable<Row>({
               Array.from({ length: 6 }, (_, i) => (
                 <tr key={`skeleton-${i}`} className={styles.row} aria-hidden="true">
                   {columns.map((c) => (
-                    <td key={c.key} className={cx(c.align === 'right' && styles.right)}>
+                    <td key={c.key} className={cx(c.align === 'right' && styles.right, c.pinned && styles.pinned)}>
                       {!c.hideHeader && <span className={styles.skeleton} />}
                     </td>
                   ))}
@@ -174,17 +179,19 @@ export default function DataTable<Row>({
               sorted.map((row) => {
                 const key = rowKey(row);
                 const selected = key === selectedKey;
+                const highlighted = key === highlightKey;
                 return (
                   <tr
                     key={key}
-                    className={cx(styles.row, onRowClick && styles.clickable, selected && styles.selected)}
+                    className={cx(styles.row, onRowClick && styles.clickable, selected && styles.selected, highlighted && styles.highlighted)}
+                    data-highlighted={highlighted || undefined}
                     aria-selected={onRowClick ? selected : undefined}
                     tabIndex={onRowClick ? 0 : undefined}
                     onClick={onRowClick ? () => onRowClick(row) : undefined}
                     onKeyDown={onRowClick ? (event) => onRowKeyDown(event, row) : undefined}
                   >
                     {columns.map((c) => (
-                      <td key={c.key} className={cx(c.align === 'right' && styles.right, c.align === 'right' && styles.numeric)}>
+                      <td key={c.key} className={cx(c.align === 'right' && styles.right, c.align === 'right' && styles.numeric, c.pinned && styles.pinned)}>
                         {c.render ? c.render(row) : String((row as Record<string, unknown>)[c.key] ?? '')}
                       </td>
                     ))}
